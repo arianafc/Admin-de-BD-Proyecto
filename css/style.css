@@ -69,7 +69,7 @@ body {
 
 /* Sección Hero */
 .hero {
-    background-image: url('./img/juegos.jpg');
+    background-image: url('img/juegos.jpg');
     height: 60vh;
     display: flex;
     align-items: center;
