@@ -1,0 +1,67 @@
+/* Barra superior */
+.top-bar {
+    background-color: #1C71A6 !important;
+    color: white;
+    text-align: center;
+    align-items: center;
+    padding: 5px;
+    font-size: 14px;
+    justify-content: center !important;
+    margin: 0 !important;
+}
+
+.textoTopBar {
+    margin: 0 !important;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color:  #1C71A6 !important;
+}
+
+.btn-membresia {
+    background-color: transparent;
+    border: 2px solid  #1C71A6 !important;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-membresia:hover {
+    background-color:  #1C71A6 !important;
+    color: white;
+}
