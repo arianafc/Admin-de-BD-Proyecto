@@ -1,9 +1,9 @@
-
 <?php
 /**
  * Función para incluir los archivos CSS principales
  */
-function incluir_css() {
+function incluir_css()
+{
     echo '<link rel="stylesheet" href="css/index.css">';
     echo '<link rel="stylesheet" href="css/navbar.css">';
     echo '<link rel="stylesheet" href="css/footer.css">';
@@ -14,36 +14,38 @@ function incluir_css() {
 /**
  * Función para incluir el navbar
  */
-function incluir_navbar() {
+function incluir_navbar()
+{
     ?>
     <!-- Topbar -->
     <div class="top-bar ">
-            <p class="textoTopBar">¡Unite a nosotros y aprovechá nuestro Pase del Día!</p>
-        </div>
-        <nav class="navbar">
-            <div class="logo">Los Jaúles</div> 
-            <ul class="nav-links">
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Los Jaúles</a></li>
-                <li><a href="#">GYM</a></li>
-                <li><a href="#">Actividades</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Horarios y contacto</a></li>
-            </ul>
-            <button class="btn-membresia">Iniciar Sesión</button>
-        </nav>
+        <p class="textoTopBar">¡Unite a nosotros y aprovechá nuestro Pase del Día!</p>
+    </div>
+    <nav class="navbar">
+        <div class="logo">Los Jaúles</div>
+        <ul class="nav-links">
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Los Jaúles</a></li>
+            <li><a href="#">GYM</a></li>
+            <li><a href="#">Actividades</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Horarios y contacto</a></li>
+        </ul>
+        <button class="btn-membresia">Iniciar Sesión</button>
+    </nav>
     <?php
 }
 
 /**
  * Función para incluir el footer
  */
-function incluir_footer() {
+function incluir_footer()
+{
     ?>
     <br>
     <footer class="footer">
         <div class="footer-divider"></div>
-        
+
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Servicios</h3>
@@ -53,7 +55,7 @@ function incluir_footer() {
                     <li><a href="productos.php?categoria=sandwich">Relajación</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Nosotros</h3>
                 <ul>
@@ -66,10 +68,10 @@ function incluir_footer() {
                 <h3>Ayuda</h3>
                 <ul>
                     <li><a href="nosotros.php?seccion=mision">Contáctanos</a></li>
-                   
+
                 </ul>
             </div>
-            
+
             <div class="footer-section">
                 <h3>Horario</h3>
                 <ul>
@@ -79,18 +81,18 @@ function incluir_footer() {
                     <li>8 am - 5 pm</li>
                 </ul>
             </div>
-            
+
             <div class="company-name">
                 <h2>LOS JAÚLES</h2>
                 <h1>CLUB CAMPESTRE</h1>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
             <div class="copyright">
                 Derechos Reservados Los Jaúles Club Campestre @ 2025
             </div>
-            
+
             <div class="footer-language-selector">
                 Español
             </div>
