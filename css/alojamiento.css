@@ -1,0 +1,46 @@
+.containerAlojamiento {
+   background-color: #1C3D5A;
+   padding: 10px !important;
+   position: absolute;
+   z-index: -1;
+   top: 90px;
+}
+
+.banner-container {
+    position: relative;
+    left: 0;
+    width: 100%;
+
+    z-index:0; /* Hace que el banner esté por encima de la imagen */
+}
+
+.banner-img {
+    width: 100%;
+    display: block;
+}
+
+.banner-text {
+    text-decoration: none;
+    position: absolute;
+    top: 50%; /* Centra el texto dentro del banner */
+    left: 50%;
+  
+    transform: translate(-50%, -50%);
+    color: #1C3D5A;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+  
+}
+
+
+
+.banner-text span {
+    color: #e07c2f;
+    text-decoration: none !important;
+}
+
+.png {
+    height: 200px;
+}

@@ -78,3 +78,52 @@
     display: flex;
     align-items: center;
 }
+
+/* Contenedor principal */
+.info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+/* Cada elemento con ícono y texto */
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #888;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info-item a {
+    text-decoration: none;
+    color: #888;
+}
+
+.info-item a:hover{
+    color: #1C71A6;
+    transform: scale(1.1);
+}
+
+/* Íconos */
+.info-item img {
+    width: 24px;  /* Ajusta el tamaño de los íconos */
+    height: 24px;
+    color: #888;
+}
+
+/* Separador entre elementos */
+.separator {
+    width: 1px;
+    height: 24px;
+    background-color: #bbb;
+    margin: 0 15px;
+}
+
+.svgFinal {
+    color: #1C71A6 !important;
+}

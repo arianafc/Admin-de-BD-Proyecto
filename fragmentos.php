@@ -4,7 +4,7 @@
  */
 function incluir_css()
 {
-    echo '<link rel="stylesheet" href="css/index.css">';
+
     echo '<link rel="stylesheet" href="css/navbar.css">';
     echo '<link rel="stylesheet" href="css/footer.css">';
     echo '<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">';
@@ -24,7 +24,7 @@ function incluir_navbar()
     <nav class="navbar">
         <div class="logo">Los Jaúles</div>
         <ul class="nav-links">
-            <li><a href="#">Servicios</a></li>
+            <li><a href="servicios.php">Servicios</a></li>
             <li><a href="#">Los Jaúles</a></li>
             <li><a href="#">GYM</a></li>
             <li><a href="#">Actividades</a></li>
@@ -42,8 +42,26 @@ function incluir_navbar()
 function incluir_footer()
 {
     ?>
-    <br>
+    <br><br><br><br>
+    <div class="info-container">
+    <div class="info-item">
+        
+    <a href="#">Horarios y contactos</a>
+    </div>
+    <div class="separator"></div>
+    <div class="info-item">
+       
+        <a href="#">¿Cómo ser socio?</a>
+    </div>
+    <div class="separator"></div>
+    <div class="info-item">
+       
+        <a href="#">Pase del día</a>
+    </div>
+</div>
+
     <footer class="footer">
+        
         <div class="footer-divider"></div>
 
         <div class="footer-content">
@@ -117,10 +135,11 @@ function sidebar()
         <div class="opciones">   
         <a href="dashboard.php" id="dashboard">Dashboard</a>
         <a href="gestionUsuarios.php" id="gestionUsuarios">Gestión de Usuarios</a>
-        <a href="gestionPedidos.php" id="gestionPedidos">Gestión de Pedidos</a>
+        <a href="gestionPedidos.php" id="gestionPedidos">Gestión de Proveedores</a>
         <a href="gestionProductos.php" id="gestionProductos">Gestión de Productos</a>
         <a href="gestionInventario.php" id="gestionInventario">Gestión de Inventario</a>
-        <a href="gestionCotizaciones.php" id="gestionCotizaciones">Gestión de Consultas</a></div>
+        <a href="gestionCotizaciones.php" id="gestionCotizaciones">Gestión de Membresías</a></div>
+        <a href="gestionCotizaciones.php" id="gestionCotizaciones">Gestión de Empleados</a></div>
     </nav>
 
     <!-- Botón de menú -->

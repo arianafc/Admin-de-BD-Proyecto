@@ -14,6 +14,7 @@ body {
     height: 100vh;
     position: relative;
     padding: 20px;
+    z-index: 1;
 }
 
 /* Efecto de fondo oscuro */
@@ -30,7 +31,7 @@ body {
 /* Contenido */
 .content-box {
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 /* Texto destacado */
@@ -45,16 +46,19 @@ body {
 
 .beneficios {
     justify-content: space-evenly !important;
+    padding-top: 250px;
 }
 
 .beneficios-card{
-border-radius: 60px;
+border-radius: 120px;
 padding: 30px;
 color: #1C3D5A;
-background-color: #DDE02F;
 border: 0px;
 }
 
+.servicios-card:hover{
+    transform: scale(1.1);
+}
 
 
 .svg{
@@ -62,4 +66,77 @@ border: 0px;
 
     justify-content: center;
     text-align: center !important;
+}
+
+.servicios-titulo{
+    color: #1C3D5A !important;
+    font-weight: 500;
+}
+
+.titulo-nosotros, .highlight-titulo {
+    display: inline;
+    text-align: center !important;
+    padding: 5px;
+}
+
+.img {
+    width: 100%;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    transform: translateY(-110px); 
+    z-index: 3; /* Mayor que el de .hero-section::before */
+}
+
+.banner-container {
+    position: absolute;
+    transform: translateY(-129px);
+    left: 0;
+    width: 100%;
+    z-index: 2; /* Hace que el banner esté por encima de la imagen */
+}
+
+.banner-img {
+    width: 100%;
+    display: block;
+}
+
+.banner-text {
+    text-decoration: none;
+    position: absolute;
+    top: 50%; /* Centra el texto dentro del banner */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #1C3D5A;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+  
+}
+
+
+.banner-text:hover{
+    text-shadow: 0 0 10px #DDE02F, 0 0 20px #DDE02F, 0 0 30px #FFD700;
+}
+
+.banner-text span {
+    color: #e07c2f;
+    text-decoration: none !important;
+}
+
+.servicios {
+    padding: 20px;
+    justify-content: space-evenly !important;
+}
+
+.servicios-card{
+border-radius: 120px;
+padding: 30px;
+color: #1C3D5A;
+border: 0px;
+}
+
+.png {
+    height: 200px;
 }
