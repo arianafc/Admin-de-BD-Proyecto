@@ -14,6 +14,9 @@ require_once 'fragmentos.php';
     <link rel="stylesheet" href="./css/servicios.css">
     <link rel="stylesheet" href="./css/alojamiento.css">
     <?php incluir_css() ?>
+    <script src="js/java.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+
 
 </head>
 
@@ -57,18 +60,39 @@ require_once 'fragmentos.php';
                 cabañas y creá junto a nosotros recuerdos innolvidables.</b>
         </span>
         <div class="info-container p-0">
-            <div class="info-item">
-            <button class="btn">Cabañas</button>
+            <div class="p-2 info-item">
+                <button class="btn btnReservas" id="btnCabana">Cabañas</button>
             </div>
             <div class="separator"></div>
             <div class="info-item">
 
-                <button class="btn">Salones</button>
+                <button class="btn btnReservas" id="btnSalones">Salones</button>
             </div>
             <div class="separator"></div>
             <div class="info-item">
 
-            <button class="btn">Ranchos</button>
+                <button class="btn btnReservas" id="btnRanchos">Ranchos</button>
+            </div>
+
+
+        </div>
+         <!-- PROGRAMAR PARA QUE ESTO SE MUESTRE SEGUN LA BD Y SEGUN LAS OPCIONES-->
+        <div class="container-fluid contenedor" id="ranchos">
+            <div class="row align-items-center">
+              
+                <div class="col-md-6 p-0">
+                    <img src="img/GYM-HOME.jpg" class="img-fluid w-100" alt="Rancho Escondido">
+                </div>
+                <div class="col-md-6 p-5">
+                    <p>Disponemos de dos modalidades de ranchos para que podás disfrutar del Club en familia y con
+                        amigos.</p>
+                    <h3 class="textoRancho">Nombre Rancho</h3>
+                    <p>Capacidad máxima de 30 personas.</p>
+                    <p><strong>Costo de reservación:</strong>
+                        Costo.
+                    </p>
+                    <a href="#" class="btn btn-custom">Reservar</a>
+                </div>
             </div>
         </div>
 

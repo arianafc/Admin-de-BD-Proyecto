@@ -35,12 +35,56 @@
 }
 
 
-
 .banner-text span {
     color: #e07c2f;
     text-decoration: none !important;
 }
 
+.btnReservas {
+    border-radius: 30px;
+    color: #1C3D5A !important;
+    border: 1px solid #1C3D5A;
+}
+
+.btnReservas:hover{
+    color: white !important;
+    background-color: #1C3D5A  !important;
+    font-weight: 800;
+}
+
+.btn-custom {
+    background-color: #1C3D5A;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+.btn-custom:hover {
+    background-color: #e07c2f;
+    color: white;
+}
+
+.contenedor{
+padding-top: 2px !important;
+background-color: #f5f5f5;
+}
+
+.contenedor img {
+    border-radius: 5px;
+}
+
+.textoRancho {
+    color: #1C3D5A;
+    font-weight: 700;
+}
+
 .png {
     height: 200px;
+}
+
+.btnReservas-Activo {
+    color: white !important;
+    background-color: #1C3D5A  !important;
+    font-weight: 800;
+    border-radius: 30px !important;
 }
