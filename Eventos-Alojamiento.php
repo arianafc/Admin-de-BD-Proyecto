@@ -76,10 +76,48 @@ require_once 'fragmentos.php';
 
 
         </div>
-         <!-- PROGRAMAR PARA QUE ESTO SE MUESTRE SEGUN LA BD Y SEGUN LAS OPCIONES-->
-        <div class="container-fluid contenedor" id="ranchos">
+        <!-- PROGRAMAR PARA QUE ESTO SE MUESTRE SEGUN LA BD Y SEGUN LAS OPCIONES-->
+        <div class="container-fluid contenedor ocultar" id="ranchos">
             <div class="row align-items-center">
-              
+
+                <div class="col-md-6 p-0">
+                    <img src="img/GYM-HOME.jpg" class="img-fluid w-100" alt="Rancho Escondido">
+                </div>
+                <div class="col-md-6 p-5">
+                    <p>Disponemos de dos modalidades de ranchos para que podás disfrutar del Club en familia y con
+                        amigos.</p>
+                    <h3 class="textoRancho">Nombre Rancho</h3>
+                    <p>Capacidad máxima de 30 personas.</p>
+                    <p><strong>Costo de reservación:</strong>
+                        Costo.
+                    </p>
+                    <a href="#" class="btn btn-custom">Reservar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid contenedor ocultar" id="salones">
+            <div class="row align-items-center">
+
+                <div class="col-md-6 p-0">
+                    <img src="img/GYM-HOME.jpg" class="img-fluid w-100" alt="Rancho Escondido">
+                </div>
+                <div class="col-md-6 p-5">
+                    <p>Disponemos de dos modalidades de ranchos para que podás disfrutar del Club en familia y con
+                        amigos.</p>
+                    <h3 class="textoRancho">Nombre Rancho</h3>
+                    <p>Capacidad máxima de 30 personas.</p>
+                    <p><strong>Costo de reservación:</strong>
+                        Costo.
+                    </p>
+                    <a href="#" class="btn btn-custom">Reservar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid contenedor ocultar" id="cabanas">
+            <div class="row align-items-center">
+
                 <div class="col-md-6 p-0">
                     <img src="img/GYM-HOME.jpg" class="img-fluid w-100" alt="Rancho Escondido">
                 </div>

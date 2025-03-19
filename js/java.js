@@ -21,18 +21,29 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.add('btnReservas-Activo');
         $("#btnSalones").removeClass('btnReservas-Activo').addClass('btnReservas');
         $("#btnRanchos").removeClass('btnReservas-Activo').addClass('btnReservas');
+        $("#cabanas").css("display", "block");
+        $("#salones").css("display", "none");
+        $("#ranchos").css("display", "none");
+
     });
 
     $(document).on('click', '#btnSalones', function () {
         $(this).removeClass('btnReservas').addClass('btnReservas-Activo');
         $("#btnCabana").removeClass('btnReservas-Activo').addClass('btnReservas');
         $("#btnRanchos").removeClass('btnReservas-Activo').addClass('btnReservas');
+        $("#salones").css("display", "block");
+        $("#cabanas").css("display", "none");
+        $("#ranchos").css("display", "none");
     });
 
     $(document).on('click', '#btnRanchos', function () {
         $(this).removeClass('btnReservas').addClass('btnReservas-Activo');
         $("#btnCabana").removeClass('btnReservas-Activo').addClass('btnReservas');
         $("#btnSalones").removeClass('btnReservas-Activo').addClass('btnReservas');
+        $("#ranchos").css("display", "block");
+        $("#salones").css("display", "none");
+        $("#cabanas").css("display", "none");
+
     });
 });
 
