@@ -24,7 +24,7 @@ require_once 'fragmentos.php';
     <?php incluir_navbar() ?>
 </header>
 <div class="banner-container">
-    <div class="banner-text"><a class="banner-text" href="nosotros.php">EVENTOS <span>Y ALOJAMIENTO</span></a></div>
+    <div class="banner-text"><a class="banner-text" href="nosotros.php">CREA <span>TU RESERVACIÓN</span></a></div>
     <img class="banner-img" src="img/frase.png">
 </div>
 <div class="container-fluid p-0 containerAlojamiento">
@@ -110,7 +110,7 @@ require_once 'fragmentos.php';
                     <p><strong>Costo de reservación:</strong>
                         Costo.
                     </p>
-                    <a href="reservar.php" class="btn btn-custom">Reservar</a>
+                    <a href="#" class="btn btn-custom" id="reservarBTN">Reservar</a>
                 </div>
             </div>
         </div>
@@ -132,6 +132,12 @@ require_once 'fragmentos.php';
                     <a href="#" class="btn btn-custom">Reservar</a>
                 </div>
             </div>
+        </div>
+
+        <div class="modal">
+            <form>
+                
+            </form>
         </div>
 
         <?php incluir_footer() ?>
