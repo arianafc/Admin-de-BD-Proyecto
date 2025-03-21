@@ -24,10 +24,42 @@ require_once 'fragmentos.php';
     <div class="container-fluid eventos">
         <img src="img/Banner-de-eventos.png" class="imgEventos">
         <br>
-        <h2 class="eventosText text-center">DISFRUTA DE LAS MEJORES <span class="eventosHighlight">ACTIVIDADES QUE CLUB JAÚLES TE OFRECE</span></h2>
+        <h2 class="eventosText text-center"><b>DISFRUTA DE LAS MEJORES</b> <span class="eventosHighlight">ACTIVIDADES QUE CLUB JAÚLES TE OFRECE</span></h2>
     </div>
-    
+
+<div class="container p-2">
+<div class="row">
+  <div class="col-sm-6 pt-2">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title ">Special title treatment</h5>
+        <hr>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+ 
 
 </h3>
     <br>
