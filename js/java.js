@@ -53,6 +53,43 @@ document.addEventListener("DOMContentLoaded", function () {
   
       $(document).on('click', '#close', function(){
         $("#myModal").css("display", "none");
+        $("#modalDeportes").css("display", "none");
+    })
+
+
+    $(document).on('click', '#btnBasket', function
+        () {
+
+        this.classList.remove('btnReservas');
+        this.classList.add('btnReservas-Activo');
+        $("#btnBasket").removeClass('btnReservas-Activo').addClass('btnReservas');
+        $("#btnVolley").removeClass('btnReservas-Activo').addClass('btnReservas');
+        $("#basket").css("display", "block");
+        $("#sintetica").css("display", "none");
+        $("#volley").css("display", "none");
+
+    });
+
+    $(document).on('click', '#btnVolley', function () {
+        $(this).removeClass('btnReservas').addClass('btnReservas-Activo');
+        $("#btnBasket").removeClass('btnReservas-Activo').addClass('btnReservas');
+        $("#btnSintetica").removeClass('btnReservas-Activo').addClass('btnReservas');
+        $("#volley").css("display", "block");
+        $("#basket").css("display", "none");
+        $("#sintetica").css("display", "none");
+    });
+
+    $(document).on('click', '#btnSintetica', function () {
+        $(this).removeClass('btnReservas').addClass('btnReservas-Activo');
+        $("#btnVolley").removeClass('btnReservas-Activo').addClass('btnReservas');
+        $("#btnBasket").removeClass('btnReservas-Activo').addClass('btnReservas');
+        $("#sintetica").css("display", "block");
+        $("#volley").css("display", "none");
+        $("#basket").css("display", "none");
+    });
+
+    $(document).on('click', '#btnReservarDeportes', function(){
+        $("#modalDeportes").css("display", "flex");
     })
 });
 
