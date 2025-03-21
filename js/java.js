@@ -43,8 +43,17 @@ document.addEventListener("DOMContentLoaded", function () {
         $("#ranchos").css("display", "block");
         $("#salones").css("display", "none");
         $("#cabanas").css("display", "none");
-
     });
+
+    $(document).on('click', '#btnReservar', function(){
+        $("#myModal").css("display", "flex");
+    })
+
+      // When the user clicks anywhere outside of the modal, close it
+  
+      $(document).on('click', '#close', function(){
+        $("#myModal").css("display", "none");
+    })
 });
 
 

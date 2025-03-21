@@ -61,7 +61,7 @@ require_once 'fragmentos.php';
         </span>
         <div class="info-container p-0">
             <div class="p-2 info-item">
-                <button class="btn btnReservas" id="btnCabana">Cabañas</button>
+                <button class="btn btnReservas-Activo" id="btnCabana">Cabañas</button>
             </div>
             <div class="separator"></div>
             <div class="info-item">
@@ -105,7 +105,7 @@ require_once 'fragmentos.php';
                 <div class="col-md-6 p-5">
                     <p>Disponemos de dos modalidades de ranchos para que podás disfrutar del Club en familia y con
                         amigos.</p>
-                    <h3 class="textoRancho">Nombre Rancho</h3>
+                    <h3 class="textoRancho">Nombre Saloo</h3>
                     <p>Capacidad máxima de 30 personas.</p>
                     <p><strong>Costo de reservación:</strong>
                         Costo.
@@ -115,7 +115,7 @@ require_once 'fragmentos.php';
             </div>
         </div>
 
-        <div class="container-fluid contenedor ocultar" id="cabanas">
+        <div class="container-fluid contenedor" id="cabanas">
             <div class="row align-items-center">
 
                 <div class="col-md-6 p-0">
@@ -124,16 +124,76 @@ require_once 'fragmentos.php';
                 <div class="col-md-6 p-5">
                     <p>Disponemos de dos modalidades de ranchos para que podás disfrutar del Club en familia y con
                         amigos.</p>
-                    <h3 class="textoRancho">Nombre Rancho</h3>
+                    <h3 class="textoRancho">Nombre Cabaña</h3>
                     <p>Capacidad máxima de 30 personas.</p>
                     <p><strong>Costo de reservación:</strong>
                         Costo.
                     </p>
-                    <a href="#" class="btn btn-custom">Reservar</a>
+                    <a href="#" class="btn btn-custom" id="btnReservar">Reservar</a>
                 </div>
             </div>
         </div>
 
+        <div class="modal" id="myModal">
+            <article class="modal-container">
+                <header class="modal-container-header">
+                    <h1 class="modal-container-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                            aria-hidden="true">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path fill="currentColor"
+                                d="M14 9V4H5v16h6.056c.328.417.724.785 1.18 1.085l1.39.915H3.993A.993.993 0 0 1 3 21.008V2.992C3 2.455 3.449 2 4.002 2h10.995L21 8v1h-7zm-2 2h9v5.949c0 .99-.501 1.916-1.336 2.465L16.5 21.498l-3.164-2.084A2.953 2.953 0 0 1 12 16.95V11zm2 5.949c0 .316.162.614.436.795l2.064 1.36 2.064-1.36a.954.954 0 0 0 .436-.795V13h-5v3.949z" />
+                        </svg>
+                        Crear Reservación
+                    </h1>
+                    <button id="close" class="icon-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path fill="currentColor"
+                                d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+                        </svg>
+                    </button>
+                </header>
+                <section class="modal-container-body rtf">
+                    <form action="generarReserva" id="formReserva" class="form">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Instalación</span>
+                            <input type="text" class="form-control" placeholder="Instalación" aria-label="Instalación"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Fecha Inicio</span>
+                            <input type="date" class="form-control" placeholder="Instalación" aria-label="Instalación"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Fecha Fin</span>
+                            <input type="date" class="form-control" placeholder="Instalación" aria-label="Instalación"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Hora Inicio</span>
+                            <input type="time" class="form-control" placeholder="Instalación" aria-label="Instalación"
+                                aria-describedby="basic-addon1" min="08:00" max="18:00">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Hora Fin</span>
+                            <input type="time" class="form-control" placeholder="Instalación" aria-label="Instalación"
+                                aria-describedby="basic-addon1" min="08:00" max="18:00">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Cantidad de Personas</span>
+                            <input type="number" class="form-control" placeholder="Cantidad de Personas" aria-label="Instalación"
+                                aria-describedby="basic-addon1">
+                        </div>
+                    </form>
+                </section>
+                <footer class="modal-container-footer">
+                    <button class="button is-ghost">Cancelar</button>
+                    <button class="button is-primary" id="guardarReserva">Reservar</button>
+                </footer>
+            </article>
+        </div>
         <?php incluir_footer() ?>
         </body>
 
