@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
       $(document).on('click', '#close', function(){
         $("#myModal").css("display", "none");
         $("#modalDeportes").css("display", "none");
+        $("#modalEventos").css("display", "none");
     })
 
 
@@ -91,9 +92,12 @@ document.addEventListener("DOMContentLoaded", function () {
     $(document).on('click', '#btnReservarDeportes', function(){
         $("#modalDeportes").css("display", "flex");
     })
+
+    $(document).on('click', '#registrarEvento', function(){
+        $("#modalEventos").css("display","flex");
+    });
+
 });
-
-
 
 
 
