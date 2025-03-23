@@ -51,7 +51,7 @@ require_once 'fragmentos.php';
                     <div class="col-md-3">
                         <div class="card  cardCafe mb-3">
                             <div class="card-body">
-                                <h5 class="card-title">145</h5>
+                                <h5 class="card-title">23</h5>
                                 <p class="card-text">Clientes</p>
                             </div>
                         </div>
@@ -59,7 +59,7 @@ require_once 'fragmentos.php';
                     <div class="col-md-3">
                         <div class="card text-white  cardVerde mb-3">
                             <div class="card-body">
-                                <h5 class="card-title">500</h5>
+                                <h5 class="card-title">5</h5>
                                 <p class="card-text">Consultas</p>
                             </div>
                         </div>
@@ -116,7 +116,6 @@ require_once 'fragmentos.php';
                 dropdown.classList.remove("active");
             }
         });
-    </script>
 </body>
 
 </html>
