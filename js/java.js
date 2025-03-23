@@ -100,12 +100,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     function cargarMembresias() {
-        fetch('./data/obtenerMembresias.php')
-            .then(response => response.text())  // 🔹 Cambia a `.text()` para depurar
-            .then(text => {
-                console.log("Respuesta cruda del servidor:", text); // Verifica si es JSON válido
-                return JSON.parse(text);  // 🔹 Intenta convertir a JSON manualmente
-            })
+        fetch('./data/obtenerMembresia.php')
+            .then(response => response.json())  // 🔹 Cambia a `.text()` para depura
             .then(data => {
                 console.log("Membresías obtenidas:", data);
                 if (data.length === 0) {
@@ -119,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function mostrarMembresias(membresias) {
         let contenedor = document.getElementById("contenedor-membresias");
-
+        
         membresias.forEach(membresia => {
             let card = `
                 <div class="col-sm-4 p-5">

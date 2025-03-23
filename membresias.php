@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 require_once 'fragmentos.php';
+include 'data/conexion.php';
 ?>
 
 
