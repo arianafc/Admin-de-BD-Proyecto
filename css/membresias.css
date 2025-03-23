@@ -17,3 +17,10 @@
     color: #1C3D5A !important;
     background-color: #e07c2f !important;
 }
+
+.textoMembresias {
+    padding: 5px;
+    color: #1C3D5A !important;
+    font-weight: 800;
+    font-size: 30px;
+}

@@ -32,20 +32,21 @@ require_once 'fragmentos.php';
     <h1 class="text-center p-5"></h1>
 </div>
 <div class="container">
-<div class="row">
-  <div class="col-sm-4 p-5">
+<div class="row" id="contenedor-membresias">
+  <!-- <div class="col-sm-4 p-5">
     <div class="card eventosCard text-center">
       <div class="card-body ">
-        <h5 class="card-title ">Membresía</h5>
+        <h5 class="card-title" id="NombreMembresia">s</h5>
         <hr>
         <img class="membresiaIMG" src="img/membresia.svg">
-        <p>Descripción</p>
+        <p id="CostoMembresia"></p>
+        <p id="NumInvitadosMembresia"></p>
+        <p id="DuracionDias"></p>
         <hr>
         <button href="#" class="btn btnMembresia" id="adquirirMembresia">Adquirir Membresía</button>
-       
       </div>
     </div>
-  </div>
+  </div> -->
 </div></div>
 
 

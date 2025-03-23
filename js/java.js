@@ -3,6 +3,8 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
+
+    cargarMembresias();
     let links = document.querySelectorAll(".opciones a");
     let currentUrl = window.location.pathname.split("/").pop(); // Obtiene el nombre del archivo actual
 
@@ -45,13 +47,13 @@ document.addEventListener("DOMContentLoaded", function () {
         $("#cabanas").css("display", "none");
     });
 
-    $(document).on('click', '#btnReservar', function(){
+    $(document).on('click', '#btnReservar', function () {
         $("#myModal").css("display", "flex");
     })
 
-      // When the user clicks anywhere outside of the modal, close it
-  
-      $(document).on('click', '#close', function(){
+    // When the user clicks anywhere outside of the modal, close it
+
+    $(document).on('click', '#close', function () {
         $("#myModal").css("display", "none");
         $("#modalDeportes").css("display", "none");
         $("#modalEventos").css("display", "none");
@@ -89,19 +91,57 @@ document.addEventListener("DOMContentLoaded", function () {
         $("#basket").css("display", "none");
     });
 
-    $(document).on('click', '#btnReservarDeportes', function(){
+    $(document).on('click', '#btnReservarDeportes', function () {
         $("#modalDeportes").css("display", "flex");
     })
 
-    $(document).on('click', '#registrarEvento', function(){
-        $("#modalEventos").css("display","flex");
+    $(document).on('click', '#registrarEvento', function () {
+        $("#modalEventos").css("display", "flex");
     });
 
+    function cargarMembresias() {
+        fetch('./data/obtenerMembresias.php')
+            .then(response => response.text())  // 🔹 Cambia a `.text()` para depurar
+            .then(text => {
+                console.log("Respuesta cruda del servidor:", text); // Verifica si es JSON válido
+                return JSON.parse(text);  // 🔹 Intenta convertir a JSON manualmente
+            })
+            .then(data => {
+                console.log("Membresías obtenidas:", data);
+                if (data.length === 0) {
+                    console.log("No hay membresías disponibles.");
+                } else {
+                    mostrarMembresias(data);
+                }
+            })
+            .catch(error => console.error("Error al obtener membresías:", error));
+    }
+
+    function mostrarMembresias(membresias) {
+        let contenedor = document.getElementById("contenedor-membresias");
+
+        membresias.forEach(membresia => {
+            let card = `
+                <div class="col-sm-4 p-5">
+                    <div class="card eventosCard text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">${membresia.NOMBRE}</h5>
+                            <hr>
+                            <img class="membresiaIMG" src="img/membresia.svg">
+                            <p><strong>Costo:</strong> ${membresia.COSTO}</p>
+                            <p><strong>Invitados:</strong> ${membresia.NUM_INVITADOS}</p>
+                            <p><strong>Duración:</strong> ${membresia.DURACION_DIAS} días</p>
+                            <hr>
+                            <button class="btn btnMembresia">Adquirir Membresía</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            contenedor.innerHTML += card;
+        });
+    }
+
 });
-
-
-
-
 
 
 
