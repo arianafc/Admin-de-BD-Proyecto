@@ -7,6 +7,9 @@ function incluir_css()
 
     echo '<link rel="stylesheet" href="css/navbar.css">';
     echo '<link rel="stylesheet" href="css/footer.css">';
+    echo '<link rel="stylesheet" href="css/contacto.css">';
+    echo '<link rel="stylesheet" href="css/login.css">';
+    echo '<link rel="stylesheet" href="css/registro.css">';
     echo '<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">';
     echo '    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">';
 }
@@ -29,9 +32,9 @@ function incluir_navbar()
             <li><a href="#">GYM</a></li>
             <li><a href="#">Actividades</a></li>
             <li><a href="#">Blog</a></li>
-            <li><a href="#">Horarios y contacto</a></li>
+            <li><a href="contacto.php">Horarios y contacto</a></li>
         </ul>
-        <button class="btn-membresia">Iniciar Sesión</button>
+        <button class="btn-membresia" onclick="location.href='login.php'">Iniciar Sesión</button>
     </nav>
     <?php
 }
