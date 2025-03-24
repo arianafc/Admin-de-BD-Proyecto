@@ -1,0 +1,26 @@
+.membresiaIMG {
+    width: 200px; /* Ajusta el tamaño de la imagen */
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.btnMembresia {
+    color: white !important;
+    background-color: #1C3D5A  !important;
+    font-weight: 800;
+    border-radius: 30px !important;
+}
+
+.btnMembresia:hover {
+    transform: scale(1.02) !important;
+    color: #1C3D5A !important;
+    background-color: #e07c2f !important;
+}
+
+.textoMembresias {
+    padding: 5px;
+    color: #1C3D5A !important;
+    font-weight: 800;
+    font-size: 30px;
+}

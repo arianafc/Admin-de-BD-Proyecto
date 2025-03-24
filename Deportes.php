@@ -24,7 +24,7 @@ require_once 'fragmentos.php';
     <?php incluir_navbar() ?>
 </header>
 <div class="banner-container">
-    <div class="banner-text"><a class="banner-text" href="nosotros.php">EVENTOS <span>Y ALOJAMIENTO</span></a></div>
+    <div class="banner-text"><a class="banner-text" href="nosotros.php">DEPORTIVO <span>Y RECREATIVO</span></a></div>
     <img class="banner-img" src="img/frase.png">
 </div>
 <div class="container-fluid p-0 containerAlojamiento">
@@ -40,7 +40,7 @@ require_once 'fragmentos.php';
 
         </div>
         <div class="card servicios-card  text-center">
-            <a href="Eventos-Alojamiento.php"> <img class="png" src="img/deportivo-recreativo.png"></a>
+            <a href="Deportes.php"> <img class="png" src="img/deportivo-recreativo.png"></a>
             <b>Deportivo y Recreativo</b>
         </div>
         <div class="card servicios-card   text-center">
@@ -55,29 +55,30 @@ require_once 'fragmentos.php';
     </div>
 
     <div class="bg-light   pt-5 text-center">
-        <span class="text-center"><b>Cada momento tiene su espacio en Los Jaúles. Conocé nuestros ranchos de alquiler,
-                los salones para eventos o nuestras acogedoras
-                cabañas y creá junto a nosotros recuerdos innolvidables.</b>
+        <span class="text-center"><b>Mantené una vida activa y saludable en Los Jaúles. Te ofrecemos duversos espacios para 
+            que compartas experiencias con tus familiares y amigos. <br>Además, zonas verdes para que disfrutes del aire fresco y
+            despejes tu mente.
+        </br>
         </span>
         <div class="info-container p-0">
             <div class="p-2 info-item">
-                <button class="btn btnReservas-Activo" id="btnCabana">Cabañas</button>
+                <button class="btn btnReservas-Activo" id="btnSintetica">Sintética</button>
             </div>
             <div class="separator"></div>
             <div class="info-item">
 
-                <button class="btn btnReservas" id="btnSalones">Salones</button>
+                <button class="btn btnReservas" id="btnVolley">Volleyball</button>
             </div>
             <div class="separator"></div>
             <div class="info-item">
 
-                <button class="btn btnReservas" id="btnRanchos">Ranchos</button>
+                <button class="btn btnReservas" id="btnBasket">Basketball</button>
             </div>
 
 
         </div>
         <!-- PROGRAMAR PARA QUE ESTO SE MUESTRE SEGUN LA BD Y SEGUN LAS OPCIONES-->
-        <div class="container-fluid contenedor ocultar" id="ranchos">
+        <div class="container-fluid contenedor ocultar" id="sintetica">
             <div class="row align-items-center">
 
                 <div class="col-md-6 p-0">
@@ -91,12 +92,12 @@ require_once 'fragmentos.php';
                     <p><strong>Costo de reservación:</strong>
                         Costo.
                     </p>
-                    <a href="#" class="btn btn-custom">Reservar</a>
+                    <button href="#" class="btn btn-custom" id="btnReservarDeportes">Agendar Espacio</button>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid contenedor ocultar" id="salones">
+        <div class="container-fluid contenedor ocultar" id="basket">
             <div class="row align-items-center">
 
                 <div class="col-md-6 p-0">
@@ -110,12 +111,12 @@ require_once 'fragmentos.php';
                     <p><strong>Costo de reservación:</strong>
                         Costo.
                     </p>
-                    <a href="reservar.php" class="btn btn-custom">Reservar</a>
+                    <button class="btn btn-custom" id="btnReservarDeportes">Reservar</button>
                 </div>
             </div>
         </div>
 
-        <div class="container-fluid contenedor" id="cabanas">
+        <div class="container-fluid contenedor" id="volley">
             <div class="row align-items-center">
 
                 <div class="col-md-6 p-0">
@@ -129,12 +130,12 @@ require_once 'fragmentos.php';
                     <p><strong>Costo de reservación:</strong>
                         Costo.
                     </p>
-                    <a href="#" class="btn btn-custom" id="btnReservar">Reservar</a>
+                    <button class="btn btn-custom" id="btnReservarDeportes">Reservar</button>
                 </div>
             </div>
         </div>
 
-        <div class="modal" id="myModal">
+        <div class="modal" id="modalDeportes">
             <article class="modal-container">
                 <header class="modal-container-header">
                     <h1 class="modal-container-title">
@@ -181,11 +182,8 @@ require_once 'fragmentos.php';
                             <input type="time" class="form-control" placeholder="Instalación" aria-label="Instalación"
                                 aria-describedby="basic-addon1" min="08:00" max="18:00">
                         </div>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Cantidad de Personas</span>
-                            <input type="number" class="form-control" placeholder="Cantidad de Personas" aria-label="Instalación"
-                                aria-describedby="basic-addon1">
-                        </div>
+                        <span>NOTA: Las instalaciones deportivas no tienen ningún costo, sin embargo, deberá <br>
+                    continuar con el proceso de checkout para finalizar la reserva.</span>
                     </form>
                 </section>
                 <footer class="modal-container-footer">

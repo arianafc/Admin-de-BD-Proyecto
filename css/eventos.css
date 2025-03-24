@@ -1,0 +1,25 @@
+.imgEventos{
+   width: 100%;
+   display: block;
+}
+
+.eventos{
+    padding: 0;
+}
+
+.btnReservar-Activo {
+    color: white !important;
+    background-color: #1C3D5A  !important;
+    font-weight: 800;
+    border-radius: 30px !important;
+}
+
+.eventosCard:hover{
+    transform: scale(1.05);
+}
+
+.btnReservar-Activo:hover{
+    transform: scale(1.02) !important;
+    color: #1C3D5A !important;
+    background-color: #e07c2f !important;
+}
