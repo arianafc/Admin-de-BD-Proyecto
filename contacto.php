@@ -7,13 +7,7 @@ require_once 'fragmentos.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Los Jaúles - Contáctenos</title>
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+  
 
         .contact-section {
             display: flex;
