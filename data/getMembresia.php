@@ -5,12 +5,14 @@ ini_set('display_startup_errors', 1);
 
 require 'conexion.php';
 
-// APLICAR ESTO PARA PODER INDICAR QUE SE ESTA MANEJANDO UN JSON
+// Asegurar que se devuelva JSON correctamente
 header('Content-Type: application/json'); 
 
 try {
+
+    $idMembresias = isset($_GET['id']) ? intval($_GET['id']) : 0;
     // Preparar la llamada al procedimiento almacenado
-    $sql = "BEGIN FIDE_LOS_JAULES_MEMBRESIAS_PKG.FIDE_TIPO_MEMBRESIAS_TB_OBTENER_MEMBRESIAS_SP(:cursor); END;";
+    $sql = "BEGIN FIDE_LOS_JAULES_MEMBRESIAS_PKG.FIDE_TIPO_MEMBRESIAS_TB_GET_MEMBRESIA_SP(:cursor, :vid); END;";
     $stmt = oci_parse($conn, $sql);
     if (!$stmt) {
         $error = oci_error($conn);
@@ -20,9 +22,11 @@ try {
     // Crear cursor y enlazarlo
     $cursor = oci_new_cursor($conn);
     oci_bind_by_name($stmt, ":cursor", $cursor, -1, OCI_B_CURSOR);
+    oci_bind_by_name($stmt, ":vid", $idMembresias, -1, SQLT_INT);
+
 
     // Ejecutar el procedimiento
-    if (!oci_execute($stmt)) {
+    if (!oci_execute($stmt) ) {
         $error = oci_error($stmt);
         die(json_encode(["error" => "Error al ejecutar procedimiento", "detalle" => $error['message']]));
     }
@@ -34,14 +38,14 @@ try {
     }
 
     // Obtener resultados en un array
-    $resultados = [];
+    $membresia = [];
     while ($fila = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS)) {
         foreach ($fila as $key => $value) {
             if (is_string($value)) {
-                $fila[$key] = utf8_encode($value); // Convertir a UTF-8
+                $fila[$key] = utf8_encode($value); // Se tuvo que realizar esto para convertir a UTF-8
             }
         }
-        $resultados[] = $fila;
+        $membresia[] = $fila;
     }
 
     // Cerrar conexiones antes de devolver JSON
@@ -51,7 +55,7 @@ try {
 
     // Si no hay resultados, devolver un mensaje de error
     if (empty($resultados)) {
-        die(json_encode(["error" => "No hay membresías disponibles"]));
+        die(json_encode(["error" => "La membresía no pudo ser obtenida."]));
     }
 
     // Intentar convertir a JSON

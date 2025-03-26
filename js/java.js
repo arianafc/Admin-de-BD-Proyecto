@@ -128,7 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             <p><strong>Invitados:</strong> ${membresia.NUM_INVITADOS}</p>
                             <p><strong>Duración:</strong> ${membresia.DURACION_DIAS} días</p>
                             <hr>
-                            <button class="btn btnMembresia">Adquirir Membresía</button>
+                            <button class="btn btnMembresia" id="adquirirMembresia">Adquirir Membresía</button>
+                            <button class="btn btnMembresia" id="verDetalleMembresia">Ver detalle</button>
                         </div>
                     </div>
                 </div>
@@ -136,6 +137,14 @@ document.addEventListener("DOMContentLoaded", function () {
             contenedor.innerHTML += card;
         });
     }
+
+    $(document).on('click', '#verDetalleMembresia', function () {
+        $("#modalMembresias").css("display", "flex");
+    })
+
+    $(document).on('click', '#closeModalMembresias', function () {
+        $("#modalMembresias").css("display", "none");
+    })
 
 });
 

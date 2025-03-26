@@ -89,8 +89,6 @@ border: 0px;
 }
 
 .banner-container {
-    position: absolute;
-    transform: translateY(-129px);
     left: 0;
     width: 100%;
     z-index: 2; /* Hace que el banner esté por encima de la imagen */

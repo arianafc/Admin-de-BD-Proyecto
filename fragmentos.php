@@ -29,7 +29,7 @@ function incluir_navbar()
             <li><a href="#">Los Jaúles</a></li>
             <li><a href="#">GYM</a></li>
             <li><a href="#">Actividades</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="membresias.php">Membresías</a></li>
             <li><a href="contacto.php">Horarios y contacto</a></li>
         </ul>
         <button class="btn-membresia" onclick="location.href='login.php'">Iniciar Sesión</button>
