@@ -51,6 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Registrarse</h2>
                 <?php if (isset($error)) echo "<p class='error'>$error</p>"; ?>
                 <form method="POST" action="">
+                    <input type="text" name="cedula" placeholder="Cédula" required>
+                    <input type="text" name="nombre" placeholder="Nombre" required>
+                    <input type="text" name="apellido1" placeholder="Primer Apellido" required>
+                    <input type="text" name="apellido2" placeholder="Segundo Apellido" required>
                     <input type="email" name="email" placeholder="Correo Electrónico" required>
                     <input type="password" name="password" placeholder="Contraseña" required>
                     <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" required>
@@ -62,4 +66,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </main>
     <?php incluir_footer(); ?>
 </body>
+
 </html>
