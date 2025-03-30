@@ -61,7 +61,7 @@ require_once 'fragmentos.php';
         </span>
         <div class="info-container p-0">
             <div class="p-2 info-item">
-                <button class="btn btnReservas-Activo" id="btnCabana">Cabañas</button>
+                <button class="btn btnReservas" id="btnCabana">Cabañas</button>
             </div>
             <div class="separator"></div>
             <div class="info-item">
@@ -78,60 +78,14 @@ require_once 'fragmentos.php';
         </div>
         <!-- PROGRAMAR PARA QUE ESTO SE MUESTRE SEGUN LA BD Y SEGUN LAS OPCIONES-->
         <div class="container-fluid contenedor ocultar" id="ranchos">
-            <div class="row align-items-center">
-
-                <div class="col-md-6 p-0">
-                    <img src="img/GYM-HOME.jpg" class="img-fluid w-100" alt="Rancho Escondido">
-                </div>
-                <div class="col-md-6 p-5">
-                    <p>Disponemos de dos modalidades de ranchos para que podás disfrutar del Club en familia y con
-                        amigos.</p>
-                    <h3 class="textoRancho">Nombre Rancho</h3>
-                    <p>Capacidad máxima de 30 personas.</p>
-                    <p><strong>Costo de reservación:</strong>
-                        Costo.
-                    </p>
-                    <a href="#" class="btn btn-custom">Reservar</a>
-                </div>
-            </div>
         </div>
 
         <div class="container-fluid contenedor ocultar" id="salones">
-            <div class="row align-items-center">
-
-                <div class="col-md-6 p-0">
-                    <img src="img/GYM-HOME.jpg" class="img-fluid w-100" alt="Rancho Escondido">
-                </div>
-                <div class="col-md-6 p-5">
-                    <p>Disponemos de dos modalidades de ranchos para que podás disfrutar del Club en familia y con
-                        amigos.</p>
-                    <h3 class="textoRancho">Nombre Saloo</h3>
-                    <p>Capacidad máxima de 30 personas.</p>
-                    <p><strong>Costo de reservación:</strong>
-                        Costo.
-                    </p>
-                    <a href="reservar.php" class="btn btn-custom">Reservar</a>
-                </div>
-            </div>
+           
         </div>
 
-        <div class="container-fluid contenedor" id="cabanas">
-            <div class="row align-items-center">
-
-                <div class="col-md-6 p-0">
-                    <img src="img/GYM-HOME.jpg" class="img-fluid w-100" alt="Rancho Escondido">
-                </div>
-                <div class="col-md-6 p-5">
-                    <p>Disponemos de dos modalidades de ranchos para que podás disfrutar del Club en familia y con
-                        amigos.</p>
-                    <h3 class="textoRancho">Nombre Cabaña</h3>
-                    <p>Capacidad máxima de 30 personas.</p>
-                    <p><strong>Costo de reservación:</strong>
-                        Costo.
-                    </p>
-                    <a href="#" class="btn btn-custom" id="btnReservar">Reservar</a>
-                </div>
-            </div>
+        <div class="container-fluid contenedor ocultar" id="cabanas">
+           
         </div>
 
         <div class="modal" id="myModal">
@@ -157,9 +111,7 @@ require_once 'fragmentos.php';
                 <section class="modal-container-body rtf">
                     <form action="generarReserva" id="formReserva" class="form">
                         <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1">Instalación</span>
-                            <input type="text" class="form-control" placeholder="Instalación" aria-label="Instalación"
-                                aria-describedby="basic-addon1">
+                            <span class="input-group-text" id="instalacionReserva"></span>
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">Fecha Inicio</span>

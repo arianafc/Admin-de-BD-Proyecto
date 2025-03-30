@@ -4,67 +4,60 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 require 'conexion.php';
-
-// Asegurar que se devuelva JSON correctamente
-header('Content-Type: application/json'); 
+header('Content-Type: application/json');
 
 try {
+    // Leer el JSON recibido
+    $jsonInput = file_get_contents("php://input");
+    $data = json_decode($jsonInput, true);
 
-    $idMembresias = isset($_GET['id']) ? intval($_GET['id']) : 0;
-    // Preparar la llamada al procedimiento almacenado
-    $sql = "BEGIN FIDE_LOS_JAULES_MEMBRESIAS_PKG.FIDE_TIPO_MEMBRESIAS_TB_GET_MEMBRESIA_SP(:cursor, :vid); END;";
-    $stmt = oci_parse($conn, $sql);
-    if (!$stmt) {
-        $error = oci_error($conn);
-        die(json_encode(["error" => "Error en oci_parse", "detalle" => $error['message']]));
+    if (!isset($data['id'])) {
+        die(json_encode(["error" => "ID no proporcionado"]));
     }
 
-    // Crear cursor y enlazarlo
+    $idMembresias = intval($data['id']);
+
+    // Debug: Escribir en un log para verificar
+    file_put_contents("debug.log", "ID recibido en PHP: $idMembresias" . PHP_EOL, FILE_APPEND);
+
+    $sql = "BEGIN FIDE_LOS_JAULES_MEMBRESIAS_PKG.FIDE_TIPO_MEMBRESIAS_TB_GET_MEMBRESIA_SP(:cursor, :vid); END;";
+    $stmt = oci_parse($conn, $sql);
+
+    if (!$stmt) {
+        die(json_encode(["error" => "Error en oci_parse", "detalle" => oci_error($conn)]));
+    }
+
     $cursor = oci_new_cursor($conn);
     oci_bind_by_name($stmt, ":cursor", $cursor, -1, OCI_B_CURSOR);
     oci_bind_by_name($stmt, ":vid", $idMembresias, -1, SQLT_INT);
 
-
-    // Ejecutar el procedimiento
-    if (!oci_execute($stmt) ) {
-        $error = oci_error($stmt);
-        die(json_encode(["error" => "Error al ejecutar procedimiento", "detalle" => $error['message']]));
+    if (!oci_execute($stmt)) {
+        die(json_encode(["error" => "Error al ejecutar procedimiento", "detalle" => oci_error($stmt)]));
     }
 
-    // Ejecutar el cursor
     if (!oci_execute($cursor)) {
-        $error = oci_error($cursor);
-        die(json_encode(["error" => "Error al ejecutar cursor", "detalle" => $error['message']]));
+        die(json_encode(["error" => "Error al ejecutar cursor", "detalle" => oci_error($cursor)]));
     }
 
-    // Obtener resultados en un array
     $membresia = [];
     while ($fila = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS)) {
         foreach ($fila as $key => $value) {
             if (is_string($value)) {
-                $fila[$key] = utf8_encode($value); // Se tuvo que realizar esto para convertir a UTF-8
+                $fila[$key] = utf8_encode($value);
             }
         }
         $membresia[] = $fila;
     }
 
-    // Cerrar conexiones antes de devolver JSON
     oci_free_statement($stmt);
     oci_free_statement($cursor);
     oci_close($conn);
 
-    // Si no hay resultados, devolver un mensaje de error
-    if (empty($resultados)) {
+    if (empty($membresia)) {
         die(json_encode(["error" => "La membresía no pudo ser obtenida."]));
     }
 
-    // Intentar convertir a JSON
-    $json = json_encode($resultados, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-    if ($json === false) {
-        die(json_encode(["error" => "Error al convertir a JSON", "detalle" => json_last_error_msg()]));
-    }
-
-    echo $json;
+    echo json_encode($membresia, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     exit;
 
 } catch (Exception $e) {

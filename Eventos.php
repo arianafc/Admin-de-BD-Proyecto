@@ -29,26 +29,14 @@ require_once 'fragmentos.php';
         <h2 class="eventosText text-center"><b>DISFRUTA DE LAS MEJORES</b> <span class="eventosHighlight">ACTIVIDADES QUE CLUB JAÚLES TE OFRECE</span></h2>
     </div>
 
-<div class="container p-2">
-<div class="row">
-  <div class="col-sm-6 pt-2">
-    <div class="card eventosCard">
-      <div class="card-body ">
-        <h5 class="card-title ">Nombre Evento</h5>
-        <hr>
-        <p class="card-text" id="descripcionEvento">Descripcion</p>
-        <p class="card-text" id="fechaEvento">Fecha</p>
-        <p class="card-text" id="horaEvento">Hora</p>
-        <p class="card-text" id="cupoEvento">Cupo</p>
-        <button href="#" class="btn btnReservar-Activo" id="registrarEvento">Quiero participar!</button>
-      </div>
-    </div>
-  </div>
+<div class="container p-2" id="container-eventos">
+
+</div>
 
   <div class="modal" id="modalEventos">
             <article class="modal-container">
                 <header class="modal-container-header">
-                    <h1 class="modal-container-title">
+                    <h1 class="modal-container-title text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                             aria-hidden="true">
                             <path fill="none" d="M0 0h24v24H0z" />
@@ -66,11 +54,22 @@ require_once 'fragmentos.php';
                     </button>
                 </header>
                 <section class="modal-container-body ">
-                    <p class="text-center">¿Desea registrarse en el evento?</p>
+                    <p class="text-center">Ingreso como Invitado</p>
+                    <form id="formInvitado">
+                        <div class="mb-3">
+                            <label>Ingresa tu número de cedula:</label>
+                            <input id="cedulaInvitado" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label>Ingresa el número de cédula del miembro:</label>
+                            <input id="cedulaMiembro" type="text">
+                        </div>
+                    </form>
                 </section>
+                
                 <footer class="modal-container-footer">
                     <button class="button is-ghost" id="close">Cancelar</button>
-                    <button class="button is-primary" id="guardarRegistro">Registrarse</button>
+                    <button class="button is-primary" id="guardarRegistroInvitado">Registrarse</button>
                 </footer>
             </article>
         </div>
