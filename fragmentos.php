@@ -28,7 +28,7 @@ function incluir_navbar()
             <li><a href="servicios.php">Servicios</a></li>
             <li><a href="#">Los Jaúles</a></li>
             <li><a href="#">GYM</a></li>
-            <li><a href="#">Actividades</a></li>
+            <li><a href="eventos.php">Actividades</a></li>
             <li><a href="membresias.php">Membresías</a></li>
             <li><a href="contacto.php">Horarios y contacto</a></li>
         </ul>
