@@ -1,0 +1,62 @@
+CREATE OR REPLACE PACKAGE PKG_DESENCRIPTACION_CONTRASENA AS
+    PROCEDURE FIDE_DESENCRIPTAR_CONTRASENA_SP(
+        P_CEDULA IN NUMBER,
+        P_CONTRASENA OUT VARCHAR2
+    );
+END PKG_DESENCRIPTACION_CONTRASENA;
+/
+--------------------------------------------------------------------------------------------
+CREATE OR REPLACE PACKAGE BODY PKG_DESENCRIPTACION_CONTRASENA AS
+
+    PROCEDURE FIDE_DESENCRIPTAR_CONTRASENA_SP(
+        P_CEDULA IN NUMBER,
+        P_CONTRASENA OUT VARCHAR2
+    ) AS
+        L_KEY RAW(32);                
+        L_ENCRIPTED_DATA RAW(2000);    
+        L_DESENCRIPTED_DATA RAW(2000); 
+        L_RESULTADO VARCHAR2(100);     
+    BEGIN
+        BEGIN
+            SELECT CLAVE INTO L_KEY
+            FROM FIDE_CLAVE_ENCRIPTAR_TB
+            WHERE ID_CLAVE = 1;
+        EXCEPTION
+            WHEN NO_DATA_FOUND THEN
+                RAISE_APPLICATION_ERROR(-20001, 'No se encontró la clave de encriptación.');
+        END;
+        BEGIN
+            SELECT CONTRASENA INTO L_ENCRIPTED_DATA
+            FROM FIDE_USUARIOS_TB
+            WHERE CEDULA = P_CEDULA;
+        EXCEPTION
+            WHEN NO_DATA_FOUND THEN
+                RAISE_APPLICATION_ERROR(-20002, 'No se encontró la contraseña para la cédula proporcionada.');
+        END;
+
+        L_DESENCRIPTED_DATA := DBMS_CRYPTO.Decrypt(
+            SRC => L_ENCRIPTED_DATA,
+            TYP => DBMS_CRYPTO.ENCRYPT_AES256 + DBMS_CRYPTO.CHAIN_CBC + DBMS_CRYPTO.PAD_PKCS5,
+            KEY => L_KEY
+        );
+
+        L_RESULTADO := UTL_RAW.CAST_TO_VARCHAR2(L_DESENCRIPTED_DATA);
+
+        P_CONTRASENA := L_RESULTADO;
+
+    EXCEPTION
+        WHEN OTHERS THEN
+            RAISE_APPLICATION_ERROR(-20003, 'ERROR EN EL PROCESO DE DESENCRIPTACIÓN: ' || SQLERRM);
+    END FIDE_DESENCRIPTAR_CONTRASENA_SP;
+
+END PKG_DESENCRIPTACION_CONTRASENA;
+/
+-----------------------------------------------------------------------------------------------------------------------
+DECLARE
+    V_CONTRASENA VARCHAR2(100);
+BEGIN
+    PKG_DESENCRIPTACION_CONTRASENA.FIDE_DESENCRIPTAR_CONTRASENA_SP(305550650, V_CONTRASENA);
+
+    DBMS_OUTPUT.PUT_LINE('La contraseña desencriptada es: ' || V_CONTRASENA);
+END;
+/
