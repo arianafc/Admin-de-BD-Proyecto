@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cargarMembresias();
     cargarEventos();
+    cargarUsuarios();
 
     let links = document.querySelectorAll(".opciones a");
     let currentUrl = window.location.pathname.split("/").pop(); // Obtiene el nombre del archivo actual
@@ -59,6 +60,66 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     //FUNCIONES DE LOS DATOS
+    function cargarUsuarios() {
+        $.ajax({
+            url: './data/getUsuarios.php',
+            type: 'POST',
+            dataType: 'json',
+            success: function (response) {
+                console.log("Usuarios obtenidos:", response);
+
+                let contenedor = $("#tablaUsuarios");
+                contenedor.html(""); // Limpiar contenido previo
+
+                if (!response.success || response.data.length === 0) {
+                    contenedor.html(`<h3 class="text-center text-muted p-2">No hay usuarios disponibles en este momento.</h3>`);
+                } else {
+                    mostrarUsuarios(response.data);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error al obtener usuarios: ", error);
+                alert("Hubo un error al cargar los usuarios. Inténtalo nuevamente.");
+            }
+        });
+    }
+
+    function mostrarUsuarios(usuarios) {
+        let contenedor = $("#tablaUsuarios");
+
+        let filas = "";
+        usuarios.forEach(usuario => {
+            filas += `
+             <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Rol</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            
+                <tr>
+                    <td>${usuario.CEDULA}</td>
+                    <td>${usuario.NOMBRE}</td>
+                    <td>${usuario.EMAIL}</td>
+                    <td>${usuario.ROL}</td>
+                    <td>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#editUserModal" onclick="editUser(${usuario.CEDULA}, '${usuario.NOMBRE}', '${usuario.EMAIL}', '${usuario.ROL}')">Editar</button>
+                        <button class="btn btn-danger" onclick="eliminarUsuario(${usuario.CEDULA})">Eliminar</button>
+                    </td>
+                </tr>
+            `;
+        });
+
+        contenedor.html(filas);
+    }
+
+
+
+
+    //===========================================================================================================================
     function cargarEventos() {
         fetch('./data/getEventos.php')
             .then(response => response.json())
@@ -124,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $(document).on('click', '#registrarEventos', function () {
         let idEvento = $(this).data("id");
-        let idInvitado =  ""; // Si es null, enviamos vacío
+        let idInvitado = ""; // Si es null, enviamos vacío
         let fechaRegistro = new Date().toISOString().slice(0, 10); // Fecha actual (YYYY-MM-DD)
         $.post("./data/registroEvento.php", {
             id_invitado: idInvitado,
@@ -154,7 +215,7 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.add('btnReservas-Activo');
         $("#btnSalones").removeClass('btnReservas-Activo').addClass('btnReservas');
         $("#btnRanchos").removeClass('btnReservas-Activo').addClass('btnReservas');
-       
+
         $("#cabanas").css("display", "block");
         $("#salones, #ranchos").css("display", "none");
 
@@ -183,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a href="#" class="btn btn-custom" data-id="${instalacion.ID_INSTALACION}" id="btnReservarCabana">Reservar</a>
                 </div>
             </div>`;
-            container.innerHTML += card;
+                    container.innerHTML += card;
                 }
                 )
             } else {
@@ -197,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $(document).on('click', '#btnReservarCabana', function () {
         $("#myModal").css("display", "flex");
-        
+
     })
 
 
@@ -235,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a href="#" class="btn btn-custom" data-id="${instalacion.ID_INSTALACION}" id="btnReservarCabana">Reservar</a>
                 </div>
             </div>`;
-            contenedor.innerHTML += card;
+                    contenedor.innerHTML += card;
                 }
                 )
             } else {
@@ -258,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         let tipo = 3;
         let contenedor = document.getElementById("ranchos");
-        
+
         contenedor.innerHTML = "";
         $.post("./data/getInstalaciones.php", {
             tipo: tipo,
@@ -283,11 +344,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     <a href="#" class="btn btn-custom" data-id="${instalacion.ID_INSTALACION}" id="btnReservarCabana">Reservar</a>
                 </div>
             </div>`;
-            contenedor.innerHTML += card;
+                    contenedor.innerHTML += card;
                 }
                 )
             } else {
-             
+
                 contenedor.innerHTML = "<h3 class='p-3'>NO HAY RANCHOS DISPONIBLES</h3>";
             }
         }, "json").fail(function () {
@@ -323,28 +384,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-//============================================================================================================================================================
-//MEMBRESIAS
+    //============================================================================================================================================================
+    //MEMBRESIAS
 
-function cargarMembresias() {
-    fetch('./data/obtenerMembresia.php')
-        .then(response => response.json())  // 🔹 Cambia a `.text()` para depura
-        .then(data => {
-            console.log("Membresías obtenidas:", data);
-            if (data.length === 0) {
-                console.log("No hay membresías disponibles.");
-            } else {
-                mostrarMembresias(data);
-            }
-        })
-        .catch(error => console.error("Error al obtener membresías:", error));
-}
+    function cargarMembresias() {
+        fetch('./data/obtenerMembresia.php')
+            .then(response => response.json())  // 🔹 Cambia a `.text()` para depura
+            .then(data => {
+                console.log("Membresías obtenidas:", data);
+                if (data.length === 0) {
+                    console.log("No hay membresías disponibles.");
+                } else {
+                    mostrarMembresias(data);
+                }
+            })
+            .catch(error => console.error("Error al obtener membresías:", error));
+    }
 
-function mostrarMembresias(membresias) {
-    let contenedor = document.getElementById("contenedor-membresias");
+    function mostrarMembresias(membresias) {
+        let contenedor = document.getElementById("contenedor-membresias");
 
-    membresias.forEach(membresia => {
-        let card = `
+        membresias.forEach(membresia => {
+            let card = `
                 <div class="col-sm-4 p-5">
                     <div class="card eventosCard text-center">
                         <div class="card-body">
@@ -361,63 +422,63 @@ function mostrarMembresias(membresias) {
                     </div>
                 </div>
             `;
-        contenedor.innerHTML += card;
-    });
-
-    document.querySelectorAll("#verDetalleMembresia").forEach(boton => {
-        boton.addEventListener("click", function () {
-            let id = this.getAttribute("data-id");
-            obtenerMembresiaPorID(id);
+            contenedor.innerHTML += card;
         });
-    });
-}
 
-$(document).on('click', '#verDetalleMembresia', function () {
-    $("#modalMembresias").css("display", "flex");
-})
-
-$(document).on('click', '#closeModalMembresias', function () {
-    $("#modalMembresias").css("display", "none");
-})
-
-
-function obtenerMembresiaPorID(id) {
-    fetch("./data/getMembresia.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ id: id })
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Membresía obtenida:", data);
-            if (data.length > 0) {
-                // Ahora obtenemos los beneficios antes de mostrar el modal
-                obtenerBeneficiosMembresias(id, data[0]);
-            } else {
-                alert("No se encontró la membresía.");
-            }
-        })
-        .catch(error => console.error("Error al obtener la membresía:", error));
-}
-
-function mostrarMembresia(producto, beneficios) {
-    let contenedor = document.getElementById("modalMembresias");
-
-    if (!contenedor) {
-        console.warn("⚠️ ADVERTENCIA: #modalMembresias no existe, se creará dinámicamente.");
-        contenedor = document.createElement("div");
-        contenedor.id = "modalMembresias";
-        contenedor.classList.add("modal");
-        document.body.appendChild(contenedor);
+        document.querySelectorAll("#verDetalleMembresia").forEach(boton => {
+            boton.addEventListener("click", function () {
+                let id = this.getAttribute("data-id");
+                obtenerMembresiaPorID(id);
+            });
+        });
     }
 
-    let beneficiosHTML = beneficios.length > 0
-        ? beneficios.map(b => `<li>${b.DESCRIPCION}</li>`).join("")
-        : "<li>No hay beneficios disponibles.</li>";
+    $(document).on('click', '#verDetalleMembresia', function () {
+        $("#modalMembresias").css("display", "flex");
+    })
 
-    contenedor.innerHTML = `
+    $(document).on('click', '#closeModalMembresias', function () {
+        $("#modalMembresias").css("display", "none");
+    })
+
+
+    function obtenerMembresiaPorID(id) {
+        fetch("./data/getMembresia.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ id: id })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Membresía obtenida:", data);
+                if (data.length > 0) {
+                    // Ahora obtenemos los beneficios antes de mostrar el modal
+                    obtenerBeneficiosMembresias(id, data[0]);
+                } else {
+                    alert("No se encontró la membresía.");
+                }
+            })
+            .catch(error => console.error("Error al obtener la membresía:", error));
+    }
+
+    function mostrarMembresia(producto, beneficios) {
+        let contenedor = document.getElementById("modalMembresias");
+
+        if (!contenedor) {
+            console.warn("⚠️ ADVERTENCIA: #modalMembresias no existe, se creará dinámicamente.");
+            contenedor = document.createElement("div");
+            contenedor.id = "modalMembresias";
+            contenedor.classList.add("modal");
+            document.body.appendChild(contenedor);
+        }
+
+        let beneficiosHTML = beneficios.length > 0
+            ? beneficios.map(b => `<li>${b.DESCRIPCION}</li>`).join("")
+            : "<li>No hay beneficios disponibles.</li>";
+
+        contenedor.innerHTML = `
             <article class="modal-container">
                 <header class="modal-container-header">
                     <h1 class="modal-container-title text-center">
@@ -454,28 +515,28 @@ function mostrarMembresia(producto, beneficios) {
             </article>
         `;
 
-    contenedor.style.display = "block";
+        contenedor.style.display = "block";
 
-    // Agregar evento para cerrar el modal
-    document.getElementById("closeMembresia").addEventListener("click", () => {
-        contenedor.style.display = "none";
-    });
-}
-function obtenerBeneficiosMembresias(id, producto) {
-    fetch("./data/beneficios.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ id: id })
-    })
-        .then(response => response.json())
-        .then(beneficios => {
-            console.log("Beneficios obtenidos:", beneficios);
-            mostrarMembresia(producto, beneficios);
+        // Agregar evento para cerrar el modal
+        document.getElementById("closeMembresia").addEventListener("click", () => {
+            contenedor.style.display = "none";
+        });
+    }
+    function obtenerBeneficiosMembresias(id, producto) {
+        fetch("./data/beneficios.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ id: id })
         })
-        .catch(error => console.error("Error al obtener los beneficios:", error));
-}
+            .then(response => response.json())
+            .then(beneficios => {
+                console.log("Beneficios obtenidos:", beneficios);
+                mostrarMembresia(producto, beneficios);
+            })
+            .catch(error => console.error("Error al obtener los beneficios:", error));
+    }
 
 });
 
