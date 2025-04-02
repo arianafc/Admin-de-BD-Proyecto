@@ -1,5 +1,6 @@
 <?php
 session_start();
+var_dump($_POST);
 require 'conexion.php';
 
 // Indicar que el contenido es JSON
@@ -13,16 +14,21 @@ try {
     }
 
     // Obtener datos del formulario
-    $email = $_POST['email'] ?? '';
+    $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
+    $resultado = null;
 
-    if (empty($email) || empty($password)) {
+    if (empty($username) || empty($password)) {
         echo json_encode(["success" => false, "message" => "Correo y contraseña requeridos"]);
         exit;
     }
 
+    if (!$conn) {
+        echo json_encode(["success" => false, "message" => "Error de conexión a la base de datos."]);
+        exit();
+    }
     // Preparar la llamada al procedimiento almacenado
-    $sql = "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_VALIDAR_LOGIN_SP(:email, :password, :cursor); END;";
+    $sql = "BEGIN :resultado := FIDE_LOS_JAULES_LOGIN_PKG.FIDE_LOS_JAULES_LOGIN_SP(:cedula, :contrasena); END;";
     $stmt = oci_parse($conn, $sql);
 
     if (!$stmt) {
@@ -31,42 +37,28 @@ try {
         exit;
     }
 
-    // Crear cursor y enlazarlo
-    $cursor = oci_new_cursor($conn);
-    oci_bind_by_name($stmt, ":email", $email);
-    oci_bind_by_name($stmt, ":password", $password);
-    oci_bind_by_name($stmt, ":cursor", $cursor, -1, OCI_B_CURSOR);
 
-    // Ejecutar el procedimiento
+    oci_bind_by_name($stmt, ":cedula", $username);
+    oci_bind_by_name($stmt, ":contrasena", $password);
+    oci_bind_by_name($stmt, ":resultado", $resultado, 1, SQLT_INT);
+    
     if (!oci_execute($stmt)) {
         $error = oci_error($stmt);
         echo json_encode(["success" => false, "message" => "Error al ejecutar procedimiento", "detail" => $error['message']]);
         exit;
     }
-
-    // Ejecutar el cursor
-    if (!oci_execute($cursor)) {
-        $error = oci_error($cursor);
-        echo json_encode(["success" => false, "message" => "Error al ejecutar cursor", "detail" => $error['message']]);
-        exit;
+    
+    // Obtener el resultado
+  
+    if ($resultado == 1) {
+        echo json_encode(["success" => true, "message" => "Bienvenido, usuario $username."]);
+    } else {
+        echo json_encode(["success" => false, "message" => "Datos incorrectos."]);
     }
 
-    // Obtener resultados
-    $usuario = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS);
-
-    // Cerrar conexiones
     oci_free_statement($stmt);
-    oci_free_statement($cursor);
     oci_close($conn);
 
-    if ($usuario) {
-        $_SESSION['user'] = $usuario['EMAIL'];
-        $_SESSION['nombre'] = $usuario['NOMBRE'];
-
-        echo json_encode(["success" => true, "message" => "Inicio de sesión exitoso"]);
-    } else {
-        echo json_encode(["success" => false, "message" => "Correo o contraseña incorrectos"]);
-    }
 } catch (Exception $e) {
     echo json_encode(["success" => false, "message" => "Excepción en PHP", "detail" => $e->getMessage()]);
 }

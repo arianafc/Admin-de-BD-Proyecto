@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     //FUNCIONES DE LOS DATOS
+    //======================================================USUARIOS ====================================================================
     function cargarUsuarios() {
         $.ajax({
             url: './data/getUsuarios.php',
@@ -119,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-    //===========================================================================================================================
+    //=================================================================EVENTOS==========================================================
     function cargarEventos() {
         fetch('./data/getEventos.php')
             .then(response => response.json())

@@ -1,37 +1,39 @@
-function loginUsuario() {
-    // Obtener los datos del formulario
-    const cedula = document.getElementById("cedula").value;
-    const password = document.getElementById("password").value;
+document.addEventListener("DOMContentLoaded", function () {
+    $("#login-form").submit(function(event) {
+        event.preventDefault(); // Evita que se recargue la página
 
-    // Enviar los datos al servidor
-    fetch("admin-de-bd-proyecto/data/get_login.php", {
+        // Obtener los datos del formulario
+        var cedula = $("#usernameLogin").val();
+        var contrasena = $("#password").val();
+        console.log(cedula);
+        console.log(contrasena);
 
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            cedula: cedula,
-            password: password
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.length === 0) {
-            alert("Credenciales incorrectas. Intenta de nuevo.");
-        } else {
-            // Procesar el resultado
-            const usuario = data[0];
-            console.log("Usuario validado:", usuario);
-            // Aquí puedes redirigir al usuario a la página principal o su perfil
-            window.location.href = "home.php";  // Ejemplo de redirección
-        }
-    })
-    .catch(error => {
-        console.error("Error al validar el login:", error);
-        alert("Hubo un error en el proceso de login. Intenta más tarde.");
+        $.post("./data/get_login.php", {
+            username: cedula, password: contrasena
+        }, function(response) {
+            if (response.success) {
+                // Si el login es exitoso, muestra el mensaje de éxito y redirige
+                $("#error-message").hide();
+                $("#error-message").removeClass("error");
+                $("#error-message").html(response.message);
+                $("#error-message").show();
+                
+                // Redirigir después de 1 segundo
+                setTimeout(function() {
+                    window.location.href = "index.html";  // Cambia por la URL a donde quieras redirigir
+                }, 1000); // 1 segundo de retraso para mostrar el mensaje
+            } else {
+                // Si el login falla, muestra el mensaje de error
+                console.log(response);
+                $("#error-message").show();
+                $("#error-message").addClass("error");
+                $("#error-message").html(response.message);
+            }
+        }).fail(function() {
+            // Si ocurre un error de conexión, muestra el mensaje
+            $("#error-message").show();
+            $("#error-message").addClass("error");
+            $("#error-message").html("Error en la conexión.");
+        });
     });
-}
-
-// Asignar la función al evento de clic del botón de login
-document.getElementById("loginButton").addEventListener("click", loginUsuario);
+});
