@@ -1,39 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
-    $("#login-form").submit(function(event) {
+    const form = document.getElementById("login-form");
+    
+    if (!form) {
+        console.error("Error: No se encontró el formulario #login-form");
+        return;
+    }
+
+    form.addEventListener("submit", function(event) {
         event.preventDefault(); // Evita que se recargue la página
 
         // Obtener los datos del formulario
-        var cedula = $("#usernameLogin").val();
-        var contrasena = $("#password").val();
-        console.log(cedula);
-        console.log(contrasena);
+        var cedula = document.getElementById("usernameLogin").value;
+        var contrasena = document.getElementById("password").value;
 
-        $.post("./data/get_login.php", {
-            username: cedula, password: contrasena
-        }, function(response) {
-            if (response.success) {
-                // Si el login es exitoso, muestra el mensaje de éxito y redirige
-                $("#error-message").hide();
-                $("#error-message").removeClass("error");
-                $("#error-message").html(response.message);
-                $("#error-message").show();
-                
-                // Redirigir después de 1 segundo
-                setTimeout(function() {
-                    window.location.href = "index.html";  // Cambia por la URL a donde quieras redirigir
-                }, 1000); // 1 segundo de retraso para mostrar el mensaje
+        if (!cedula || !contrasena) {
+            alert("Debes llenar ambos campos");
+            return;
+        }
+
+        console.log("Cedula:", cedula);
+        console.log("Contraseña:", contrasena);
+
+        // Enviar datos al servidor con Fetch API en vez de jQuery (opcional)
+        fetch("./data/get_login.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `username=${cedula}&password=${contrasena}`
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Inicio de sesión exitoso");
+                window.location.href = "index.html"; // Redirigir
             } else {
-                // Si el login falla, muestra el mensaje de error
-                console.log(response);
-                $("#error-message").show();
-                $("#error-message").addClass("error");
-                $("#error-message").html(response.message);
+                alert(data.message);
             }
-        }).fail(function() {
-            // Si ocurre un error de conexión, muestra el mensaje
-            $("#error-message").show();
-            $("#error-message").addClass("error");
-            $("#error-message").html("Error en la conexión.");
-        });
+        })
+        .catch(error => console.error("Error en la conexión:", error));
     });
 });

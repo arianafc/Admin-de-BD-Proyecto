@@ -14,7 +14,7 @@ try {
     }
 
     // Obtener datos del formulario
-    $username = $_POST['username'] ?? '';
+    $username = (int)($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
     $resultado = null;
 
@@ -38,7 +38,7 @@ try {
     }
 
 
-    oci_bind_by_name($stmt, ":cedula", $username);
+    oci_bind_by_name($stmt, ":cedula", $username, -1, SQLT_INT);  
     oci_bind_by_name($stmt, ":contrasena", $password);
     oci_bind_by_name($stmt, ":resultado", $resultado, 1, SQLT_INT);
     
