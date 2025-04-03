@@ -36,7 +36,13 @@ function incluir_navbar()
         <?php if (!isset($_SESSION['usuario'])): ?>
     <button class="btn-membresia" onclick="location.href='login.php'">Iniciar Sesión</button>
 <?php else: ?>
-    <button class="btn-membresia" onclick="location.href='logout.php'">Cerrar Sesión</button>
+    <div class="dropdown">
+    <button class="dropdown-button">Hola, <?php echo $_SESSION['nombre']; ?> ▼</button>
+    <div class="dropdown-content">
+        <a href="perfil.php">Mi Perfil</a>
+        <a href="logout.php">Cerrar Sesión</a>
+    </div>
+</div>
 <?php endif; ?>
 
     </nav>

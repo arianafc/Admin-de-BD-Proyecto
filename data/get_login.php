@@ -37,7 +37,7 @@ try {
 
     oci_bind_by_name($stmt, ":username", $username);
     oci_bind_by_name($stmt, ":contrasena", $password);
-    oci_bind_by_name($stmt, ":resultado", $resultado, 1, SQLT_INT);
+    oci_bind_by_name($stmt, ":resultado", $resultado, 32, SQLT_INT);
 
     if (!oci_execute($stmt)) {
         echo json_encode(["success" => false, "message" => "Error al ejecutar procedimiento"]);
@@ -86,7 +86,31 @@ try {
     $_SESSION['id_asociado'] = $usuario['ID_ASOCIADO'];
     $_SESSION['usuario'] = $username;
 
+    // Asegurar que la cédula no está vacía antes de llamar el procedimiento del carrito
+    if (!isset($_SESSION['cedula']) || empty($_SESSION['cedula'])) {
+        echo json_encode(["success" => false, "message" => "Error: La cédula no está disponible en la sesión"]);
+        exit;
+    }
+
+    // Llamada al procedimiento del carrito
+    $carrito = "BEGIN FIDE_LOS_JAULES_CARRITO_PKG.FIDE_LOS_JAULES_CREAR_CARRITO_SP(:cedula, :idCarrito); END;";
+    $ejecutar = oci_parse($conn, $carrito);
+
+    $cedulaCarrito = $_SESSION['cedula'];
+    $idCarrito = null;
+
+    oci_bind_by_name($ejecutar, ":cedula", $cedulaCarrito);
+    oci_bind_by_name($ejecutar, ":idCarrito", $idCarrito, 32);
+
+    if (oci_execute($ejecutar)) {
+        $_SESSION['id_carrito'] = $idCarrito;
+    } else {
+        $_SESSION['id_carrito'] = null;
+    }
+
+    // Liberar recursos
     oci_free_statement($stmt);
+    oci_free_statement($ejecutar);
     oci_free_statement($cursor);
     oci_close($conn);
 
@@ -104,3 +128,4 @@ try {
 } catch (Exception $e) {
     echo json_encode(["success" => false, "message" => "Excepción en PHP", "detail" => $e->getMessage()]);
 }
+?>
