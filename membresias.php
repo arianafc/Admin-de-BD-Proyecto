@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 require_once 'fragmentos.php';
-include 'data/conexion.php';
+session_start();
 ?>
 
 
@@ -18,8 +18,6 @@ include 'data/conexion.php';
     <?php incluir_css() ?>
     <script src="js/java.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
-
-
 </head>
 
 <header>

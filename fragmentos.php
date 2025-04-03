@@ -1,10 +1,11 @@
 <?php
+
 /**
  * Función para incluir los archivos CSS principales
  */
 function incluir_css()
 {
-
+    
     echo '<link rel="stylesheet" href="css/navbar.css">';
     echo '<link rel="stylesheet" href="css/footer.css">';
     echo '<link rel="stylesheet" href="css/index.css">';
@@ -32,7 +33,12 @@ function incluir_navbar()
             <li><a href="membresias.php">Membresías</a></li>
             <li><a href="contacto.php">Horarios y contacto</a></li>
         </ul>
-        <button class="btn-membresia" onclick="location.href='login.php'">Iniciar Sesión</button>
+        <?php if (!isset($_SESSION['usuario'])): ?>
+    <button class="btn-membresia" onclick="location.href='login.php'">Iniciar Sesión</button>
+<?php else: ?>
+    <button class="btn-membresia" onclick="location.href='logout.php'">Cerrar Sesión</button>
+<?php endif; ?>
+
     </nav>
     <?php
 }

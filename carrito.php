@@ -1,164 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
+
+<?php
+require_once 'fragmentos.php';
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compras</title>
+    <title>Los Jaules</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <?php incluir_css(); ?>
+    <script src="js/java.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
 </head>
+
 <body>
-    <?php
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['accion']) && $_GET['accion'] === 'obtener') {
-    $conn = conectarDB();
-    $stmt = oci_parse($conn, "BEGIN obtener_carrito(:idUsuario, :cursor); END;");
+    <?php incluir_navbar(); ?>
+    <main>
+        <section class="cart-section">
+            <div class="cart-header text-center">
+                <h1 class="productosHP text-center">TU CARRITO</h3>
+            </div>
+
+            <div class="cart-items">
     
-    $cursor = oci_new_cursor($conn);
-    oci_bind_by_name($stmt, ":idUsuario", $_GET['id_usuario']);
-    oci_bind_by_name($stmt, ":cursor", $cursor, -1, OCI_B_CURSOR);
-    
-    oci_execute($stmt);
-    oci_execute($cursor);
-    
-    $carrito = [];
-    while ($row = oci_fetch_assoc($cursor)) {
-        $carrito[] = $row;
-    }
 
-    oci_free_statement($cursor);
-    oci_close($conn);
-    
-    echo json_encode($carrito);
-}
-function agregarItem(idUsuario, idReserva, cantidad) {
-    let formData = new FormData();
-    formData.append("accion", "agregar");
-    formData.append("id_usuario", idUsuario);
-    formData.append("id_reserva", idReserva);
-    formData.append("cantidad", cantidad);
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio Unitario (CRC)</th>
+                            <th>Subtotal (CRC)</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                   <tbody id="tablaCarrito">
 
-    fetch("carrito.php", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => console.log(data.mensaje))
-    .catch(error => console.error("Error:", error));
-}
+                   </tbody>
+                </table>
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion']) && $_POST['accion'] === 'eliminar') {
-    $conn = conectarDB();
-    $stmt = oci_parse($conn, "BEGIN eliminar_item_carrito(:idUsuario, :idReserva); END;");
-    
-    oci_bind_by_name($stmt, ":idUsuario", $_POST['id_usuario']);
-    oci_bind_by_name($stmt, ":idReserva", $_POST['id_reserva']);
-    
-    oci_execute($stmt);
-    oci_close($conn);
+               
 
-    echo json_encode(["mensaje" => "Ítem eliminado correctamente"]);
-}
-function finalizarCompra(idUsuario) {
-    let formData = new FormData();
-    formData.append("accion", "finalizar");
-    formData.append("id_usuario", idUsuario);
+                <div class="cart-actions">
+                    <button class="btn btn-secondary"><a style="text-decoration: none; color: #fff"
+                            href="productos.php">Seguir Comprando</a></button>
+                    <button class="btn btn-primary" id="checkoutBtn">Proceder al Pago</button>
+                </div>
+            </div>
 
-    fetch("carrito.php", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.mensaje);
-        obtenerCarrito(idUsuario); // Actualizar la lista
-    })
-    .catch(error => console.error("Error:", error));
-}
+            <div id="checkoutModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Resumen de Compra</h2>
+                    <p>Revisa tu pedido antes de finalizar.</p>
+
+                    <!-- Selección de método de pago -->
+                    <label for="paymentMethod">Método de Pago:</label>
+                    <select id="paymentMethod" class="selectPago">
+                        <option value="">Seleccione un método</option>
+                        <option value="sinpe">Sinpe</option>
+                        <option value="efectivo">Efectivo</option>
+                    </select>
+
+                    <!-- Información adicional para Sinpe -->
+                    <div id="sinpeInfo" class="hidden">
+                        <p><strong>Por favor realice el pago al siguiente número: <span
+                                    class="phone-number">8888-8888</span></strong></p>
+                        <label for="paymentAttachment" class="adjuntarComprobante">Adjuntar Comprobante</label>
+                        <input type="file" id="paymentAttachment">
+                        <p id="file-name"></p>
+                    </div>
+
+                    <div class="cart-summary">
+                        <p class="total">Total: <strong>$XX.XX</strong></p>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="btn btn-secondary cancelar" id="closeModal">Cancelar</button>
+                        <button class="btn btn-primary pagar" id="pagarYa">Pagar Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Procesando pago...</p>
+            </div>
+
+            <!-- Mensaje de éxito -->
+            <div id="successMessage" class="hidden">
+                <h2>✅ Pedido realizado con éxito</h2>
+                <p>Gracias por tu compra.</p>
+                <button class="btn-primary" id="closeSuccess">Aceptar</button>
+            </div>
 
 
-    ?>
-    <h1>Carrito de Compras</h1>
-    
-    <button onclick="agregarItem(1, 10, 2)">Agregar Ítem</button>
-    <button onclick="obtenerCarrito(1)">Ver Carrito</button>
-    <button onclick="finalizarCompra(1)">Finalizar Compra</button>
-
-    <ul id="listaCarrito"></ul>
-
-    <script>
-        function actualizarListaCarrito(idUsuario) {
-            fetch(`carrito.php?accion=obtener&id_usuario=${idUsuario}`)
-            .then(response => response.json())
-            .then(data => {
-                let carritoHTML = "";
-                data.forEach(item => {
-                    carritoHTML += `
-                        <li>
-                            Reserva ID: ${item.ID_RESERVA} - Cantidad: ${item.CANTIDAD}
-                            <button onclick="eliminarItem(${idUsuario}, ${item.ID_RESERVA})">Eliminar</button>
-                        </li>`;
-                });
-                document.getElementById("listaCarrito").innerHTML = carritoHTML;
-            })
-            .catch(error => console.error("Error:", error));
-        }
-
-        function agregarItem(idUsuario, idReserva, cantidad) {
-            let formData = new FormData();
-            formData.append("accion", "agregar");
-            formData.append("id_usuario", idUsuario);
-            formData.append("id_reserva", idReserva);
-            formData.append("cantidad", cantidad);
-
-            fetch("carrito.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.mensaje);
-                actualizarListaCarrito(idUsuario);
-            })
-            .catch(error => console.error("Error:", error));
-        }
-
-        function eliminarItem(idUsuario, idReserva) {
-            let formData = new FormData();
-            formData.append("accion", "eliminar");
-            formData.append("id_usuario", idUsuario);
-            formData.append("id_reserva", idReserva);
-
-            fetch("carrito.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.mensaje);
-                actualizarListaCarrito(idUsuario);
-            })
-            .catch(error => console.error("Error:", error));
-        }
-
-        function finalizarCompra(idUsuario) {
-            let formData = new FormData();
-            formData.append("accion", "finalizar");
-            formData.append("id_usuario", idUsuario);
-
-            fetch("carrito.php", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data.mensaje);
-                actualizarListaCarrito(idUsuario);
-            })
-            .catch(error => console.error("Error:", error));
-        }
-
-        function obtenerCarrito(idUsuario) {
-            actualizarListaCarrito(idUsuario);
-        }
-    </script>
+        </section>
+    </main>
+    <hr>
+    <?php incluir_footer(); ?>
 </body>
-</html>
 
+</html>

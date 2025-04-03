@@ -25,17 +25,19 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch("./data/get_login.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: `username=${cedula}&password=${contrasena}`
+            body: new URLSearchParams({ username: cedula, password: contrasena })
         })
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert("Inicio de sesión exitoso");
-                window.location.href = "index.html"; // Redirigir
+                window.location.href = data.redirect;
             } else {
-                alert(data.message);
+                alert(data.message); 
             }
         })
         .catch(error => console.error("Error en la conexión:", error));
+        
+        
     });
+
 });

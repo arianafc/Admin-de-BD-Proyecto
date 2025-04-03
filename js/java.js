@@ -165,11 +165,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function registrarEventos() {
-        fetch('./registro_evento.php', {
+
+    document.getElementById("registrarEventos").addEventListener("click", function () {
+        let id_evento = this.getAttribute("data-id"); // Obtener el ID_EVENTO del botón
+        console.log("ID del evento:", id_evento);
+
+        // Aquí puedes llamar a la función registrarEventos y pasar el ID del evento
+        registrarEventos(id_evento);
+    });
+
+    function registrarEventos(id_evento) {
+        let cedula = "<?php echo $_SESSION['cedula'] ?? ''; ?>"; 
+        fetch('./data/registroEvento.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `cedula=${cedula}&id_invitado=${id_invitado}&id_evento=${id_evento}&fecha_registro=${fecha_registro}`
+            body: `cedula=${cedula}&id_evento=${id_evento}&fecha_registro=${fecha_registro}`
         })
             .then(response => response.json())
             .then(data => {

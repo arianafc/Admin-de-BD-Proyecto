@@ -1,20 +1,18 @@
 <?php
 session_start();
-var_dump($_POST);
 require 'conexion.php';
 
 // Indicar que el contenido es JSON
 header('Content-Type: application/json');
 
 try {
-    // Verificar si se enviaron datos por POST
     if ($_SERVER["REQUEST_METHOD"] !== "POST") {
         echo json_encode(["success" => false, "message" => "Método no permitido"]);
         exit;
     }
 
     // Obtener datos del formulario
-    $username = (int)($_POST['username'] ?? '');
+    $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
     $resultado = null;
 
@@ -25,41 +23,84 @@ try {
 
     if (!$conn) {
         echo json_encode(["success" => false, "message" => "Error de conexión a la base de datos."]);
-        exit();
+        exit;
     }
-    // Preparar la llamada al procedimiento almacenado
-    $sql = "BEGIN :resultado := FIDE_LOS_JAULES_LOGIN_PKG.FIDE_LOS_JAULES_LOGIN_SP(:cedula, :contrasena); END;";
+
+    // Llamada al procedimiento de login
+    $sql = "BEGIN :resultado := FIDE_LOS_JAULES_LOGIN_PKG.FIDE_LOS_JAULES_LOGIN_SP(:username, :contrasena); END;";
     $stmt = oci_parse($conn, $sql);
 
     if (!$stmt) {
-        $error = oci_error($conn);
-        echo json_encode(["success" => false, "message" => "Error en oci_parse", "detail" => $error['message']]);
+        echo json_encode(["success" => false, "message" => "Error en oci_parse"]);
         exit;
     }
 
-
-    oci_bind_by_name($stmt, ":cedula", $username, -1, SQLT_INT);  
+    oci_bind_by_name($stmt, ":username", $username);
     oci_bind_by_name($stmt, ":contrasena", $password);
     oci_bind_by_name($stmt, ":resultado", $resultado, 1, SQLT_INT);
-    
+
     if (!oci_execute($stmt)) {
-        $error = oci_error($stmt);
-        echo json_encode(["success" => false, "message" => "Error al ejecutar procedimiento", "detail" => $error['message']]);
+        echo json_encode(["success" => false, "message" => "Error al ejecutar procedimiento"]);
         exit;
-    }
-    
-    // Obtener el resultado
-  
-    if ($resultado == 1) {
-        echo json_encode(["success" => true, "message" => "Bienvenido, usuario $username."]);
-    } else {
-        echo json_encode(["success" => false, "message" => "Datos incorrectos."]);
     }
 
     oci_free_statement($stmt);
+
+    if ($resultado != 1) {
+        echo json_encode(["success" => false, "message" => "Datos incorrectos."]);
+        exit;
+    }
+
+    // Obtener datos del usuario
+    $sql = "BEGIN FIDE_LOS_JAULES_LOGIN_PKG.FIDE_LOS_JAULES_GET_USUARIOS_SP(:username, :cursor); END;";
+    $stmt = oci_parse($conn, $sql);
+
+    if (!$stmt) {
+        echo json_encode(["success" => false, "message" => "Error en oci_parse"]);
+        exit;
+    }
+
+    $cursor = oci_new_cursor($conn);
+    oci_bind_by_name($stmt, ":username", $username);
+    oci_bind_by_name($stmt, ":cursor", $cursor, -1, OCI_B_CURSOR);
+
+    if (!oci_execute($stmt) || !oci_execute($cursor)) {
+        echo json_encode(["success" => false, "message" => "Error al obtener datos del usuario"]);
+        exit;
+    }
+
+    $usuario = oci_fetch_assoc($cursor);
+
+    if (!$usuario) {
+        echo json_encode(["success" => false, "message" => "Usuario no encontrado"]);
+        exit;
+    }
+
+    // Guardar en sesión
+    $_SESSION['cedula'] = $usuario['CEDULA'];
+    $_SESSION['nombre'] = $usuario['NOMBRE'];
+    $_SESSION['apellido1'] = $usuario['APELLIDO1'];
+    $_SESSION['apellido2'] = $usuario['APELLIDO2'];
+    $_SESSION['id_estado'] = $usuario['ID_ESTADO'];
+    $_SESSION['id_rol'] = $usuario['ID_ROL'];
+    $_SESSION['id_asociado'] = $usuario['ID_ASOCIADO'];
+    $_SESSION['usuario'] = $username;
+
+    oci_free_statement($stmt);
+    oci_free_statement($cursor);
     oci_close($conn);
+
+    // Enviar URL de redirección en JSON
+    if ($_SESSION['id_rol'] == 1) {
+        echo json_encode(["success" => true, "redirect" => "./index.php"]);
+    } elseif ($_SESSION['id_rol'] == 2) {
+        echo json_encode(["success" => true, "redirect" => "./dashboard.php"]);
+    } else {
+        echo json_encode(["success" => false, "message" => "Rol de usuario no válido."]);
+    }
+
+    exit;
 
 } catch (Exception $e) {
     echo json_encode(["success" => false, "message" => "Excepción en PHP", "detail" => $e->getMessage()]);
 }
-?>

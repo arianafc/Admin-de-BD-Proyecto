@@ -2,6 +2,7 @@
 <html lang="en">
 <?php 
 require_once 'fragmentos.php';
+session_start();
 ?>
 
 

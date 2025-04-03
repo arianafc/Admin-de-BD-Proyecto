@@ -2,6 +2,7 @@
 <html lang="en">
 <?php 
 require_once 'fragmentos.php';
+session_start();
 ?>
 
 
@@ -11,8 +12,9 @@ require_once 'fragmentos.php';
     <title>Los Jaules - Club Campestre</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <?php incluir_css()?>
-   
+    <?php incluir_css(); ?>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
 </head>
 
 <header>

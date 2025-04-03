@@ -1,12 +1,7 @@
 <?php
-session_start();
-require_once 'fragmentos.php';
 
-// Si el usuario ya ha iniciado sesión, redirigir al dashboard
-if (isset($_SESSION['user'])) {
-    header("Location: dashboard.php");
-    exit();
-}
+require_once 'fragmentos.php';
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +27,7 @@ if (isset($_SESSION['user'])) {
             <h2>Iniciar Sesión</h2>
             <p id="error-message" class="error" style="display: none;"></p>
             <form id="login-form">
-                <input type="text" id="usernameLogin" name="email" placeholder="Cédula" required>
+                <input type="text" id="usernameLogin" name="email" placeholder="Username" required>
                 <input type="password" id="password" name="password" placeholder="Contraseña" required>
                 <button type="submit" id="loginButton">Ingresar</button>
             </form>
