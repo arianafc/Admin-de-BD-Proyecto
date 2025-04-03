@@ -20,6 +20,7 @@ function incluir_navbar()
 {
     ?>
     <!-- Topbar -->
+     
     <div class="top-bar ">
         <p class="textoTopBar">¡Unite a nosotros y aprovechá nuestro Pase del Día!</p>
     </div>
@@ -37,8 +38,9 @@ function incluir_navbar()
     <button class="btn-membresia" onclick="location.href='login.php'">Iniciar Sesión</button>
 <?php else: ?>
     <div class="dropdown">
-    <button class="dropdown-button">Hola, <?php echo $_SESSION['nombre']; ?> ▼</button>
+    <button class="dropdown-button"> Hola, <?php echo $_SESSION['nombre']; ?> ▼</button>
     <div class="dropdown-content">
+        <a href="carrito.php">Carrito</a>
         <a href="perfil.php">Mi Perfil</a>
         <a href="logout.php">Cerrar Sesión</a>
     </div>

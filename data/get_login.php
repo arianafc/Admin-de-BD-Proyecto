@@ -2,15 +2,10 @@
 session_start();
 require 'conexion.php';
 
-// Indicar que el contenido es JSON
 header('Content-Type: application/json');
 
 try {
-    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        echo json_encode(["success" => false, "message" => "Método no permitido"]);
-        exit;
-    }
-
+    
     // Obtener datos del formulario
     $username = $_POST['username'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -128,4 +123,10 @@ try {
 } catch (Exception $e) {
     echo json_encode(["success" => false, "message" => "Excepción en PHP", "detail" => $e->getMessage()]);
 }
+?>
+
+
+
+
+
 ?>

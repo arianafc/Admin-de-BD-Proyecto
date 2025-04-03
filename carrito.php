@@ -3,6 +3,7 @@
 
 <?php
 require_once 'fragmentos.php';
+session_start();
 ?>
 
 <head>
@@ -13,9 +14,11 @@ require_once 'fragmentos.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/carrito.css">
     <?php incluir_css(); ?>
-    <script src="js/java.js"></script>
+    <script src="js/membresia.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
 </head>
 
@@ -23,35 +26,31 @@ require_once 'fragmentos.php';
     <?php incluir_navbar(); ?>
     <main>
         <section class="cart-section">
-            <div class="cart-header text-center">
-                <h1 class="productosHP text-center">TU CARRITO</h3>
-            </div>
+     
 
-            <div class="cart-items">
-    
+            <div class="cart-items container p-5">
+            <div class="table-responsive carrito-container">
+    <table class="table table-bordered text-center carrito-tabla">
+        <thead class="table-dark">
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario (CRC)</th>
+                <th>Subtotal (CRC)</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody id="tablaCarritoBody">
+        
+        </tbody>
+    </table>
+    <h4 class="fw-bold text-end">TOTAL <span id="totalCarrito">0,00 CRC</span></h4>
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Precio Unitario (CRC)</th>
-                            <th>Subtotal (CRC)</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                   <tbody id="tablaCarrito">
-
-                   </tbody>
-                </table>
-
-               
-
-                <div class="cart-actions">
-                    <button class="btn btn-secondary"><a style="text-decoration: none; color: #fff"
-                            href="productos.php">Seguir Comprando</a></button>
-                    <button class="btn btn-primary" id="checkoutBtn">Proceder al Pago</button>
-                </div>
+    <div class="d-flex justify-content-between align-items-center carrito-footer">
+        <button class="btn btn-secondary ">Seguir Comprando</button>
+        <button class="btn btn-primary " id="pagarCarrito">Proceder al Pago</button>
+    </div>
+</div>
             </div>
 
             <div id="checkoutModal" class="modal">
@@ -88,18 +87,7 @@ require_once 'fragmentos.php';
                 </div>
             </div>
 
-            <div id="loading" class="hidden">
-                <div class="spinner"></div>
-                <p>Procesando pago...</p>
-            </div>
-
-            <!-- Mensaje de éxito -->
-            <div id="successMessage" class="hidden">
-                <h2>✅ Pedido realizado con éxito</h2>
-                <p>Gracias por tu compra.</p>
-                <button class="btn-primary" id="closeSuccess">Aceptar</button>
-            </div>
-
+         
 
         </section>
     </main>

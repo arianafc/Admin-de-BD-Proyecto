@@ -1,0 +1,62 @@
+/* Contenedor del carrito */
+.carrito-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabla del carrito */
+.carrito-tabla {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carrito-tabla thead {
+    background-color: #1C3D5A; /* Color oscuro */
+    color: white;
+}
+
+.carrito-tabla th, .carrito-tabla td {
+    padding: 15px;
+    vertical-align: middle;
+}
+
+/* Footer del carrito */
+.carrito-footer {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.bntPagar {
+    background-color: #1C3D5A; /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.btnCancelar {
+    background-color: #333; /* Color de fondo rojo */
+    color: white; /* Color del texto blanco */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.swal2-select {
+    padding: 5px;
+}
+
+/* Estilos para el resumen de compra */
+.cart-summary .total {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilos para el input de archivo */
+.swal2-file {
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
