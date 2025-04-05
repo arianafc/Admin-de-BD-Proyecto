@@ -30,8 +30,8 @@ session_start();
 
             <div class="cart-items container p-5">
             <div class="table-responsive carrito-container">
-    <table class="table table-bordered text-center carrito-tabla">
-        <thead class="table-dark">
+    <table class="table carrito-tabla">
+        <thead class="theadCarrito">
             <tr>
                 <th>Producto</th>
                 <th>Cantidad</th>
@@ -47,8 +47,8 @@ session_start();
     <h4 class="fw-bold text-end">TOTAL <span id="totalCarrito">0,00 CRC</span></h4>
 
     <div class="d-flex justify-content-between align-items-center carrito-footer">
-        <button class="btn btn-secondary ">Seguir Comprando</button>
-        <button class="btn btn-primary " id="pagarCarrito">Proceder al Pago</button>
+        <button class="btnCancelar btn ">Seguir Comprando</button>
+        <button class="btnPagar btn " id="pagarCarrito">Proceder al Pago</button>
     </div>
 </div>
             </div>
