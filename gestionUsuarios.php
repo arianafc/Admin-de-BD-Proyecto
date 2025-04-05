@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="js/java.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
@@ -25,7 +27,7 @@
                     <div class="opciones">
                         <a href="dashboard.php" id="dashboard">Dashboard</a>
                         <a href="gestionUsuarios.php" id="gestionUsuarios">Gestión de Usuarios</a>
-                        <a href="gestionPedidos.php" id="gestionPedidos">Gestión de Proveedores</a>
+                        <a href="gestionProveedores.php" id="gestionProveedores" class="active">Gestión de Proveedores</a>
                         <a href="gestionProductos.php" id="gestionProductos">Gestión de Productos</a>
                         <a href="gestionInventario.php" id="gestionInventario">Gestión de Inventario</a>
                         <a href="gestionCotizaciones.php" id="gestionCotizaciones">Gestión de Membresías</a>
@@ -54,38 +56,8 @@
                         <button class="btn btn-primary" data-toggle="modal" data-target="#addUserModal">Agregar Usuario</button>
                     </div>
                     <div class="card-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Email</th>
-                                    <th>Rol</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Juan Pérez</td>
-                                    <td>juan@example.com</td>
-                                    <td>Administrador</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editUserModal" onclick="editUser(1, 'Juan Pérez', 'juan@example.com', 'Administrador')">Editar</a>
-                                        <a href="#" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Ana Gómez</td>
-                                    <td>ana@example.com</td>
-                                    <td>Usuario</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editUserModal" onclick="editUser(2, 'Ana Gómez', 'ana@example.com', 'Usuario')">Editar</a>
-                                        <a href="#" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">Eliminar</a>
-                                    </td>
-                                </tr>
-                            </tbody>
+                        <table class="table table-bordered" id="tablaUsuarios">
+                           
                         </table>
                     </div>
                 </div>
