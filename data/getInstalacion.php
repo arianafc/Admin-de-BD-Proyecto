@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $cursor = oci_new_cursor($conn);
         oci_bind_by_name($stmt, ":cursor", $cursor, -1, OCI_B_CURSOR);
-        oci_bind_by_name($stmt, ":id", $id, -1, SQLT_INT);
+        oci_bind_by_name($stmt, ":id", $tipo, -1, SQLT_INT);
 
         if (!oci_execute($stmt)) {
             die(json_encode(["error" => "Error al ejecutar procedimiento", "detalle" => oci_error($stmt)]));

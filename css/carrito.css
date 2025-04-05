@@ -12,8 +12,8 @@
     overflow: hidden;
 }
 
-.carrito-tabla thead {
-    background-color: #1C3D5A; /* Color oscuro */
+.theadCarrito{
+    background-color:  #1C71A6 !important; /* Color oscuro */
     color: white;
 }
 
