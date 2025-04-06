@@ -41,7 +41,7 @@ function incluir_navbar()
     <button class="dropdown-button"> Hola, <?php echo $_SESSION['nombre']; ?> ▼</button>
     <div class="dropdown-content">
         <a href="carrito.php">Carrito</a>
-        <a href="perfil.php">Mi Perfil</a>
+        <a href="miperfil.php">Mi Perfil</a>
         <a href="logout.php">Cerrar Sesión</a>
     </div>
 </div>
@@ -150,7 +150,7 @@ function sidebar()
         <div class="opciones">   
         <a href="dashboard.php" id="dashboard">Dashboard</a>
         <a href="gestionUsuarios.php" id="gestionUsuarios">Gestión de Usuarios</a>
-        <a href="gestionPedidos.php" id="gestionPedidos">Gestión de Proveedores</a>
+        <a href="gestionProveedores.php" id="gestionProveedores">Gestión de Proveedores</a>
         <a href="gestionProductos.php" id="gestionProductos">Gestión de Productos</a>
         <a href="gestionInventario.php" id="gestionInventario">Gestión de Inventario</a>
         <a href="gestionCotizaciones.php" id="gestionCotizaciones">Gestión de Membresías</a></div>

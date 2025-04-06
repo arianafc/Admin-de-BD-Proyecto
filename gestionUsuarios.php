@@ -1,40 +1,50 @@
+<?php
+require_once 'fragmentos.php';
+session_start();
+
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php'); 
+    exit;
+}
+
+require 'data/conexion.php';
+
+try {
+    // Obtener los datos de los usuarios
+    $stid = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_USUARIOS_TB_GET_USERS_SP(:datos); END;");
+    $cursor = oci_new_cursor($conn);
+    oci_bind_by_name($stid, ":datos", $cursor, -1, OCI_B_CURSOR);
+    
+    oci_execute($stid);
+    oci_execute($cursor);
+
+    // Inicializar un array para almacenar los usuarios
+    $usuarios = [];
+    while ($usuario = oci_fetch_assoc($cursor)) {
+        $usuarios[] = $usuario;
+    }
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Gestión de Usuarios</title>
-    
-    <!-- Enlace al archivo CSS externo -->
     <link rel="stylesheet" href="css/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="sidebar">
-                <nav id="sidebar" class="sidebar py-3 d-md-block">
-                    <div class="sidebar-header text-center">
-                        <h4 class="tituloAdmin">CLUB LOS JAÚLES CAMPESTRE</h4>
-                    </div>
-                    <hr>
-                    <div class="opciones">
-                        <a href="dashboard.php" id="dashboard">Dashboard</a>
-                        <a href="gestionUsuarios.php" id="gestionUsuarios">Gestión de Usuarios</a>
-                        <a href="gestionPedidos.php" id="gestionPedidos">Gestión de Proveedores</a>
-                        <a href="gestionProductos.php" id="gestionProductos">Gestión de Productos</a>
-                        <a href="gestionInventario.php" id="gestionInventario">Gestión de Inventario</a>
-                        <a href="gestionCotizaciones.php" id="gestionCotizaciones">Gestión de Membresías</a>
-                        <a href="gestionEmpleados.php" id="gestionEmpleados">Gestión de Empleados</a>
-                    </div>
-                </nav>
-                <!-- Botón de menú -->
-                <button class="btn btn-toggle d-md-none m-3" id="menu-toggle">☰</button>
-            </div>
+            <?php sidebar() ?>
+
             <!-- Contenido -->
             <main id="content" class="col-md-10 ms-sm-auto px-md-4 content">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -65,26 +75,18 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Juan Pérez</td>
-                                    <td>juan@example.com</td>
-                                    <td>Administrador</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editUserModal" onclick="editUser(1, 'Juan Pérez', 'juan@example.com', 'Administrador')">Editar</a>
-                                        <a href="#" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Ana Gómez</td>
-                                    <td>ana@example.com</td>
-                                    <td>Usuario</td>
-                                    <td>
-                                        <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editUserModal" onclick="editUser(2, 'Ana Gómez', 'ana@example.com', 'Usuario')">Editar</a>
-                                        <a href="#" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">Eliminar</a>
-                                    </td>
-                                </tr>
+                                <?php foreach ($usuarios as $usuario): ?>
+                                    <tr>
+                                        <td><?php echo $usuario['CEDULA']; ?></td>
+                                        <td><?php echo $usuario['NOMBRE']; ?></td>
+                                        <td><?php echo $usuario['EMAIL']; ?></td>
+                                        <td><?php echo $usuario['ROL']; ?></td>
+                                        <td>
+                                            <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#editUserModal" onclick="editUser('<?php echo $usuario['CEDULA']; ?>', '<?php echo $usuario['NOMBRE']; ?>', '<?php echo $usuario['EMAIL']; ?>', '<?php echo $usuario['ROL']; ?>')">Editar</a>
+                                            <a href="#" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
@@ -169,5 +171,5 @@
         }
     </script>
 </body>
-
 </html>
+
