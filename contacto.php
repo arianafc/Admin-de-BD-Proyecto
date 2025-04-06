@@ -2,6 +2,7 @@
 <html lang="en">
 <?php 
 require_once 'fragmentos.php';
+session_start();
 ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

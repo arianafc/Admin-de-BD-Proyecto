@@ -1,25 +1,46 @@
-<?php 
+<?php
 require_once 'fragmentos.php';
 session_start();
 
-// Simulación de datos del usuario (debes obtener estos valores desde la base de datos)
-$usuario = [
-    'nombre' => 'Juan',
-    'primer_apellido' => 'Pérez',
-    'segundo_apellido' => 'Gómez',
-    'cedula' => '123456789',
-    'correo' => 'juanperez@example.com',
-];
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php'); 
+    exit;
+}
 
-// Simulación de membresía (si no tiene, dejar vacío)
-$membresia = [
-    'nombre' => 'Premium',
-    'costo' => '₡50,000',
-    'duracion_dias' => 30,
-    'descripcion' => 'Acceso ilimitado a todas las instalaciones.',
-    'num_invitados' => 2,
-    'estado' => 'Activa'
-];
+require 'data/conexion.php';
+
+try {
+    $usuario_sesion = $_SESSION['usuario']; 
+
+    $stid = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_USUARIO_TB_GET_BY_USUARIO_SP(:usuario, :datos); END;");
+    oci_bind_by_name($stid, ":usuario", $usuario_sesion);
+    $cursor = oci_new_cursor($conn);
+    oci_bind_by_name($stid, ":datos", $cursor, -1, OCI_B_CURSOR);
+
+    oci_execute($stid);
+    oci_execute($cursor);
+
+    $usuario = oci_fetch_assoc($cursor);
+
+    if (!$usuario) {
+        header('Location: login.php');
+        exit;
+    }
+
+    $stid_membresia = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_USUARIO_TB_GET_MEMBRESIA_BY_USUARIO_SP(:usuario, :membresia); END;");
+    oci_bind_by_name($stid_membresia, ":usuario", $usuario_sesion);
+    $cursor_membresia = oci_new_cursor($conn);
+    oci_bind_by_name($stid_membresia, ":membresia", $cursor_membresia, -1, OCI_B_CURSOR);
+
+    oci_execute($stid_membresia);
+    oci_execute($cursor_membresia);
+
+    $membresia = oci_fetch_assoc($cursor_membresia);
+
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+    exit;
+}
 
 ?>
 
@@ -42,15 +63,13 @@ $membresia = [
 
     <div class="container-fluid profile-container">
         <div class="row">
-            <!-- Columna izquierda: Información del usuario (con card) -->
             <div class="col-md-4 profile-info">
                 <div class="card user-card">
                     <h2>Mi Perfil</h2>
-                    <p><strong>Nombre Completo:</strong> <?php echo $usuario['nombre'] . ' ' . $usuario['primer_apellido'] . ' ' . $usuario['segundo_apellido']; ?></p>
-
-                    <p><strong>Cédula:</strong> <?php echo $usuario['cedula']; ?></p>
-                    <p><strong>Correo Electrónico:</strong> <?php echo $usuario['correo']; ?></p>
-                    
+                    <p><strong>Nombre Completo:</strong> <?php echo $usuario['NOMBRE'] . ' ' . $usuario['APELLIDO1'] . ' ' . $usuario['APELLIDO2']; ?></p>
+                    <p><strong>Cédula:</strong> <?php echo $usuario['CEDULA']; ?></p>
+                    <p><strong>Correo Electrónico:</strong> <?php echo $usuario['EMAIL']; ?></p>
+                    <p><strong>Usuario:</strong> <?php echo $usuario['USUARIO']; ?></p>
                     <div class="buttons">
                         <button class="btn btn-edit"><i class="fas fa-edit"></i> Editar Perfil</button>
                         <button class="btn btn-logout"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
@@ -59,38 +78,36 @@ $membresia = [
                 </div>
             </div>
 
-            <!-- Columna derecha: Membresía -->
             <div class="col-md-8 profile-membership">
                 <div class="card membership-card">
-                    <h3>Membresía</h3> <!-- Título dentro del card -->
-                    <?php if (!empty($membresia['nombre'])): ?>
+                    <h3>Membresía</h3>
+                    <?php if (!empty($membresia)): ?>
                         <table class="table">
                             <tr>
                                 <th>Nombre</th>
-                                <td><?php echo $membresia['nombre']; ?></td>
+                                <td><?php echo $membresia['NOMBRE']; ?></td>
                             </tr>
                             <tr>
                                 <th>Costo</th>
-                                <td><?php echo $membresia['costo']; ?></td>
+                                <td><?php echo $membresia['COSTO']; ?></td>
                             </tr>
                             <tr>
                                 <th>Duración (días)</th>
-                                <td><?php echo $membresia['duracion_dias']; ?></td>
+                                <td><?php echo $membresia['DURACION_DIAS']; ?></td>
                             </tr>
                             <tr>
                                 <th>Descripción</th>
-                                <td><?php echo $membresia['descripcion']; ?></td>
+                                <td><?php echo $membresia['DESCRIPCION']; ?></td>
                             </tr>
                             <tr>
                                 <th>Número de invitados</th>
-                                <td><?php echo $membresia['num_invitados']; ?></td>
+                                <td><?php echo $membresia['NUM_INVITADOS']; ?></td>
                             </tr>
                             <tr>
                                 <th>Estado</th>
-                                <td><?php echo $membresia['estado']; ?></td>
+                                <td><?php echo $membresia['ESTADO']; ?></td>
                             </tr>
                         </table>
-                        <!-- Botón de Cancelar Membresía -->
                         <div class="cancel-btn-container">
                             <button class="btn btn-cancel-membership"><i class="fas fa-times-circle"></i> Cancelar Membresía</button>
                         </div>
