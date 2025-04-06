@@ -228,19 +228,46 @@ $(document).on('click', '#pagarCarrito', function () {
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            Swal.fire({
-                title: "Procesando Pago...",
-                text: "Contactando con la entidad bancaria...",
-                showConfirmButton: false,
-                timer: 5000 
-            }).then(() => {
-                Swal.fire({
-                    title: "¡Pago Exitoso!",
-                    text: "Tu pago ha sido completado correctamente.",
-                    icon: "success",
-                    confirmButtonText: "Aceptar"
-                });
-            });
+
+            //EJECUTAMOS EL CHECKOUT
+            const metodoSeleccionado = document.querySelector('input[name="paymentMethod"]:checked');
+
+            if (metodoSeleccionado) {
+                let idMetodoPago = metodoSeleccionado.value;
+                     console.log("ID del método de pago seleccionado:", idMetodoPago);
+                     $.post('./data/carritoActions.php', {action: 'checkout', idMetodoPago: idMetodoPago}, function(data){
+                        if(data.success) {
+                            Swal.fire({
+                                title: "Procesando Pago...",
+                                text: "Contactando con la entidad bancaria...",
+                                showConfirmButton: false,
+                                timer: 5000 
+                            }).then(() => {
+                                Swal.fire({
+                                    title: "¡Pago Exitoso!",
+                                    text: "Tu pago ha sido completado correctamente. Encontrarás información de tus reservas y membresías en la sección de Mi Perfil",
+                                    icon: "success",
+                                    confirmButtonText: "Aceptar",
+                                    timer: 3000 
+                                }).then(() => {
+                        
+                                    location.reload();
+                                });
+                            });
+                        } else {
+                         
+                                Swal.fire({
+                                    title: "No pudimos completar tu transacción.",
+                                    text: "Tu pago no ha sido completado correctamente.",
+                                    icon: "Error",
+                                    confirmButtonText: "Aceptar"
+                                });
+                        
+                        }
+                    });
+                }
+
+           
         }
     });
 });

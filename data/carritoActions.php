@@ -179,6 +179,25 @@ try {
 
             oci_free_statement($stid);
             break;
+        case 'checkout':
+            $metodoPago = $_POST['idMetodoPago'];
+
+            $sql = 'BEGIN FIDE_LOS_JAULES_CHECKOUT_PKG.FIDE_CHECKOUT_TB_EJECUTAR_SP(:carrito, :cedula, :metodoPago); END;';
+            $stmt = oci_parse($conn, $sql);
+
+            oci_bind_by_name($stmt, ":carrito", $idCarrito, 32);
+            oci_bind_by_name($stmt, ":cedula", $cedula, 32);
+            oci_bind_by_name($stmt, ":metodoPago", $metodoPago, 32);
+
+            if (!oci_execute($stmt)) {
+                $e = oci_error($stmt);
+                echo json_encode(["success" => false, "message" => "Error al ejecutar el pago", "detail" => $e['message']]);
+            } else {
+                echo json_encode(["success" => true, "message" => "Gracias por tu compra"]);
+            }
+            oci_free_statement($stmt);
+
+            break;
 
         default:
             echo json_encode(["success" => false, "message" => "Acción no válida"]);
