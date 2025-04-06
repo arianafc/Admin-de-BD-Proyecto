@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Gestión de Inventario</title>
-    
+
     <!-- Enlace al archivo CSS externo -->
     <link rel="stylesheet" href="css/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/dashboard.js"></script>
 </head>
 
 <body>
@@ -48,296 +50,212 @@
                     </div>
                 </div>
 
-                <!-- Filtro por Categoría -->
-                <div class="mb-3">
-                    <button class="btn btn-outline-primary category-btn" onclick="filterCategory('todos')">Todos</button>
-                    <button class="btn btn-outline-primary category-btn" onclick="filterCategory('canchaSintetica')">Cancha Sintética</button>
-                    <button class="btn btn-outline-primary category-btn" onclick="filterCategory('basketball')">Basketball</button>
-                    <button class="btn btn-outline-primary category-btn" onclick="filterCategory('volleyball')">Volleyball</button>
-                    <button class="btn btn-outline-primary category-btn" onclick="filterCategory('gym')">Gym</button>
-                    <button class="btn btn-outline-primary category-btn" onclick="filterCategory('gastronomia')">Gastronomía</button>
-                    <button class="btn btn-outline-primary category-btn" onclick="filterCategory('alojamiento')">Alojamiento</button>
-                </div>
-
-                <!-- Lista de Inventarios -->
-                <div id="inventoryContainer">
-                    <!-- Categoría Cancha Sintética -->
-                    <div class="card mb-4 category-section" id="canchaSintetica" style="display: none;">
-                        <div class="card-header">
-                            <h4>Cancha Sintética</h4>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Precio</th>
-                                        <th>Stock</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Pelota de Fútbol</td>
-                                        <td>Pelota para fútbol en cancha sintética</td>
-                                        <td>₡5,000</td>
-                                        <td>20</td>
-                                        <td>
-                                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal" onclick="editProduct(1, 'Pelota de Fútbol', 'Pelota para fútbol en cancha sintética', 5000, 20)">Editar</a>
-                                            <a href="#" class="btn btn-danger">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                <!-- Tabla de Inventario -->
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInventarioModal">Agregar Inventario</button>
                     </div>
-
-                    <!-- Categoría Basketball -->
-                    <div class="card mb-4 category-section" id="basketball" style="display: none;">
-                        <div class="card-header">
-                            <h4>Basketball</h4>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Precio</th>
-                                        <th>Stock</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Balón de Basketball</td>
-                                        <td>Balón profesional para jugar basketball</td>
-                                        <td>₡8,000</td>
-                                        <td>25</td>
-                                        <td>
-                                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal" onclick="editProduct(2, 'Balón de Basketball', 'Balón profesional para jugar basketball', 8000, 25)">Editar</a>
-                                            <a href="#" class="btn btn-danger">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Categoría Volleyball -->
-                    <div class="card mb-4 category-section" id="volleyball" style="display: none;">
-                        <div class="card-header">
-                            <h4>Volleyball</h4>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Precio</th>
-                                        <th>Stock</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Balón de Volleyball</td>
-                                        <td>Balón profesional para jugar volleyball</td>
-                                        <td>₡7,500</td>
-                                        <td>15</td>
-                                        <td>
-                                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal" onclick="editProduct(3, 'Balón de Volleyball', 'Balón profesional para jugar volleyball', 7500, 15)">Editar</a>
-                                            <a href="#" class="btn btn-danger">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Categoría Gym -->
-                    <div class="card mb-4 category-section" id="gym" style="display: none;">
-                        <div class="card-header">
-                            <h4>Gym</h4>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Precio</th>
-                                        <th>Stock</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Pesas</td>
-                                        <td>Pesas de 5 kg para gimnasio</td>
-                                        <td>₡3,000</td>
-                                        <td>40</td>
-                                        <td>
-                                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal" onclick="editProduct(4, 'Pesas', 'Pesas de 5 kg para gimnasio', 3000, 40)">Editar</a>
-                                            <a href="#" class="btn btn-danger">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Categoría Gastronomía -->
-                    <div class="card mb-4 category-section" id="gastronomia" style="display: none;">
-                        <div class="card-header">
-                            <h4>Gastronomía</h4>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Precio</th>
-                                        <th>Stock</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Menú Completo</td>
-                                        <td>Menú completo con entrada, plato fuerte y postre</td>
-                                        <td>₡15,000</td>
-                                        <td>30</td>
-                                        <td>
-                                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal" onclick="editProduct(5, 'Menú Completo', 'Menú completo con entrada, plato fuerte y postre', 15000, 30)">Editar</a>
-                                            <a href="#" class="btn btn-danger">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Categoría Alojamiento -->
-                    <div class="card mb-4 category-section" id="alojamiento" style="display: none;">
-                        <div class="card-header">
-                            <h4>Alojamiento</h4>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Precio</th>
-                                        <th>Stock</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>6</td>
-                                        <td>Habitación Doble</td>
-                                        <td>Habitación doble con baño privado</td>
-                                        <td>₡50,000</td>
-                                        <td>10</td>
-                                        <td>
-                                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editProductModal" onclick="editProduct(6, 'Habitación Doble', 'Habitación doble con baño privado', 50000, 10)">Editar</a>
-                                            <a href="#" class="btn btn-danger">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="card-body">
+                        <table class="table table-bordered" id="tablaInventario">
+                            <!-- Aquí se cargan los datos del inventario -->
+                        </table>
                     </div>
                 </div>
 
-                <!-- Modal para Editar Producto -->
-                <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+                <!-- Modal para agregar inventario -->
+                <div class="modal fade" id="addInventarioModal" tabindex="-1" aria-labelledby="addInventarioModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editProductModalLabel">Editar Producto</h5>
+                                <h5 class="modal-title" id="addInventarioModalLabel">Agregar Inventario</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                <form id="editProductForm">
+                                <form id="formAgregarInventario">
                                     <div class="mb-3">
-                                        <label for="productName" class="form-label">Nombre del Producto</label>
-                                        <input type="text" class="form-control" id="productName" required>
+                                        <label for="idInventario" class="form-label">ID Inventario</label>
+                                        <input type="number" class="form-control" id="idInventario" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="productDescription" class="form-label">Descripción</label>
-                                        <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                                        <label for="cantidad" class="form-label">Cantidad</label>
+                                        <input type="number" class="form-control" id="cantidad" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="productPrice" class="form-label">Precio (₡)</label>
-                                        <input type="number" class="form-control" id="productPrice" required>
+                                        <label for="idProducto" class="form-label">ID Producto</label>
+                                        <input type="number" class="form-control" id="idProducto" required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="productStock" class="form-label">Stock</label>
-                                        <input type="number" class="form-control" id="productStock" required>
+                                        <label for="cantidadMinima" class="form-label">Cantidad Mínima</label>
+                                        <input type="number" class="form-control" id="cantidadMinima" required>
                                     </div>
+
+                                    <!-- Añadir un campo oculto para enviar el parámetro requerido -->
+                                    <input type="hidden" name="param" value="valor_requerido">  <!-- Reemplaza con el valor adecuado -->
+
+                                    <button type="submit" class="btn btn-primary w-100">Guardar</button>
                                 </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-primary" onclick="saveProductChanges()">Guardar Cambios</button>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Modal para editar inventario -->
+                <div class="modal fade" id="editInventarioModal" tabindex="-1" aria-labelledby="editInventarioModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editInventarioModalLabel">Editar Inventario</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="formEditarInventario">
+                                    <input type="hidden" id="editIdInventario">
+                                    <div class="mb-3">
+                                        <label for="editIdInventarioDisplay" class="form-label">ID Inventario</label>
+                                        <input type="text" class="form-control" id="editIdInventarioDisplay" readonly>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editCantidad" class="form-label">Cantidad</label>
+                                        <input type="number" class="form-control" id="editCantidad" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editIdProducto" class="form-label">ID Producto</label>
+                                        <input type="number" class="form-control" id="editIdProducto" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editCantidadMinima" class="form-label">Cantidad Mínima</label>
+                                        <input type="number" class="form-control" id="editCantidadMinima" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Actualizar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </main>
         </div>
     </div>
 
-    <!-- Bootstrap JS y dependencias -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Función para cambiar la visibilidad del menú desplegable
-        function toggleDropdown() {
-            const dropdownMenu = document.getElementById('dropdownMenu');
-            dropdownMenu.style.display = dropdownMenu.style.display === 'none' ? 'block' : 'none';
+        function editInventario(idInventario, idProducto, cantidad, cantidadMinima) {
+            document.getElementById('editIdInventario').value = idInventario;
+            document.getElementById('editIdInventarioDisplay').value = idInventario;
+            document.getElementById('editCantidad').value = cantidad;
+            document.getElementById('editIdProducto').value = idProducto;
+            document.getElementById('editCantidadMinima').value = cantidadMinima;
         }
 
-        // Función para filtrar inventario por categoría
-        function filterCategory(category) {
-            const allCategories = document.querySelectorAll('.category-section');
-            allCategories.forEach(section => {
-                section.style.display = (category === 'todos' || section.id === category) ? 'block' : 'none';
+        $(document).ready(function () {
+            cargarInventario();
+        });
+
+        function cargarInventario() {
+            $.ajax({
+                url: './data/getInventario.php',
+                type: 'POST',
+                dataType: 'json',
+                success: function (response) {
+                    let contenedor = $("#tablaInventario");
+                    contenedor.html("");
+
+                    if (!response.success || response.data.length === 0) {
+                        contenedor.html(`<h3 class="text-center text-muted p-2">No hay productos en el inventario.</h3>`);
+                    } else {
+                        mostrarInventario(response.data);
+                    }
+                },
+                error: function () {
+                    alert("Error al cargar el inventario.");
+                }
             });
         }
 
-        // Función para editar producto (simulada)
-        function editProduct(id, name, description, price, stock) {
-            document.getElementById('productName').value = name;
-            document.getElementById('productDescription').value = description;
-            document.getElementById('productPrice').value = price;
-            document.getElementById('productStock').value = stock;
+        function mostrarInventario(inventario) {
+            let contenedor = $("#tablaInventario");
+
+            let contenido = `
+                <thead>
+                    <tr>
+                        <th>ID Inventario</th>
+                        <th>ID Producto</th>
+                        <th>Cantidad</th>
+                        <th>Cantidad Mínima</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+
+            inventario.forEach(item => {
+                contenido += `
+                    <tr>
+                        <td>${item.ID_INVENTARIO}</td>
+                        <td>${item.ID_PRODUCTO}</td>
+                        <td>${item.CANTIDAD}</td>
+                        <td>${item.CANTIDAD_MINIMA}</td>
+                        <td>
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editInventarioModal" 
+                                onclick="editInventario(${item.ID_INVENTARIO}, ${item.ID_PRODUCTO}, ${item.CANTIDAD}, ${item.CANTIDAD_MINIMA})">
+                                Editar
+                            </button>
+                            <button class="btn btn-danger" onclick="eliminarInventario(${item.ID_INVENTARIO})">Eliminar</button>
+                        </td>
+                    </tr>`;
+            });
+
+            contenido += `</tbody>`;
+            contenedor.html(contenido);
         }
 
-        // Función para guardar los cambios del producto (simulada)
-        function saveProductChanges() {
-            alert('Cambios guardados!');
+        function eliminarInventario(idInventario) {
+            if (confirm("¿Estás seguro de que deseas eliminar este registro de inventario?")) {
+                $.ajax({
+                    url: './data/deleteInventario.php',
+                    type: 'POST',
+                    data: { ID_INVENTARIO: idInventario },
+                    success: function () {
+                        alert("Registro eliminado correctamente.");
+                        cargarInventario();
+                    },
+                    error: function () {
+                        alert("Error al eliminar el registro.");
+                    }
+                });
+            }
         }
+
+        // Agregar Inventario
+        $("#formAgregarInventario").submit(function (event) {
+            event.preventDefault();  // Prevenir el envío por defecto
+
+            var data = {
+                idInventario: $("#idInventario").val(),
+                cantidad: $("#cantidad").val(),
+                idProducto: $("#idProducto").val(),
+                cantidadMinima: $("#cantidadMinima").val(),
+                param: "valor_requerido"  // Cambia este valor por el que se requiere
+            };
+
+            $.ajax({
+                url: './data/addInventario.php',  // Asegúrate de tener este archivo para agregar el inventario
+                type: 'POST',
+                data: data,
+                success: function (response) {
+                    if (response.success) {
+                        alert("Inventario agregado correctamente");
+                        $('#addInventarioModal').modal('hide');  // Cerrar modal
+                        cargarInventario();  // Recargar inventario
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function () {
+                    alert("Error al agregar el inventario.");
+                }
+            });
+        });
     </script>
 </body>
 
 </html>
-

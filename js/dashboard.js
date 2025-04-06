@@ -94,3 +94,130 @@ function eliminarProveedor(id) {
         });
     }
 }
+
+
+
+
+
+
+//==================GESTION PRODUCTOS=====================
+
+
+
+
+
+
+
+
+
+//==================GESTION INVENTARIO=====================
+
+
+$(document).ready(function () {
+    cargarInventario();
+});
+
+// Función para cargar inventario desde el servidor
+function cargarInventario() {
+    $.ajax({
+        url: './data/getInventario.php',  // Archivo PHP que obtiene los datos del inventario
+        type: 'POST',
+        dataType: 'json',
+        success: function (response) {
+            console.log("Inventario obtenido:", response);
+
+            let contenedor = $("#tablaInventario");
+            contenedor.html(""); // Limpiar contenido previo
+
+            if (!response.success || response.data.length === 0) {
+                contenedor.html(`<h3 class="text-center text-muted p-2">No hay productos en el inventario.</h3>`);
+            } else {
+                mostrarInventario(response.data);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error("Error al obtener inventario: ", error);
+            alert("Hubo un error al cargar el inventario. Inténtalo nuevamente.");
+        }
+    });
+}
+
+// Función para mostrar el inventario en la tabla
+function mostrarInventario(inventario) {
+    let contenedor = $("#tablaInventario");
+
+    let contenido = `
+        <thead>
+            <tr>
+                <th>ID Inventario</th>
+                <th>ID Producto</th>
+                <th>Cantidad</th>
+                <th>Cantidad Mínima</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>`;
+
+    inventario.forEach(item => {
+        contenido += `
+            <tr>
+                <td>${item.ID_INVENTARIO}</td>
+                <td>${item.ID_PRODUCTO}</td>
+                <td>${item.CANTIDAD}</td>
+                <td>${item.CANTIDAD_MINIMA}</td>
+                <td>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editInventarioModal" 
+                        onclick="editInventario(${item.ID_INVENTARIO}, ${item.ID_PRODUCTO}, ${item.CANTIDAD}, ${item.CANTIDAD_MINIMA})">
+                        Editar
+                    </button>
+                    <button class="btn btn-danger" onclick="eliminarInventario(${item.ID_INVENTARIO})">Eliminar</button>
+                </td>
+            </tr>`;
+    });
+
+    contenido += `</tbody>`;
+    contenedor.html(contenido);
+}
+
+// Función para editar un inventario (carga datos en el modal)
+function editInventario(idInventario, idProducto, cantidad, cantidadMinima) {
+    $("#editIdInventario").val(idInventario);
+    $("#editIdProducto").val(idProducto);
+    $("#editCantidad").val(cantidad);
+    $("#editCantidadMinima").val(cantidadMinima);
+}
+
+// Función para eliminar un registro de inventario
+function eliminarInventario(idInventario) {
+    if (confirm("¿Estás seguro de que deseas eliminar este registro de inventario?")) {
+        $.ajax({
+            url: './data/deleteInventario.php',
+            type: 'POST',
+            data: { ID_INVENTARIO: idInventario },
+            success: function (response) {
+                alert("Registro eliminado correctamente.");
+                cargarInventario();
+            },
+            error: function () {
+                alert("Error al eliminar el registro de inventario.");
+            }
+        });
+    }
+}
+
+
+//==================GESTION MEMBRESIAS=====================
+
+
+
+
+
+
+//==================GESTION EMPLEADOS=====================
+
+
+
+
+
+
+

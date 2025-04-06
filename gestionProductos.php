@@ -23,13 +23,13 @@
                     </div>
                     <hr>
                     <div class="opciones">
-                        <a href="dashboard.php">Dashboard</a>
-                        <a href="gestionUsuarios.php">Gestión de Usuarios</a>
-                        <a href="gestionProveedores.php">Gestión de Proveedores</a>
-                        <a href="gestionProductos.php" class="active">Gestión de Productos</a>
-                        <a href="gestionInventario.php">Gestión de Inventario</a>
-                        <a href="gestionCotizaciones.php">Gestión de Membresías</a>
-                        <a href="gestionEmpleados.php">Gestión de Empleados</a>
+                        <a href="dashboard.php" id="dashboard">Dashboard</a>
+                        <a href="gestionUsuarios.php" id="gestionUsuarios">Gestión de Usuarios</a>
+                        <a href="gestionProveedores.php" id="gestionProveedores" class="active">Gestión de Proveedores</a>
+                        <a href="gestionProductos.php" id="gestionProductos">Gestión de Productos</a>
+                        <a href="gestionInventario.php" id="gestionInventario">Gestión de Inventario</a>
+                        <a href="gestionCotizaciones.php" id="gestionCotizaciones">Gestión de Membresías</a>
+                        <a href="gestionEmpleados.php" id="gestionEmpleados">Gestión de Empleados</a>
                     </div>
                 </nav>
                 <button class="btn btn-toggle d-md-none m-3" id="menu-toggle">☰</button>
