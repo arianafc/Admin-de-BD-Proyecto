@@ -18,7 +18,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php incluir_css() ?>
     <script src="js/java.js"></script>
-    <script src="js/membresia.js"></script>
+    <script src="js/carrito.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
 </head>
 

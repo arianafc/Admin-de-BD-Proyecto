@@ -18,7 +18,7 @@ session_start();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/carrito.css">
     <?php incluir_css(); ?>
-    <script src="js/membresia.js"></script>
+    <script src="js/carrito.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
 </head>
 

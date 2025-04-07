@@ -64,26 +64,33 @@ document.addEventListener("DOMContentLoaded", function () {
             html: `
                 <form id="formReserva">
                     <div class="swal2-input-group">
+                        <div class="mb-3">
+                        <label>Día de Ingreso</label>
                         <input type="date" id="fechaInicio" class="swal2-input" placeholder="Fecha Inicio" required>
+                        </div>
+                         <div class="mb-3">
+                         <label>Día de Salida</label>
                         <input type="date" id="fechaFin" class="swal2-input" placeholder="Fecha Fin" required>
-                        <input type="number" id="personas" class="swal2-input" placeholder="Cantidad de Personas" required min="1">
+                        </div>
+                         <div class="mb-3">
+                        <label>Número de Personas</label>
+                        <input type="number" id="personas" class="swal2-input" placeholder="Número de Personas" required min="1">
+                       </div>
                     </div>
                 </form>
             `,
             showCancelButton: true,
             confirmButtonText: 'Reservar',
             preConfirm: () => {
-              
                 const fechaInicio = document.getElementById('fechaInicio').value;
                 const fechaFin = document.getElementById('fechaFin').value;
                 const personas = document.getElementById('personas').value;
-                
+    
                 if (!fechaInicio || !fechaFin || !personas) {
                     Swal.showValidationMessage('Por favor, complete todos los campos.');
                     return false;
                 }
     
-             
                 if (new Date(fechaInicio) > new Date(fechaFin)) {
                     Swal.showValidationMessage('La fecha de inicio no puede ser posterior a la fecha de fin.');
                     return false;
@@ -93,7 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }).then((result) => {
             if (result.isConfirmed) {
-               
                 const { fechaInicio, fechaFin, personas } = result.value;
                 $.post('./data/reservas.php', {
                     fecha_inicio: fechaInicio,
@@ -115,68 +121,38 @@ document.addEventListener("DOMContentLoaded", function () {
                             text: response.message
                         });
                     }
-                }, "json").fail(function () {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Error",
-                        text: "Lo sentimos. Solo puedes agregar una membresía al carrito."
-                    });
-                });
-    }});
-
-    
-    $(document).on('click', '#guardarReservaCabana', function () {
-        let fechaInicio = $('#fechaInicio').val(); 
-        let fechaFin = $('#fechaFin').val();
-        let personas = $('#numPersonas').val(); 
-        console.log(fechaInicio);
-        console.log(fechaFin);
-    
-        if (!fechaInicio) {
-            Swal.fire({
-                title: 'Error',
-                text: 'Por favor selecciona una fecha de inicio.',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-            });
-            return;
-        }
-    
-        $.post('./data/reservas.PHP', {
-            accion: 'reservarCabana', 
-            id_instalacion: idInstalacion, 
-            fecha_inicio: fechaInicio, 
-            fecha_fin: fechaFin, 
-            num_personas: personas
-        }, function(response) {
-            let res = JSON.parse(response);
-           
-            if (res.success) {
-                alert(fechaInicio);
-                Swal.fire({
-                    title: 'Estado de la reserva:',
-                    text: res.message,
-                    icon: 'info',
-                    confirmButtonText: 'Aceptar'
-                });
-            } else {
-                Swal.fire({
-                    title: 'Error',
-                    text: res.message,
-                    icon: 'error',
-                    confirmButtonText: 'Intentar nuevamente'
                 });
             }
         });
-    });
-    
-    
-    function isValidDate(dateString) {
-        const regex = /^\d{4}-\d{2}-\d{2}$/;
-        return regex.test(dateString);
     }
     
+    //--------------------------------------------------E D I T A R
+
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     $(document).on('click', '#btnSalones', function () {
         let tipo = 4;
@@ -284,12 +260,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
     
-    }});
     
     
 
     
-    
+});
     
     
     
