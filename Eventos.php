@@ -15,6 +15,7 @@ session_start();
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/eventos.css">
     <link rel="stylesheet" href="./css/alojamiento.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <?php incluir_css()?>
     <script src="js/java.js"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
@@ -30,7 +31,10 @@ session_start();
         <h2 class="eventosText text-center"><b>DISFRUTA DE LAS MEJORES</b> <span class="eventosHighlight">ACTIVIDADES QUE CLUB JAÚLES TE OFRECE</span></h2>
     </div>
 
-<div class="container p-2" id="container-eventos">
+<div class="container p-2" >
+    <div class="row" id="container-eventos">
+        
+    </div>
 
 </div>
 
