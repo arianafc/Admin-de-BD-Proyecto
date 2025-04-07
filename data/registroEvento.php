@@ -1,4 +1,8 @@
 <?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+session_start();
 require 'conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -6,37 +10,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode(["success" => false, "message" => "Error: No se ha iniciado sesión."]);
         exit;
     }
-    
+
     $cedula = $_SESSION['cedula']; 
-    $id_invitado = empty($_POST['id_invitado']) ? NULL : $_POST['id_invitado'];
     $id_evento = $_POST['id_evento'];
-    $fecha_registro = $_POST['fecha_registro'];
+    $resultado = null;
 
     try {
-        $sql = "BEGIN FIDE_LOS_JAULES_EVENTOS_PKG.FIDE_EVENTOS_TB_INSERTAR_REGISTRO_SP(:cedula, :id_invitado, :id_evento, :fecha_registro); END;";
+        $sql = "BEGIN :resultado := FIDE_LOS_JAULES_EVENTOS_PKG.FIDE_EVENTOS_TB_INSERTAR_REGISTRO_MIEMBRO_FN(:cedula, :id_evento); END;";
         $stmt = oci_parse($conn, $sql);
 
         oci_bind_by_name($stmt, ":cedula", $cedula);
-        oci_bind_by_name($stmt, ":id_invitado", $id_invitado);
         oci_bind_by_name($stmt, ":id_evento", $id_evento);
-        oci_bind_by_name($stmt, ":fecha_registro", $fecha_registro);
+        oci_bind_by_name($stmt, ":resultado", $resultado);
 
         if (!oci_execute($stmt)) {
             $error = oci_error($stmt);
 
-            // Si es el error de membresía, lo mostramos en el mensaje
-            if (strpos($error['message'], '-20001') !== false) {
-                echo json_encode(["success" => false, "message" => "Error: El usuario no tiene una membresía o pase activo."]);
+            if (strpos($error['message'], 'ORA-20002') !== false) {
+                // Enviar mensaje en formato JSON
+                echo json_encode(["success" => false, "message" => "El usuario ya está registrado en este evento."]);
             } else {
+               
                 echo json_encode(["success" => false, "message" => "Error al registrar el evento", "detalle" => $error['message']]);
             }
         } else {
-            echo json_encode(["success" => true, "message" => "Registro exitoso."]);
+            if ($resultado == 1) {
+                echo json_encode(["success" => true, "message" => "Registro exitoso."]);
+            } else if ($resultado == 2) {
+                echo json_encode(["success" => false, "message" => "La membresía expira antes de la fecha del evento."]);
+            } else if ($resultado == 3) {
+                echo json_encode(["success" => false, "message" => "No tienes una membresía activa."]);
+            } else {
+                echo json_encode(["success" => false, "message" => "Lo sentimos. No hay cupo para el evento."]);
+            }
         }
 
         oci_free_statement($stmt);
         oci_close($conn);
     } catch (Exception $e) {
+  
         echo json_encode(["success" => false, "message" => "Excepción en PHP", "detalle" => $e->getMessage()]);
     }
 }

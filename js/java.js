@@ -144,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         eventos.forEach(evento => {
             let card = `
-            <div class="row">
                 <div class="col-sm-4 pt-2">
                     <div class="card eventosCard text-center">
                         <div class="card-body">
@@ -156,15 +155,57 @@ document.addEventListener("DOMContentLoaded", function () {
                             <p class="card-text"><strong>Cupos:</strong> ${evento.CAPACIDAD}</p>
                             <p class="card-text"><strong>Lugar:</strong> ${evento.INSTALACION}</p>
                             <button class="btn btnReservar-Activo" id="registrarEventos" data-id=${evento.ID_EVENTO}>Registrarme</button>
+                            <hr>
+                            <button class="btn btnReservar-Activo " id="registroInvitado" data-id=${evento.ID_EVENTO}>Ingresar como Invitado</button>
                         </div>
                     </div>
                 </div>
-            </div>
         `;
             contenedor.innerHTML += card;
         });
     }
 
+
+    $(document).on('click', '#registrarEventos', function(){
+        let idEvento = $(this).data('id');
+        $.post('./data/registroEvento.php', {id_evento: idEvento}, function(response){
+            try {
+                // Intentar convertir la respuesta a JSON
+                const data = JSON.parse(response);
+                console.log(data);  // Verifica lo que el servidor está enviando
+    
+                // Mostrar mensaje según el resultado
+                if (data.success) {
+                    Swal.fire({
+                        title: "Registro de Eventos",
+                        text: data.message,
+                        icon: "info",
+                        confirmButtonText: "Aceptar",
+                        timer: 3000 
+                    }).then(() => {
+                        location.reload();
+                    });
+    
+                } else {
+                    Swal.fire({
+                        title: "Error",
+                        text: data.message,
+                        icon: "error",
+                        confirmButtonText: "Aceptar"
+                    });
+                }
+            } catch (e) {
+                console.error('Error al analizar la respuesta JSON:', e);
+                Swal.fire({
+                    title: "Error",
+                    text: "Ya te encuentras registrado en este evento.",
+                    icon: "info",
+                    confirmButtonText: "Aceptar"
+                });
+            }
+        });
+    });
+    
 
     document.getElementById("registrarEventos").addEventListener("click", function () {
         let id_evento = this.getAttribute("data-id"); // Obtener el ID_EVENTO del botón

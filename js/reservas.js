@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p><strong>Costo de reservación: </strong>
                     ${instalacion.COSTO}
                     </p>
-                    <p><b>IMPORTANTE: </b>El Check-in se realiza a las 12:00 pm, y el Check-Out a las 3:00 pm</p>
+                    <p><b>IMPORTANTE: </b>El Check-in se realiza a las 2:00 pm, y el Check-Out a las 12:00 pm</p>
                     <a href="#" class="btn btn-custom" data-id="${instalacion.ID_INSTALACION}" id="btnReservarCabana">Reservar</a>
                 </div>
             </div>`;

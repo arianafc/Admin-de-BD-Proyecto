@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Cedula:", cedula);
         console.log("Contraseña:", contrasena);
 
-        // Enviar datos al servidor con Fetch API en vez de jQuery (opcional)
         fetch("./data/get_login.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },

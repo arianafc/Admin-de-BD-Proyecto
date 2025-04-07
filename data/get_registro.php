@@ -22,7 +22,6 @@ try {
         exit;
     }
 
-    // Llamada al procedimiento de encriptación y registro
     $sql = "BEGIN FIDE_LOS_JAULES_ENCRIPTACION_PKG.FIDE_ENCRIPTAR_CONTRASENA_SP(
                 :cedula, :nombre, :apellido1, :apellido2, :contrasena
             ); END;";
