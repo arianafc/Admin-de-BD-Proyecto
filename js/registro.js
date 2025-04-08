@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
+                
                 alert("Registro exitoso. Ahora puedes iniciar sesión.");
                 window.location.href = "./login.php"; // Ajustá según tu estructura
             } else {

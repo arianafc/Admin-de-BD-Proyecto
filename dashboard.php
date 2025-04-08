@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-// Incluir el archivo de fragmentos
+session_start();
 require_once 'fragmentos.php';
 ?>
 
@@ -78,6 +78,13 @@ require_once 'fragmentos.php';
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Sales Analytics</h5>
+                        <iframe 
+    width="1000" 
+    height="600" 
+    src="https://app.powerbi.com/reportEmbed?reportId=a3b53aa9-8365-4965-8ae9-d2990251432a&autoAuth=true&ctid=dde2fb8f-d8e0-445e-b851-e69c198c1e59" 
+    frameborder="0" 
+    allowFullScreen="true">
+</iframe>
 
                     </div>
                 </div>
