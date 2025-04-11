@@ -58,7 +58,6 @@ CREATE OR REPLACE PACKAGE BODY FIDE_LOS_JAULES_ENCRIPTACION_PKG AS
             APELLIDO2, 
             CONTRASENA, 
             ID_ROL, 
-            ID_ASOCIADO, 
             ID_ESTADO,
             FECHA_INGRESO,
             USUARIO
@@ -69,7 +68,6 @@ CREATE OR REPLACE PACKAGE BODY FIDE_LOS_JAULES_ENCRIPTACION_PKG AS
             P_APELLIDO1, 
             P_APELLIDO2, 
             L_ENCRIPTED_DATA, 
-            1, 
             1, 
             1, 
             SYSDATE,

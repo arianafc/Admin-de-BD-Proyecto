@@ -5,7 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
     $(document).on('click', '#adquirirMembresia', function () {
         let idMembresia = $(this).data('id');
 
-        $.post('./data/carritoActions.php', { idMembresia: idMembresia, action: 'agregarMembresia' }, function (response) {
+        $.post('./data/carritoActions.php', {
+            idMembresia: idMembresia,
+            action: 'agregarMembresia'
+        }, function (response) {
             if (response.success) {
                 Swal.fire({
                     icon: "success",
@@ -19,15 +22,28 @@ document.addEventListener("DOMContentLoaded", function () {
                     text: response.message
                 });
             }
-        }, "json").fail(function () {
+        }, "json").fail(function (xhr) {
+            let errorMsg = "Lo sentimos. Ocurrió un error al procesar tu solicitud.";
+        
+            if (xhr.responseText) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.message) {
+                        errorMsg = response.message;
+                    }
+                } catch (e) {
+                    console.warn("Respuesta no es JSON válido:", xhr.responseText);
+                }
+            }
+        
             Swal.fire({
                 icon: "error",
                 title: "Error",
-                text: "Lo sentimos. Solo puedes agregar una membresía al carrito."
+                text: errorMsg
             });
         });
+        
     });
-
     getCarrito();
     function getCarrito() {
 
