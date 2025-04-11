@@ -25,15 +25,15 @@ session_start();
                 <img src="img/logo_jaules.png" alt="Logo Los Jaúles">
                 <h2>Registrarse</h2>
                 <?php if (isset($error)) echo "<p class='error'>$error</p>"; ?>
-            <form id="registro-form" method="POST" action="">
-                <input type="text" name="cedula" id="cedulaRegistro" placeholder="Cédula" required>
-                <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
-                <input type="text" name="apellido1" id="apellido1" placeholder="Primer Apellido" required>
-                <input type="text" name="apellido2" id="apellido2" placeholder="Segundo Apellido" required>
-                <input type="password" name="password" id="contrasenaRegistro" placeholder="Contraseña" required>
-                <input type="password" name="confirm_password" id="confirmarContrasena" placeholder="Confirmar Contraseña" required>
-                <button type="submit">Registrar</button>
-            </form>
+                <form id="registro-form" method="POST">
+                    <input type="text" name="cedula" id="cedulaRegistro" placeholder="Cédula" required>
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                    <input type="text" name="apellido1" id="apellido1" placeholder="Primer Apellido" required>
+                    <input type="text" name="apellido2" id="apellido2" placeholder="Segundo Apellido" required>
+                    <input type="password" name="password" id="contrasenaRegistro" placeholder="Contraseña" required>
+                    <input type="password" name="confirm_password" id="confirmarContrasena" placeholder="Confirmar Contraseña" required>
+                    <button type="submit">Registrar</button>
+                </form>
 
                 <p>¿Ya tienes cuenta? <a href="login.php">Inicia sesión aquí</a></p>
             </div>
@@ -42,5 +42,5 @@ session_start();
     <?php incluir_footer(); ?>
 
 </body>
-
 </html>
+

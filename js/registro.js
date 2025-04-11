@@ -26,13 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Las contraseñas no coinciden.");
             return;
         }
-        
-
-
-        if (!cedula || !nombre || !apellido1 || !apellido2 || !contrasena) {
-            alert("Todos los campos son obligatorios.");
-            return;
-        }
 
         console.log("Datos del registro:", { cedula, nombre, apellido1, apellido2 });
 
@@ -51,9 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                
-                alert("Registro exitoso. Ahora puedes iniciar sesión.");
-                window.location.href = "./login.php"; // Ajustá según tu estructura
+                // Mostrar mensaje con el nombre de usuario
+                const mensaje = data.usuario
+                    ? `¡Registro exitoso! Este es tu usuario: ${data.usuario}. Úsalo para iniciar sesión.`
+                    : `¡Registro exitoso! Pero no se pudo obtener el nombre de usuario.`;
+                alert(mensaje);
+
+                // Redirigir a la página de login
+                window.location.href = "./login.php";
             } else {
                 alert("Error al registrar: " + data.message);
                 if (data.detail) console.error("Detalle:", data.detail);
