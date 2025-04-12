@@ -40,30 +40,29 @@ try {
            
             if (!@oci_execute($stmt)) {
                 $e = oci_error($stmt);
-                $oracleMessage = $e['message'];
-    
-                
-                preg_match('/(ORA-\d+)/', $oracleMessage, $matches);
+                $oracleMessage = $e['message'] ?? 'Error desconocido';
+        
+                preg_match('/(ORA-\d{5})/', $oracleMessage, $matches);
                 $codigo = $matches[1] ?? 'Error desconocido';
-    
+            
               
                 switch ($codigo) {
                     case 'ORA-20001':
                         $mensaje = "Lo sentimos. No es permitido adquirir más de una membresía.";
                         break;
-                    case 'ORA-20002':
-                        $mensaje = "No se pudo agregar la membresía. Verifica los datos del carrito.";
+                    case 'ORA-20003':
+                        $mensaje = "Lo sentimos. El usuario no es asociado, por lo tanto, no puede adquirir membresías.";
                         break;
                     default:
-               
-                        $mensaje = preg_replace('/ORA-\d+: /', '', $oracleMessage);
-                        $mensaje = preg_replace('/\s+/', ' ', $mensaje);
+                     
+                        $mensaje = preg_replace('/ORA-\d{5}:\s*/', '', $oracleMessage);
+                        $mensaje = preg_replace('/\s+/', ' ', $mensaje); // Limpiar saltos de línea
                         break;
                 }
-    
-              
-                $mensajeFinal = "$mensaje (Código de error: $codigo)";
-    
+            
+
+                $mensajeFinal = "$mensaje";
+            
                 echo json_encode([
                     "success" => false,
                     "message" => $mensajeFinal

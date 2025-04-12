@@ -3,6 +3,7 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    
 
     cargarMembresias();
     cargarEventos();
@@ -140,35 +141,123 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function mostrarEventos(eventos) {
-        let contenedor = document.getElementById("container-eventos");
-
-        eventos.forEach(evento => {
-            let card = `
-                <div class="col-sm-4 pt-2">
-                    <div class="card eventosCard text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">${evento.NOMBRE}</h5>
-                            <hr>
-                            <p class="card-text">${evento.DESCRIPCION}</p>
-                            <p class="card-text"><strong>Fecha:</strong> ${evento.FECHA}</p>
-                            <p class="card-text"><strong>Hora:</strong> ${evento.HORA}</p>
-                            <p class="card-text"><strong>Cupos:</strong> ${evento.CAPACIDAD}</p>
-                            <p class="card-text"><strong>Lugar:</strong> ${evento.INSTALACION}</p>
-                            <button class="btn btnReservar-Activo" id="registrarEventos" data-id=${evento.ID_EVENTO}>Registrarme</button>
-                            <hr>
-                            <button class="btn btnReservar-Activo " id="registroInvitado" data-id=${evento.ID_EVENTO}>Ingresar como Invitado</button>
+        let contenedor = $("#container-eventos");
+        contenedor.html(""); // Limpiar antes de agregar
+    
+        $.post('./data/validarMembresia.php', function(data) {
+            let tieneMembresia = data.success;
+            let tipoMembresia = data.tipo_membresia;
+        
+            eventos.forEach(evento => {
+                let puedeRegistrarse = tipoMembresia != null; // Todos con membresía pueden registrarse
+                let puedeReservarInstalaciones = tipoMembresia != 1; // Solo si no es Pase Diario
+        
+                let boton = "";
+                if (puedeRegistrarse) {
+                    boton = `<button class="btn btnReservar-Activo" id="registrarEventos" data-id="${evento.ID_EVENTO}">Registrarme</button>`;
+                } else {
+                    boton = `<button class="btn btnReservar-Activo" id="registroInvitado" data-id="${evento.ID_EVENTO}">Ingresar como Invitado</button>`;
+                }
+        
+                let card = `
+                    <div class="col-sm-4 pt-2">
+                        <div class="card eventosCard text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">${evento.NOMBRE}</h5>
+                                <hr>
+                                <p class="card-text">${evento.DESCRIPCION}</p>
+                                <p class="card-text"><strong>Fecha:</strong> ${evento.FECHA}</p>
+                                <p class="card-text"><strong>Hora:</strong> ${evento.HORA}</p>
+                                <p class="card-text"><strong>Cupos:</strong> ${evento.CAPACIDAD}</p>
+                                <p class="card-text"><strong>Lugar:</strong> ${evento.INSTALACION}</p>
+                                ${boton}
+                            </div>
                         </div>
                     </div>
-                </div>
-        `;
-            contenedor.innerHTML += card;
+                `;
+                contenedor.append(card);
+            });
+        }, 'json')
+        .fail(function(error) {
+            console.error('Error al validar la membresía:', error);
+            alert("Hubo un error al validar la membresía.");
         });
     }
+    
+
+
+    $(document).on('click', '#registroInvitado', function () {
+        let idEvento = $(this).data('id');
+    
+        Swal.fire({
+            title: 'Registrar como Invitado',
+            html: `
+                <input id="cedulaMiembroInput" class="swal2-input" placeholder="Cédula del miembro" />
+            `,
+            confirmButtonText: 'Registrar',
+            showCancelButton: true,
+            cancelButtonText: 'Cancelar',
+            preConfirm: () => {
+                const cedulaMiembro = document.getElementById('cedulaMiembroInput').value.trim();
+    
+                if (!cedulaMiembro) {
+                    Swal.showValidationMessage('Por favor, ingresa la cédula del miembro.');
+                    return false;
+                }
+    
+                return cedulaMiembro;
+            }
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const cedulaMiembro = result.value;
+               
+                $.post('./data/registroEvento.php', {
+                    action: 'addInvitado',
+                    id_evento: idEvento,
+                    cedulaMiembro: cedulaMiembro
+                }, function (response) {
+                  
+                    if (response.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: '¡Éxito!',
+                            text: response.message,
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message,
+                        });
+                    }
+                }, 'json').fail(function (xhr) {
+                    let errorMsg = 'Ocurrió un error inesperado.';
+    
+                    if (xhr.responseText) {
+                        try {
+                            const res = JSON.parse(xhr.responseText);
+                            if (res.message) errorMsg = res.message;
+                        } catch (e) {
+                            console.warn('Respuesta no es JSON válido:', xhr.responseText);
+                        }
+                    }
+    
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: errorMsg
+                    });
+                });
+            }
+        });
+    });
+    
+
 
 
     $(document).on('click', '#registrarEventos', function(){
         let idEvento = $(this).data('id');
-        $.post('./data/registroEvento.php', {id_evento: idEvento}, function(response){
+        $.post('./data/registroEvento.php', {id_evento: idEvento, action: 'addMiembro'}, function(response){
             try {
                 // Intentar convertir la respuesta a JSON
                 const data = JSON.parse(response);
@@ -384,17 +473,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         ${beneficiosHTML}
                     </ul>
                 </section>
-                <footer class="modal-container-footer">
-                    <button class="button is-ghost" id="closeMembresia">Cancelar</button>
-                    <button class="button is-primary" id="guardarRegistro">Añadir al Carrito</button>
-                </footer>
+            
             </article>
         `;
 
         contenedor.style.display = "block";
 
         // Agregar evento para cerrar el modal
-        document.getElementById("closeMembresia").addEventListener("click", () => {
+        document.getElementById("closeModalMembresias").addEventListener("click", () => {
             contenedor.style.display = "none";
         });
     }
