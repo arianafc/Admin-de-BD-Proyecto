@@ -44,7 +44,7 @@ session_start();
 
         </div>
         <div class="card servicios-card  text-center">
-            <a href="Eventos-Alojamiento.php"> <img class="png" src="img/deportivo-recreativo.png"></a>
+            <a href="Deportes.php"> <img class="png" src="img/deportivo-recreativo.png"></a>
             <b>Deportivo y Recreativo</b>
         </div>
         <div class="card servicios-card   text-center">
