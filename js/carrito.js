@@ -360,6 +360,7 @@ $(document).on('click', '#pagarCarrito', function () {
                             title: "Éxito",
                             text: response.message
                         });
+                        location.reload();
                     } else {
                         Swal.fire({
                             icon: "error",
