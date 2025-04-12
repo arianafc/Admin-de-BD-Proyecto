@@ -49,7 +49,6 @@ CREATE OR REPLACE PACKAGE BODY PKG_ENCRIPTACION AS
             APELLIDO2, 
             CONTRASENA, 
             ID_ROL, 
-            ID_ASOCIADO, 
             ID_ESTADO,
             FECHA_INGRESO 
         )
@@ -59,7 +58,6 @@ CREATE OR REPLACE PACKAGE BODY PKG_ENCRIPTACION AS
             P_APELLIDO1, 
             P_APELLIDO2, 
             L_ENCRIPTED_DATA, 
-            1, 
             1, 
             1, 
             SYSDATE 

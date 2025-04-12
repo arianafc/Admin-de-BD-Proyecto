@@ -78,7 +78,6 @@ try {
     $_SESSION['apellido2'] = $usuario['APELLIDO2'];
     $_SESSION['id_estado'] = $usuario['ID_ESTADO'];
     $_SESSION['id_rol'] = $usuario['ID_ROL'];
-    $_SESSION['id_asociado'] = $usuario['ID_ASOCIADO'];
     $_SESSION['usuario'] = $username;
 
     // Asegurar que la cédula no está vacía antes de llamar el procedimiento del carrito

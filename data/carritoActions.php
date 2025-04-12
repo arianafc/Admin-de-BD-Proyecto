@@ -26,21 +26,57 @@ try {
     switch ($action) {
 
         case 'agregarMembresia':
+            $cedula = $_SESSION['cedula'];
+            $idCarrito = $_SESSION['id_carrito'];
             $membresia = $_POST['idMembresia'];
+    
             $sql = "BEGIN FIDE_LOS_JAULES_CARRITO_PKG.FIDE_LOS_JAULES_AGREGAR_MEMBRESIA_SP(:cedula, :idCarrito, :idMembresia); END;";
             $stmt = oci_parse($conn, $sql);
-
+    
             oci_bind_by_name($stmt, ":cedula", $cedula);
             oci_bind_by_name($stmt, ":idCarrito", $idCarrito);
             oci_bind_by_name($stmt, ":idMembresia", $membresia);
-
-            if (!oci_execute($stmt)) {
-                echo json_encode(["success" => false, "message" => "Error al ejecutar procedimiento"]);
+    
+           
+            if (!@oci_execute($stmt)) {
+                $e = oci_error($stmt);
+                $oracleMessage = $e['message'];
+    
+                
+                preg_match('/(ORA-\d+)/', $oracleMessage, $matches);
+                $codigo = $matches[1] ?? 'Error desconocido';
+    
+              
+                switch ($codigo) {
+                    case 'ORA-20001':
+                        $mensaje = "Lo sentimos. No es permitido adquirir más de una membresía.";
+                        break;
+                    case 'ORA-20002':
+                        $mensaje = "No se pudo agregar la membresía. Verifica los datos del carrito.";
+                        break;
+                    default:
+               
+                        $mensaje = preg_replace('/ORA-\d+: /', '', $oracleMessage);
+                        $mensaje = preg_replace('/\s+/', ' ', $mensaje);
+                        break;
+                }
+    
+              
+                $mensajeFinal = "$mensaje (Código de error: $codigo)";
+    
+                echo json_encode([
+                    "success" => false,
+                    "message" => $mensajeFinal
+                ]);
                 exit;
             }
-
-            echo json_encode(["success" => true, "message" => "Membresía agregada correctamente al carrito"]);
+    
+            echo json_encode([
+                "success" => true,
+                "message" => "Membresía agregada correctamente al carrito"
+            ]);
             oci_free_statement($stmt);
+
             break;
 
         case 'verCarrito':
@@ -208,5 +244,4 @@ try {
 } catch (Exception $e) {
     echo json_encode(["success" => false, "message" => "Excepción en PHP", "detail" => $e->getMessage()]);
 }
-
 ?>

@@ -76,7 +76,7 @@ V_CANTIDAD:=1;
             VSQLCODE:= SQLCODE;
             VSQLERRM := SQLERRM;
             DBMS_OUTPUT.PUT_LINE('Error: ' || VSQLCODE || ' - ' || VSQLERRM);
-            RAISE_APPLICATION_ERROR(-20002, 'No se pudo agregar la membresía: ' || SQLERRM);
+            RAISE_APPLICATION_ERROR(-20001, 'No se pudo agregar la membresía: ' || SQLERRM);
 END FIDE_LOS_JAULES_AGREGAR_MEMBRESIA_SP;
 
 --2.2. AÑADIR RESERVAS A CARRITO
@@ -159,3 +159,45 @@ SET SERVEROUTPUT ON
 
 TRUNCATE TABLE FIDE_CARRITO_ITEMS_TB
 EXEC FIDE_LOS_JAULES_CARRITO_PKG.FIDE_LOS_JAULES_GET_CARRITO_SP(1233, 10, 1);
+
+--TRIGGER QUE NO PERMITE QUE AGREGUEMOS MEMBRESIAS SI NO ES ASOCIADO
+create or replace TRIGGER FIDE_CARRITO_TB_VALIDAR_ASOCIADO_TG
+BEFORE INSERT ON FIDE_CARRITO_ITEMS_TB
+FOR EACH ROW
+DECLARE
+    V_CONTAR NUMBER;
+    V_CEDULA NUMBER;
+BEGIN
+    -- Solo ejecutar la validación si se está insertando una membresía
+    IF :NEW.ID_TIPO_MEMBRESIA IS NOT NULL THEN
+        SELECT CEDULA INTO V_CEDULA FROM FIDE_CARRITO_TB
+        WHERE ID_CARRITO = :NEW.ID_CARRITO;
+        SELECT COUNT(CEDULA)
+        INTO V_CONTAR
+        FROM FIDE_ASOCIADO_TB
+        WHERE CEDULA = V_CEDULA;
+
+        IF V_CONTAR = 0 THEN
+            RAISE_APPLICATION_ERROR(-20003, 'Lo sentimos. El usuario no es asociado, por lo tanto, no puede adquirir membresías.');
+        END IF;
+    END IF;
+END;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

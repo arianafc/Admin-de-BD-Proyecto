@@ -50,12 +50,27 @@ CREATE OR REPLACE PACKAGE BODY FIDE_LOS_JAULES_ENCRIPTACION_PKG AS
             KEY => L_KEY
         );
 
-        INSERT INTO ADMINISTRATOR.FIDE_USUARIOS_TB (
-            CEDULA, NOMBRE, APELLIDO1, APELLIDO2, CONTRASENA,
-            ID_ROL, ID_ASOCIADO, ID_ESTADO, FECHA_INGRESO, USUARIO
-        ) VALUES (
-            P_CEDULA, P_NOMBRE, P_APELLIDO1, P_APELLIDO2, L_ENCRIPTED_DATA,
-            1, 1, 1, SYSDATE, SUBSTR(P_NOMBRE, 1, 1) || P_APELLIDO1 || SEQ_USUARIO.NEXTVAL
+        INSERT INTO ADMINISTRATOR.FIDE_USUARIOS_TB(
+            CEDULA, 
+            NOMBRE, 
+            APELLIDO1, 
+            APELLIDO2, 
+            CONTRASENA, 
+            ID_ROL, 
+            ID_ESTADO,
+            FECHA_INGRESO,
+            USUARIO
+        )
+        VALUES (
+            P_CEDULA, 
+            P_NOMBRE, 
+            P_APELLIDO1, 
+            P_APELLIDO2, 
+            L_ENCRIPTED_DATA, 
+            1, 
+            1, 
+            SYSDATE,
+            SUBSTR(P_NOMBRE, 1, 1) || P_APELLIDO1 || SEQ_USUARIO.NEXTVAL
         );
 
         COMMIT;
