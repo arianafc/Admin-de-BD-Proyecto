@@ -1,7 +1,6 @@
 <?php
-session_start();
 require 'conexion.php';
-
+require_once 'funciones.php';
 header('Content-Type: application/json');
 
 try {
@@ -86,6 +85,9 @@ try {
         exit;
     }
 
+
+    actualizarMembresiaSesion($conn, $_SESSION['cedula']);
+
     // Llamada al procedimiento del carrito
     $carrito = "BEGIN FIDE_LOS_JAULES_CARRITO_PKG.FIDE_LOS_JAULES_CREAR_CARRITO_SP(:cedula, :idCarrito); END;";
     $ejecutar = oci_parse($conn, $carrito);
@@ -118,6 +120,7 @@ try {
     }
 
     exit;
+
 
 } catch (Exception $e) {
     echo json_encode(["success" => false, "message" => "Excepción en PHP", "detail" => $e->getMessage()]);

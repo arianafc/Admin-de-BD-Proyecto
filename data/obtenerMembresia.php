@@ -66,3 +66,4 @@ try {
 } catch (Exception $e) {
     echo json_encode(["error" => "Excepción en PHP", "detalle" => $e->getMessage()]);
 }
+?>
