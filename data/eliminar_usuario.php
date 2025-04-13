@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cedula'])) {
     $cedula = $_POST['cedula'];
 
     try {
-        $stid = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_USUARIOS_TB_ELIMINAR_USUARIO_SP(:cedula); END;");
+        $stid = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_USUARIO_TB_ELIMINAR_SP(:cedula); END;");
         oci_bind_by_name($stid, ":cedula", $cedula);
 
         if (oci_execute($stid)) {

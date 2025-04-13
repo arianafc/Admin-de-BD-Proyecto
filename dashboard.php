@@ -15,29 +15,26 @@ require_once 'fragmentos.php';
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="js/java.js"></script>
-    <?php incluir_css()?>
-</STYLE>
+    <?php incluir_css() ?>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <?php sidebar() ?>
+            <?php sidebar(); ?>
             <!-- Contenido -->
             <main id="content" class="col-md-10 ms-sm-auto px-md-4 content">
-                <div
-                    class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2 titulo-Content" >DASHBOARD</h1>
-                    <div class="profile" onclick="toggleDropdown()">
-                        <span>Username ▼</span>
-                        <div class="dropdown" id="dropdownMenu">
-                            <a href="#"><i class="fas fa-cog"></i> Ajustes</a>
-                            <a href="#"><i class="fas fa-sign-out"></i> Logout</a>
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2 titulo-Content">DASHBOARD</h1>
+                    <div class="profile position-relative" onclick="toggleDropdown()">
+                        <span>ADMIN ▼</span>
+                        <div class="dropdown position-absolute bg-white shadow border rounded mt-1 p-2 d-none" id="dropdownMenu" style="min-width: 150px;">
+                            <a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </div>
-
                 </div>
+
                 <!-- Tarjetas informativas -->
                 <div class="row">
                     <div class="col-md-3">
@@ -49,7 +46,7 @@ require_once 'fragmentos.php';
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="card  cardCafe mb-3">
+                        <div class="card cardCafe mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">23</h5>
                                 <p class="card-text">Clientes</p>
@@ -57,7 +54,7 @@ require_once 'fragmentos.php';
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="card text-white  cardVerde mb-3">
+                        <div class="card text-white cardVerde mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">5</h5>
                                 <p class="card-text">Consultas</p>
@@ -74,55 +71,41 @@ require_once 'fragmentos.php';
                     </div>
                 </div>
 
-                <!-- Gráfico (placeholder) -->
+                <!-- Gráfico Power BI -->
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Sales Analytics</h5>
-                        <iframe 
-    width="1000" 
-    height="600" 
-    src="https://app.powerbi.com/reportEmbed?reportId=a3b53aa9-8365-4965-8ae9-d2990251432a&autoAuth=true&ctid=dde2fb8f-d8e0-445e-b851-e69c198c1e59" 
-    frameborder="0" 
-    allowFullScreen="true">
-</iframe>
-
+                        <iframe width="1000" height="600"
+                            src="https://app.powerbi.com/reportEmbed?reportId=a3b53aa9-8365-4965-8ae9-d2990251432a&autoAuth=true&ctid=dde2fb8f-d8e0-445e-b851-e69c198c1e59"
+                            frameborder="0" allowFullScreen="true"></iframe>
                     </div>
                 </div>
             </main>
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script>
-        document.getElementById("menu-toggle").addEventListener("click", function () {
+        document.getElementById("menu-toggle")?.addEventListener("click", function () {
             document.getElementById("sidebar").classList.toggle("show");
             document.getElementById("content").classList.toggle("shift");
         });
 
-        var ctx = document.getElementById('salesChart').getContext('2d');
-        var salesChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Enero', 'Febrero', 'Marzo', 'Abril'],
-                datasets: [{
-                    label: 'Ventas',
-                    data: [30, 50, 80, 60],
-                    borderColor: 'rgb(75, 192, 192)',
-                    fill: false
-                }]
-            }
-        });
+        const dropdownMenu = document.getElementById("dropdownMenu");
 
         function toggleDropdown() {
-            document.getElementById("dropdownMenu").classList.toggle("active");
+            dropdownMenu.classList.toggle("d-none");
         }
-        document.addEventListener("click", function(event) {
-            var dropdown = document.getElementById("dropdownMenu");
+
+        document.addEventListener("click", function (event) {
             if (!event.target.closest(".profile")) {
-                dropdown.classList.remove("active");
+                dropdownMenu.classList.add("d-none");
             }
         });
+    </script>
 </body>
 
 </html>
