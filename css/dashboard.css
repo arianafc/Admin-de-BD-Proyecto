@@ -147,3 +147,9 @@ body {
     color: #1C3D5A !important;
     font-weight: 700 !important;
 }
+
+
+.btnAgregarAdministrador {
+    background-color: #1C3D5A !important;
+    color: #f5f5f5 !important;
+}

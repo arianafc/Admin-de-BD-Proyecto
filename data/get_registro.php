@@ -11,6 +11,8 @@ try {
     $apellido1 = $_POST['apellido1'] ?? '';
     $apellido2 = $_POST['apellido2'] ?? '';
     $contrasena = $_POST['contrasena'] ?? '';
+    $rol = $_POST['rol'] ?? '';
+    $email = $_POST['email'] ?? '';
 
     // Validación de campos vacíos
     if (empty($cedula) || empty($nombre) || empty($apellido1) || empty($apellido2) || empty($contrasena)) {
@@ -25,7 +27,7 @@ try {
 
     // Encriptar la contraseña (en la base de datos) usando el paquete
     $sql = "BEGIN FIDE_LOS_JAULES_ENCRIPTACION_PKG.FIDE_ENCRIPTAR_CONTRASENA_SP(
-                :cedula, :nombre, :apellido1, :apellido2, :contrasena
+                :cedula, :nombre, :apellido1, :apellido2, :contrasena, :rol, :email
             ); END;";
     $stmt = oci_parse($conn, $sql);
 
@@ -39,11 +41,25 @@ try {
     oci_bind_by_name($stmt, ":apellido1", $apellido1);
     oci_bind_by_name($stmt, ":apellido2", $apellido2);
     oci_bind_by_name($stmt, ":contrasena", $contrasena);
+    oci_bind_by_name($stmt, ":rol", $rol);
+    oci_bind_by_name($stmt, ":email", $email);
 
     // Ejecutar el procedimiento de encriptación de la contraseña
     if (!oci_execute($stmt)) {
         $e = oci_error($stmt);
-        echo json_encode(["success" => false, "message" => "Error al ejecutar el procedimiento", "detail" => $e['message']]);
+        $errorMessage = $e['message'];
+    
+        if (strpos($errorMessage, 'FIDE_EMAIL_UNIQUE_IDX') !== false || strpos($errorMessage, 'ORA-00001') !== false) {
+            $userMsg = "El correo electrónico ya está registrado. Intenta con uno diferente.";
+        } else {
+            $userMsg = "Error al modificar el usuario.";
+        }
+    
+        echo json_encode([
+            "success" => false,
+            "message" => $userMsg,
+            "detail" => $errorMessage
+        ]);
         exit;
     }
 

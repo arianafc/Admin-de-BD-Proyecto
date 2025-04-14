@@ -70,6 +70,7 @@ try {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/admin.js"></script>
     <?php incluir_css() ?>
     <style>
     .custom-scroll-table {
@@ -137,13 +138,16 @@ try {
 </div>
 
 <div class="card mt-4 shadow-sm">
+
     <div class="card-body">
+    
         <h5 class="card-title mb-3">Lista de Administradores</h5>
+        <button id="btnAgregarAdmin" class="btnAgregarAdministrador btn mb-5">Agregar Administrador</button>
         <div class="table-responsive custom-scroll-table">
             <table class="table table-bordered table-hover align-middle text-center">
                 <thead class="table-dark">
                     <tr>
-                        <th>Cédula</th>
+                        <th>ID</th>
                         <th>Nombre</th>
                         <th>Usuario</th>
                         <th>Email</th>
@@ -227,8 +231,8 @@ function editUser(cedula, nombre, apellido1, apellido2, email, rol) {
     $('#editNombre').val(nombre);   // Asegúrate de usar el ID correcto 'editNombre'
     $('#editApellido1').val(apellido1);
     $('#editApellido2').val(apellido2);
-    $('#editEmail').val(email);
-    $('#editRole').val(rol === 'ADMIN' ? 2 : 1);
+    $('#editEmail').val(email.toLowerCase());
+    $('#editRole').val(rol === 'CLIENTE' ? 1 : 2);
 }
 
 $('#editUserForm').submit(function(e) {
@@ -236,8 +240,9 @@ $('#editUserForm').submit(function(e) {
 
     $.ajax({
         type: 'POST',
-        url: 'data/modificar_usuario.php',
+        url: 'data/accionesUsuario.php',
         data: {
+            action: 'modificar',
             cedula: $('#editCedula').val(),
             nombre: $('#editNombre').val(),
             apellido1: $('#editApellido1').val(),
@@ -274,18 +279,30 @@ function eliminarUsuario(cedula) {
     if (!confirm('¿Estás seguro de eliminar este usuario?')) return;
 
     $.ajax({
-        type: 'POST',
-        url: 'data/eliminar_usuario.php',
-        data: { cedula: cedula },
-        dataType: 'json',
-        success: function(response) {
-            alert(response.message);
+    type: 'POST',
+    url: 'data/accionesUsuario.php',
+    data: { 
+        action: 'eliminar',
+        cedula: cedula },
+    dataType: 'json',
+    success: function(response) {
+        Swal.fire({
+            icon: response.success ? 'success' : 'error',
+            title: response.success ? 'Éxito' : 'Error',
+            text: response.message
+        }).then(() => {
             if (response.success) location.reload();
-        },
-        error: function(xhr, status, error) {
-            alert("Error de conexión: " + error);
-        }
-    });
+        });
+    },
+    error: function(xhr, status, error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error de conexión',
+            text: error
+        });
+    }
+});
+
 }
 </script>
 </body>

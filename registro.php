@@ -30,6 +30,7 @@ session_start();
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
                     <input type="text" name="apellido1" id="apellido1" placeholder="Primer Apellido" required>
                     <input type="text" name="apellido2" id="apellido2" placeholder="Segundo Apellido" required>
+                    <input type="email" name="email" id="email" placeholder="Email" required>
                     <input type="password" name="password" id="contrasenaRegistro" placeholder="Contraseña" required>
                     <input type="password" name="confirm_password" id="confirmarContrasena" placeholder="Confirmar Contraseña" required>
                     <button type="submit">Registrar</button>

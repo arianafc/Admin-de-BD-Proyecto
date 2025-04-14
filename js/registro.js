@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const apellido2 = document.getElementById("apellido2").value.trim();
         const contrasena = document.getElementById("contrasenaRegistro").value;
         const confirmar = document.getElementById("confirmarContrasena").value;
+        const email = document.getElementById("email").value.toLowerCase();
         
         if (!cedula || !nombre || !apellido1 || !apellido2 || !contrasena || !confirmar) {
             alert("Todos los campos son obligatorios.");
@@ -24,6 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
         
         if (contrasena !== confirmar) {
             alert("Las contraseñas no coinciden.");
+            return;
+        }
+
+        if (contrasena.length < 8) {
+            alert("La contraseña debe tener al menos 8 caracteres.");
             return;
         }
 
@@ -38,7 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 nombre: nombre,
                 apellido1: apellido1,
                 apellido2: apellido2,
-                contrasena: contrasena
+                contrasena: contrasena,
+                rol: 1,
+                email: email
             })
         })
         .then(response => response.json())
@@ -62,4 +70,27 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Hubo un problema al intentar registrar el usuario.");
         });
     });
-});
+
+
+
+    });
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
