@@ -103,8 +103,8 @@ try {
     <div class="card-body">
         <h5 class="card-title mb-3">Lista de Usuarios</h5>
         <div class="table-responsive custom-scroll-table">
-            <table class="table table-bordered table-hover align-middle text-center">
-                <thead class="table-dark">
+            <table class="table table-bordered table-hover align-middle text-center theadTabla">
+            <thead class="table-dark mi-color-personalizado">
                     <tr>
                         <th>Cédula</th>
                         <th>Nombre</th>
@@ -139,13 +139,13 @@ try {
 
 <div class="card mt-4 shadow-sm">
 
-    <div class="card-body">
+<div class="card-body">
     
         <h5 class="card-title mb-3">Lista de Administradores</h5>
         <button id="btnAgregarAdmin" class="btnAgregarAdministrador btn mb-5">Agregar Administrador</button>
         <div class="table-responsive custom-scroll-table">
             <table class="table table-bordered table-hover align-middle text-center">
-                <thead class="table-dark">
+            <thead class="table-dark mi-color-personalizado">
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
@@ -179,7 +179,7 @@ try {
 </div>
 
 
-            <!-- Modal Editar Usuario -->
+<!-- Modal Editar Usuario -->
             <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
