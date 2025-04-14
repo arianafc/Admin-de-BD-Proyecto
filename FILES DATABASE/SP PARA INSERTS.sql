@@ -1,11 +1,11 @@
----------------------------------------------------
+-------------------=---------------------------------------------------
 --1. AGREGAR LAS CEDULAS AL CARRITO
 
 INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES ();
----------------------------------------------------
+-----------------------------------------------------------------------
 
 --2. AGREGAR MEMBRESIA O RESERVA O AMBAS
-EXEC AGREGAR_MEMBRESIA_SP(1233, 2); ---AQUI
+EXEC AGREGAR_MEMBRESIA_SP(1233, 3); ---AQUI
 
 BEGIN ---AGREGAR RESERVAS
     INSERTAR_RESERVA(
@@ -25,13 +25,13 @@ END;
 BEGIN
     EJECUTAR_CARRITO(
         P_CEDULA        => 1233,
-        P_METODO_PAGO   => 2,
-        FECHA           => TO_DATE('2021-04-11', 'YYYY-MM-DD')
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2022-04-11', 'YYYY-MM-DD')
     );
 END;
 
 ------------------------------------------------------------------------------------------------------------------
-
+COMMIT
 
 
 

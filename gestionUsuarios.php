@@ -38,6 +38,7 @@ try {
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="js/java.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
     <?php incluir_css() ?>
 </head>
 
