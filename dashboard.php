@@ -36,48 +36,18 @@ require_once 'fragmentos.php';
                 </div>
 
                 <!-- Tarjetas informativas -->
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card text-white cardVerde mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">290+</h5>
-                                <p class="card-text">Productos Registrados</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card cardCafe mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">23</h5>
-                                <p class="card-text">Clientes</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card text-white cardVerde mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">5</h5>
-                                <p class="card-text">Consultas</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card cardCafe mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">90</h5>
-                                <p class="card-text">Socios</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Gráfico Power BI -->
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Sales Analytics</h5>
-                        <iframe width="1000" height="600"
-                            src="https://app.powerbi.com/reportEmbed?reportId=a3b53aa9-8365-4965-8ae9-d2990251432a&autoAuth=true&ctid=dde2fb8f-d8e0-445e-b851-e69c198c1e59"
-                            frameborder="0" allowFullScreen="true"></iframe>
+                        <h5 class="card-title">Tus Reportes</h5>
+                        <div style="height: 80vh;">
+  <iframe class="w-100 h-100"
+    src="https://app.powerbi.com/reportEmbed?reportId=4c12479d-17ab-448f-9d84-47f85c0b44ce&autoAuth=true&ctid=dde2fb8f-d8e0-445e-b851-e69c198c1e59"
+    frameborder="0" allowFullScreen="true">
+  </iframe>
+</div>
+
                     </div>
                 </div>
             </main>

@@ -10,17 +10,48 @@ if (!isset($_SESSION['usuario'])) {
 require 'data/conexion.php';
 
 try {
-    $stid = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_USUARIOS_TB_GET_USERS_SP(:datos); END;");
+    $rol = 1;
+    $stid = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_USUARIOS_TB_GET_USERS_SP(:datos, :rol); END;");
     $cursor = oci_new_cursor($conn);
     oci_bind_by_name($stid, ":datos", $cursor, -1, OCI_B_CURSOR);
+    oci_bind_by_name($stid, ":rol", $rol);
 
     oci_execute($stid);
     oci_execute($cursor);
 
     $usuarios = [];
-    while ($usuario = oci_fetch_assoc($cursor)) {
-        $usuarios[] = $usuario;
-    }
+        while ($fila = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS)) {
+            foreach ($fila as $key => $value) {
+                if (is_string($value)) {
+                    $fila[$key] = utf8_encode($value);
+                }
+            }
+            $usuarios[] = $fila;
+        }
+} catch (Exception $e) {
+    echo "Error: " . $e->getMessage();
+    exit;
+}
+
+try {
+    $rol = 2;
+    $stid = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_USUARIOS_TB_GET_USERS_SP(:datos, :rol); END;");
+    $cursor = oci_new_cursor($conn);
+    oci_bind_by_name($stid, ":datos", $cursor, -1, OCI_B_CURSOR);
+    oci_bind_by_name($stid, ":rol", $rol);
+
+    oci_execute($stid);
+    oci_execute($cursor);
+
+    $usuarios2 = [];
+        while ($fila = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS)) {
+            foreach ($fila as $key => $value) {
+                if (is_string($value)) {
+                    $fila[$key] = utf8_encode($value);
+                }
+            }
+            $usuarios2[] = $fila;
+        }
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
     exit;
@@ -37,9 +68,15 @@ try {
     <link rel="stylesheet" href="css/dashboard.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <script src="js/java.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/jquery-3.7.1.min.js"></script>
     <?php incluir_css() ?>
+    <style>
+    .custom-scroll-table {
+        max-height: 400px; /* Ajusta este valor según tu diseño */
+        overflow-y: auto;
+    }
+</style>
 </head>
 
 <body>
@@ -59,44 +96,84 @@ try {
                     </div>
                 </div>
 
-            <div class="card mt-4">
-                <div class="card-body">
-                <table class="table table-bordered">
-                    <thead>
+
+
+<div class="card mt-4 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Lista de Usuarios</h5>
+        <div class="table-responsive custom-scroll-table">
+            <table class="table table-bordered table-hover align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($usuarios as $usuario): ?>
                         <tr>
-                            <th>Cédula</th>
-                            <th>Nombre</th>
-                            <th>Apellido 1</th>
-                            <th>Apellido 2</th>
-                            <th>Usuario</th>
-                            <th>Email</th>
-                            <th>Rol</th>
-                            <th>Acciones</th>
+                            <td><?= $usuario['CEDULA']; ?></td>
+                            <td><?= $usuario['NOMBRE_COMPLETO']; ?></td>
+                            <td><?= $usuario['USUARIO']; ?></td>
+                            <td><?= $usuario['EMAIL']; ?></td>
+                            <td><?= $usuario['ROL']; ?></td>
+                            <td>
+                                <button class="btn btn-sm btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#editUserModal"
+                                    onclick="editUser('<?= $usuario['CEDULA']; ?>', '<?= $usuario['NOMBRE']; ?>', '<?= $usuario['APELLIDO1']; ?>', '<?= $usuario['APELLIDO2']; ?>', '<?= $usuario['EMAIL']; ?>', '<?= $usuario['ROL']; ?>')">
+                                    Editar
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="eliminarUsuario('<?= $usuario['CEDULA']; ?>')">Eliminar</button>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($usuarios as $usuario): ?>
-                            <tr>
-                                <td><?= $usuario['CEDULA']; ?></td>
-                                <td><?= $usuario['NOMBRE']; ?></td>
-                                <td><?= $usuario['APELLIDO1']; ?></td>
-                                <td><?= $usuario['APELLIDO2']; ?></td>
-                                <td><?= $usuario['USUARIO']; ?></td>
-                                <td><?= $usuario['EMAIL']; ?></td>
-                                <td><?= $usuario['ROL']; ?></td>
-                                <td>
-                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editUserModal"
-                                        onclick="editUser('<?= $usuario['CEDULA']; ?>', '<?= $usuario['NOMBRE']; ?>', '<?= $usuario['APELLIDO1']; ?>', '<?= $usuario['APELLIDO2']; ?>', '<?= $usuario['EMAIL']; ?>', '<?= $usuario['ROL']; ?>')">
-                                        Editar
-                                    </button>
-                                    <button class="btn btn-danger" onclick="eliminarUsuario('<?= $usuario['CEDULA']; ?>')">Eliminar</button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-                </div>
-            </div>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4 shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title mb-3">Lista de Administradores</h5>
+        <div class="table-responsive custom-scroll-table">
+            <table class="table table-bordered table-hover align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($usuarios2 as $usuario2): ?>
+                        <tr>
+                            <td><?= $usuario2['CEDULA']; ?></td>
+                            <td><?= $usuario2['NOMBRE_COMPLETO']; ?></td>
+                            <td><?= $usuario2['USUARIO']; ?></td>
+                            <td><?= $usuario2['EMAIL']; ?></td>
+                            <td><?= $usuario2['ROL']; ?></td>
+                            <td>
+                                <button class="btn btn-sm btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#editUserModal"
+                                    onclick="editUser('<?= $usuario2['CEDULA']; ?>', '<?= $usuario2['NOMBRE']; ?>', '<?= $usuario2['APELLIDO1']; ?>', '<?= $usuario2['APELLIDO2']; ?>', '<?= $usuario2['EMAIL']; ?>', '<?= $usuario2['ROL']; ?>')">
+                                    Editar
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="eliminarUsuario('<?= $usuario2['CEDULA']; ?>')">Eliminar</button>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 
             <!-- Modal Editar Usuario -->
             <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
@@ -154,7 +231,6 @@ function editUser(cedula, nombre, apellido1, apellido2, email, rol) {
     $('#editRole').val(rol === 'ADMIN' ? 2 : 1);
 }
 
-
 $('#editUserForm').submit(function(e) {
     e.preventDefault();
 
@@ -171,14 +247,28 @@ $('#editUserForm').submit(function(e) {
         },
         dataType: 'json',
         success: function(response) {
-            alert(response.message);
-            if (response.success) location.reload();
+            Swal.fire({
+                title: response.success ? 'Éxito' : 'Error',
+                text: response.message,
+                icon: response.success ? 'success' : 'error',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                if (response.success) {
+                    location.reload();
+                }
+            });
         },
         error: function(xhr, status, error) {
-            alert("Error de conexión: " + error);
+            Swal.fire({
+                title: 'Error de conexión',
+                text: error,
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
         }
     });
 });
+
 
 function eliminarUsuario(cedula) {
     if (!confirm('¿Estás seguro de eliminar este usuario?')) return;

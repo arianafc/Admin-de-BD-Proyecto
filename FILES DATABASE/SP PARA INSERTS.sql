@@ -1,11 +1,11 @@
 -------------------=---------------------------------------------------
 --1. AGREGAR LAS CEDULAS AL CARRITO
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES ();
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (303500186);
 -----------------------------------------------------------------------
 
 --2. AGREGAR MEMBRESIA O RESERVA O AMBAS
-EXEC AGREGAR_MEMBRESIA_SP(1233, 3); ---AQUI
+EXEC AGREGAR_MEMBRESIA_SP(8977, 2); ---AQUI
 
 BEGIN ---AGREGAR RESERVAS
     INSERTAR_RESERVA(
@@ -24,9 +24,9 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 1233,
+        P_CEDULA        => 8977,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-04-11', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2024-04-11', 'YYYY-MM-DD')
     );
 END;
 
