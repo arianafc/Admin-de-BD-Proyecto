@@ -406,17 +406,24 @@ switch ($action) {
                                         
                                                 oci_execute($cursor);
                                         
-                                                $resultado = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS);
+                                                $result = [];
+                                                while ($row = oci_fetch_assoc($cursor)) {
+                                                    foreach ($row as $key => $val) {
+                                                        if (is_string($val)) {
+                                                            $row[$key] = utf8_encode($val);
+                                                        }
+                                                    }
+                                                    // Agregamos el estado en base al ID_ESTADO
+                                                    $row['ESTADO'] = ($row['ID_ESTADO'] == 1) ? 'Activa' : 'Inactiva';
+                                                    $result[] = $row;
+                                                }
                                         
-                                                if ($resultado) {
-                                                    $resultado['ESTADO'] = ($resultado['ID_ESTADO'] == 1) ? 'Activa' : 'Inactiva';
-                                                
-                                                    echo json_encode(["success" => true, "data" => $resultado]);
+                                                if (!empty($result)) {
+                                                    echo json_encode(["success" => true, "data" => $result]);
                                                 } else {
                                                     echo json_encode(["success" => false, "message" => "No se encontró membresía activa."]);
                                                 }
                                         
-                                    
                                                 oci_free_statement($stmt);
                                                 oci_free_statement($cursor);
                                                 exit;
@@ -424,7 +431,9 @@ switch ($action) {
                                             } catch (Exception $e) {
                                                 echo json_encode(["success" => false, "message" => "Excepción: " . $e->getMessage()]);
                                             }
+                                        
                                             break;
+                                        
                                             case 'actualizarFechaInicio':
                                                 $idMembresia = $_POST['id_membresia'] ?? null;
                                                 $nuevaFecha = $_POST['nueva_fecha'] ?? null;
