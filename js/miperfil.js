@@ -1,47 +1,50 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     
-function obtenerMembresiaUsuarios() {
-    $.post('./data/accionesMembresias.php', { action: 'obtenerMembresiaUsuario' }, function(response) {
-
-        if (response.success) {
-            const data = response.data;
+    function obtenerMembresiaUsuarios() {
+        $.post('./data/accionesMembresias.php', { action: 'obtenerMembresiaUsuario' }, function(response) {
+            if (response.success) {
+                const data = response.data; // ahora es un array
+                console.log(data);
     
-            let acciones = `
-    <button class="btn btn-danger btn-sm btn-cancelar" id="cancelarMembresia" data-id="${data.ID_MEMBRESIA}">
-        Cancelar
-    </button>
-`;
-
-if (data.ID_TIPO_MEMBRESIA == 1) {
-    acciones += `
-        <button class="btn btn-primary btn-sm btn-actualizar" id="btnActualizarPaseDiario" data-id="${data.ID_MEMBRESIA}" data-bs-toggle="modal" data-bs-target="#modalActualizarFecha">
-            Actualizar Fecha
-        </button>
-    `;
-}
-            $('#tablaMembresiaUsuario tbody').empty();
+                $('#tablaMembresiaUsuario tbody').empty();
     
-          
-            $('#tablaMembresiaUsuario tbody').append(`
-                <tr>
-                    <td>${data.NOMBRE}</td>
-                    <td>${data.FECHA_INICIO}</td>
-                    <td>${data.FECHA_FIN}</td>
-                    <td>${data.ESTADO}</td>
-                      <td>${acciones}</td>
-                </tr>
-            `);
-        } else {
-            $('#tablaMembresiaUsuario tbody').html(`
-                <tr>
-                    <td colspan="5">${response.message}</td>
-                </tr>
-            `);
-        }
-    });
+                data.forEach(membresia => {
+                    let acciones = `
+                        <button class="btn btn-danger btn-sm btn-cancelar" id="cancelarMembresia" data-id="${membresia.ID_MEMBRESIA}">
+                            Cancelar
+                        </button>
+                    `;
     
-}
+                    if (membresia.ID_TIPO_MEMBRESIA == 1) {
+                        acciones += `
+                            <button class="btn btn-primary btn-sm btn-actualizar" id="btnActualizarPaseDiario" data-id="${membresia.ID_MEMBRESIA}" data-bs-toggle="modal" data-bs-target="#modalActualizarFecha">
+                                Actualizar Fecha
+                            </button>
+                        `;
+                    }
+    
+                    $('#tablaMembresiaUsuario tbody').append(`
+                        <tr>
+                            <td>${membresia.NOMBRE}</td>
+                            <td>${membresia.FECHA_INICIO}</td>
+                            <td>${membresia.FECHA_FIN}</td>
+                            <td>${membresia.ESTADO}</td>
+                            <td>${acciones}</td>
+                        </tr>
+                    `);
+                });
+    
+            } else {
+                $('#tablaMembresiaUsuario tbody').html(`
+                    <tr>
+                        <td colspan="5">${response.message}</td>
+                    </tr>
+                `);
+            }
+        }, 'json'); // asegúrate de que el tipo de datos sea JSON
+    }
+    
     obtenerMembresiaUsuarios();
 
     $(document).on('click', '#btnActualizarPaseDiario', function () {

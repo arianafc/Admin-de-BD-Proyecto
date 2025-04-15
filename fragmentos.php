@@ -150,9 +150,7 @@ function sidebar()
     <div class="opciones">   
         <a href="dashboard.php" id="dashboard">Dashboard</a>
         <a href="gestionUsuarios.php" id="gestionUsuarios">Gestión de Usuarios</a>
-        <a href="gestionProveedores.php" id="gestionProveedores">Gestión de Proveedores</a>
-        <a href="gestionProductos.php" id="gestionProductos">Gestión de Productos</a>
-        <a href="gestionInventario.php" id="gestionInventario">Gestión de Inventario</a>
+
         <a href="gestionMembresias.php" id="gestionMembresias">Gestión de Membresías</a>
         <a href="gestionInstalaciones.php" id="gestionInstalaciones">Gestión de Instalaciones</a>
         <a href="gestionReservaciones.php" id="gestionReservaciones">Gestión de Reservaciones</a>
