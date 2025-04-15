@@ -1,2541 +1,611 @@
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (166029930);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (1233);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 166029930,
-        P_FECHA_INICIO  => TO_DATE('2024-09-08', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-09-09', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(1233, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 166029930,
+        P_CEDULA        => 1233,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-09-08', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2022-05-16', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (361482351);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (1244);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 361482351,
-        P_FECHA_INICIO  => TO_DATE('2021-06-15', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-06-16', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 6,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(1244, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 361482351,
+        P_CEDULA        => 1244,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-06-15', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2025-06-08', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (575124278);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (8977);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 575124278,
-        P_FECHA_INICIO  => TO_DATE('2023-06-30', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-07-01', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(8977, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 575124278,
+        P_CEDULA        => 8977,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-06-30', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-01-24', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (916304192);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (12233);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 916304192,
-        P_FECHA_INICIO  => TO_DATE('2023-06-03', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-06-04', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 6,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(12233, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 916304192,
+        P_CEDULA        => 12233,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-06-03', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-11-01', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (368977860);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (12345678);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 368977860,
-        P_FECHA_INICIO  => TO_DATE('2024-12-16', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-12-17', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(12345678, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 368977860,
+        P_CEDULA        => 12345678,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-12-16', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-02-05', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (681940822);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (100720929);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 681940822,
-        P_FECHA_INICIO  => TO_DATE('2023-03-12', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-03-13', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 7,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(100720929, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 681940822,
+        P_CEDULA        => 100720929,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-03-12', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-09-19', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (575124278);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (107012411);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 575124278,
-        P_FECHA_INICIO  => TO_DATE('2024-01-19', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-01-20', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 14,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(107012411, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 575124278,
+        P_CEDULA        => 107012411,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-01-19', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-10-13', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (141130201);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (123456321);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 141130201,
-        P_FECHA_INICIO  => TO_DATE('2022-04-13', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-04-14', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 12,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(123456321, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 141130201,
+        P_CEDULA        => 123456321,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-04-13', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2022-12-18', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (509200875);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (123456789);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 509200875,
-        P_FECHA_INICIO  => TO_DATE('2023-03-14', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-03-15', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 20,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(123456789, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 509200875,
+        P_CEDULA        => 123456789,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-03-14', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2024-07-16', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (948336055);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (123456987);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 948336055,
-        P_FECHA_INICIO  => TO_DATE('2023-09-14', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-09-15', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 1,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(123456987, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 948336055,
+        P_CEDULA        => 123456987,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-09-14', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-09-26', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (697319820);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (123654321);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 697319820,
-        P_FECHA_INICIO  => TO_DATE('2022-12-17', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-12-18', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 12,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(123654321, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 697319820,
+        P_CEDULA        => 123654321,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-12-17', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-11-23', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (170504053);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (123654789);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 170504053,
-        P_FECHA_INICIO  => TO_DATE('2022-09-03', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-09-04', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(123654789, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 170504053,
+        P_CEDULA        => 123654789,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-09-03', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-06-06', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (412828538);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (123654987);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 412828538,
-        P_FECHA_INICIO  => TO_DATE('2023-09-23', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-09-24', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 14,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(123654987, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 412828538,
+        P_CEDULA        => 123654987,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-09-23', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-08-16', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (281708811);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (123789456);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 281708811,
-        P_FECHA_INICIO  => TO_DATE('2021-04-23', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-04-24', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(123789456, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 281708811,
+        P_CEDULA        => 123789456,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-04-23', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2025-08-05', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (170504053);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (123987321);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 170504053,
-        P_FECHA_INICIO  => TO_DATE('2023-05-21', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-05-22', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 12,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(123987321, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 170504053,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-05-21', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (958543215);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 958543215,
-        P_FECHA_INICIO  => TO_DATE('2023-07-26', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-07-27', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 18,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 958543215,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-07-26', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (581583099);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 581583099,
-        P_FECHA_INICIO  => TO_DATE('2021-02-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-02-28', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 581583099,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-02-27', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (698926359);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 698926359,
-        P_FECHA_INICIO  => TO_DATE('2021-02-06', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-02-07', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 16,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 698926359,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-02-06', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (135883996);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 135883996,
-        P_FECHA_INICIO  => TO_DATE('2024-02-13', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-02-14', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 12,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 135883996,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-02-13', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (207102036);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 207102036,
-        P_FECHA_INICIO  => TO_DATE('2023-11-28', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-11-29', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 20,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 207102036,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-11-28', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (170504053);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 170504053,
-        P_FECHA_INICIO  => TO_DATE('2025-06-30', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-07-01', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 2,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 170504053,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-06-30', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (135883996);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 135883996,
-        P_FECHA_INICIO  => TO_DATE('2024-09-13', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-09-14', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 135883996,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-09-13', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (135883996);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 135883996,
-        P_FECHA_INICIO  => TO_DATE('2022-07-08', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-07-09', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 135883996,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-07-08', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (619379091);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 619379091,
-        P_FECHA_INICIO  => TO_DATE('2023-01-17', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-01-18', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 619379091,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-01-17', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (547766054);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 547766054,
-        P_FECHA_INICIO  => TO_DATE('2022-11-20', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-11-21', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 6,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 547766054,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-11-20', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (281708811);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 281708811,
-        P_FECHA_INICIO  => TO_DATE('2023-10-26', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-10-27', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 281708811,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-10-26', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (128673724);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 128673724,
-        P_FECHA_INICIO  => TO_DATE('2021-08-18', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-08-19', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 1,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 128673724,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-08-18', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (166029930);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 166029930,
-        P_FECHA_INICIO  => TO_DATE('2023-08-02', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-08-03', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 166029930,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-08-02', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (274373492);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 274373492,
-        P_FECHA_INICIO  => TO_DATE('2022-06-06', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-06-07', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 274373492,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-06-06', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (948680916);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 948680916,
-        P_FECHA_INICIO  => TO_DATE('2023-03-16', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-03-17', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 948680916,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-03-16', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (792373661);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 792373661,
-        P_FECHA_INICIO  => TO_DATE('2025-03-26', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-03-27', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 792373661,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-03-26', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (588056501);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 588056501,
-        P_FECHA_INICIO  => TO_DATE('2022-11-30', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-12-01', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 588056501,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-11-30', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (693286551);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 693286551,
-        P_FECHA_INICIO  => TO_DATE('2024-01-08', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-01-09', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 20,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 693286551,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-01-08', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (113694185);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 113694185,
-        P_FECHA_INICIO  => TO_DATE('2022-10-08', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-10-09', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 3,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 113694185,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-10-08', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (368977860);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 368977860,
-        P_FECHA_INICIO  => TO_DATE('2025-03-01', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-03-02', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 4,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 368977860,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-03-01', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (330695808);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 330695808,
-        P_FECHA_INICIO  => TO_DATE('2023-02-04', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-02-05', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 20,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 330695808,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-02-04', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (415813764);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 415813764,
-        P_FECHA_INICIO  => TO_DATE('2023-11-19', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-11-20', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 4,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 415813764,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-11-19', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (166914181);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 166914181,
-        P_FECHA_INICIO  => TO_DATE('2025-01-15', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-01-16', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 2,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 166914181,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-01-15', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (514920735);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 514920735,
-        P_FECHA_INICIO  => TO_DATE('2023-01-24', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-01-25', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 514920735,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-01-24', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (619379091);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 619379091,
-        P_FECHA_INICIO  => TO_DATE('2021-02-19', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-02-20', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 619379091,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-02-19', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (152027821);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 152027821,
-        P_FECHA_INICIO  => TO_DATE('2021-07-23', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-07-24', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 16,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 152027821,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-07-23', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (314234082);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 314234082,
-        P_FECHA_INICIO  => TO_DATE('2021-07-13', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-07-14', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 314234082,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-07-13', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (689180750);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 689180750,
-        P_FECHA_INICIO  => TO_DATE('2023-04-17', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-04-18', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 689180750,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-04-17', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (846613112);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 846613112,
-        P_FECHA_INICIO  => TO_DATE('2022-11-03', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-11-04', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 6,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 846613112,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-11-03', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (698926359);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 698926359,
-        P_FECHA_INICIO  => TO_DATE('2022-02-18', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-02-19', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 698926359,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-02-18', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (319743091);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 319743091,
-        P_FECHA_INICIO  => TO_DATE('2024-04-03', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-04-04', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 14,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 319743091,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-04-03', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (697501221);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 697501221,
-        P_FECHA_INICIO  => TO_DATE('2022-09-22', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-09-23', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 697501221,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-09-22', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (275474416);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 275474416,
-        P_FECHA_INICIO  => TO_DATE('2024-07-19', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-07-20', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 16,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 275474416,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-07-19', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (547766054);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 547766054,
-        P_FECHA_INICIO  => TO_DATE('2021-07-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-07-28', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 547766054,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-07-27', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (996138159);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 996138159,
-        P_FECHA_INICIO  => TO_DATE('2024-05-05', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-05-06', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 996138159,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-05-05', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (463824860);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 463824860,
-        P_FECHA_INICIO  => TO_DATE('2021-02-11', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-02-12', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 6,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 463824860,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-02-11', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (941779996);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 941779996,
-        P_FECHA_INICIO  => TO_DATE('2023-06-06', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-06-07', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 941779996,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-06-06', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (697501221);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 697501221,
-        P_FECHA_INICIO  => TO_DATE('2021-04-02', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-04-03', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 20,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 697501221,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-04-02', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (135883996);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 135883996,
-        P_FECHA_INICIO  => TO_DATE('2022-03-25', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-03-26', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 135883996,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-03-25', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (422136108);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 422136108,
-        P_FECHA_INICIO  => TO_DATE('2022-12-21', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-12-22', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 422136108,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-12-21', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (620735683);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 620735683,
-        P_FECHA_INICIO  => TO_DATE('2023-09-24', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-09-25', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 620735683,
+        P_CEDULA        => 123987321,
         P_METODO_PAGO   => 1,
         FECHA           => TO_DATE('2023-09-24', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (415743284);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (123987654);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 415743284,
-        P_FECHA_INICIO  => TO_DATE('2022-09-11', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-09-12', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 9,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(123987654, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 415743284,
+        P_CEDULA        => 123987654,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-09-11', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2024-04-06', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (697319820);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (126071820);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 697319820,
-        P_FECHA_INICIO  => TO_DATE('2022-05-19', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-05-20', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 5,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(126071820, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 697319820,
+        P_CEDULA        => 126071820,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-05-19', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2024-10-14', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (514920735);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (150458075);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 514920735,
-        P_FECHA_INICIO  => TO_DATE('2021-11-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-11-28', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 4,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(150458075, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 514920735,
+        P_CEDULA        => 150458075,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-11-27', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2023-10-01', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (948336055);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (172289365);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 948336055,
-        P_FECHA_INICIO  => TO_DATE('2025-01-30', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-01-31', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(172289365, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 948336055,
+        P_CEDULA        => 172289365,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-01-30', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2023-03-23', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (810124685);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (172636412);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 810124685,
-        P_FECHA_INICIO  => TO_DATE('2024-08-01', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-08-02', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 5,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(172636412, 1);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 810124685,
+        P_CEDULA        => 172636412,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-08-01', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2025-07-18', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (318060186);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (200929268);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 318060186,
-        P_FECHA_INICIO  => TO_DATE('2021-09-22', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-09-23', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 18,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(200929268, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 318060186,
+        P_CEDULA        => 200929268,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-09-22', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2023-03-28', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (318215086);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (206105620);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 318215086,
-        P_FECHA_INICIO  => TO_DATE('2025-06-05', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-06-06', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 20,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(206105620, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 318215086,
+        P_CEDULA        => 206105620,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-06-05', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2025-11-13', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (318060186);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (279820816);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 318060186,
-        P_FECHA_INICIO  => TO_DATE('2024-12-22', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-12-23', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 12,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(279820816, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 318060186,
+        P_CEDULA        => 279820816,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-12-22', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-01-25', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (174540857);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (282525601);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 174540857,
-        P_FECHA_INICIO  => TO_DATE('2023-07-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-07-28', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 18,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(282525601, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 174540857,
+        P_CEDULA        => 282525601,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-07-27', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2025-04-27', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (364528232);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (294637478);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 364528232,
-        P_FECHA_INICIO  => TO_DATE('2023-01-28', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-01-29', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(294637478, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 364528232,
+        P_CEDULA        => 294637478,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-01-28', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2023-09-13', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (257572039);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (303500186);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 257572039,
-        P_FECHA_INICIO  => TO_DATE('2021-06-25', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-06-26', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 5,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(303500186, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 257572039,
+        P_CEDULA        => 303500186,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-06-25', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2022-11-26', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (596435060);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (307733583);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 596435060,
-        P_FECHA_INICIO  => TO_DATE('2023-05-11', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-05-12', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 7,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(307733583, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 596435060,
+        P_CEDULA        => 307733583,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-05-11', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-08-19', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (302225170);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (321456123);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 302225170,
-        P_FECHA_INICIO  => TO_DATE('2024-02-29', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-03-01', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 2,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(321456123, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 302225170,
+        P_CEDULA        => 321456123,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-02-29', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2023-10-19', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (975872912);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (321456789);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 975872912,
-        P_FECHA_INICIO  => TO_DATE('2023-09-20', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-09-21', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(321456789, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 975872912,
+        P_CEDULA        => 321456789,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-09-20', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2024-03-14', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (158466602);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (321654123);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 158466602,
-        P_FECHA_INICIO  => TO_DATE('2021-05-29', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-05-30', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(321654123, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 158466602,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-05-29', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (178165051);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 178165051,
-        P_FECHA_INICIO  => TO_DATE('2021-01-02', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-01-03', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 20,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 178165051,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-01-02', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (332852533);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 332852533,
-        P_FECHA_INICIO  => TO_DATE('2022-03-24', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-03-25', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 16,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 332852533,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-03-24', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (596435060);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 596435060,
-        P_FECHA_INICIO  => TO_DATE('2021-04-22', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-04-23', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 19,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 596435060,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-04-22', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (314234082);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 314234082,
-        P_FECHA_INICIO  => TO_DATE('2022-07-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-07-28', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 314234082,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-07-27', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (697501221);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 697501221,
-        P_FECHA_INICIO  => TO_DATE('2024-02-05', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-02-06', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 6,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 697501221,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-02-05', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (281708811);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 281708811,
-        P_FECHA_INICIO  => TO_DATE('2023-02-18', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-02-19', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 281708811,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-02-18', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (215921079);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 215921079,
-        P_FECHA_INICIO  => TO_DATE('2022-10-15', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-10-16', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 18,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 215921079,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-10-15', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (270748411);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 270748411,
-        P_FECHA_INICIO  => TO_DATE('2021-07-06', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-07-07', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 7,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 270748411,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-07-06', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (270748411);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 270748411,
-        P_FECHA_INICIO  => TO_DATE('2025-07-01', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-07-02', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 19,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 270748411,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-07-01', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (273522987);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 273522987,
-        P_FECHA_INICIO  => TO_DATE('2021-10-20', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-10-21', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 4,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 273522987,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-10-20', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (415743284);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 415743284,
-        P_FECHA_INICIO  => TO_DATE('2023-04-09', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-04-10', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 19,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 415743284,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-04-09', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (846613112);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 846613112,
-        P_FECHA_INICIO  => TO_DATE('2025-04-15', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-04-16', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 7,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 846613112,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-04-15', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (368977860);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 368977860,
-        P_FECHA_INICIO  => TO_DATE('2025-02-10', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-02-11', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 3,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 368977860,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-02-10', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (297348267);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 297348267,
-        P_FECHA_INICIO  => TO_DATE('2024-08-15', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-08-16', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 297348267,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-08-15', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (697501221);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 697501221,
-        P_FECHA_INICIO  => TO_DATE('2022-07-01', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-07-02', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 5,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 697501221,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-07-01', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (128673724);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 128673724,
-        P_FECHA_INICIO  => TO_DATE('2024-04-12', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-04-13', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 128673724,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-04-12', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (275474416);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 275474416,
-        P_FECHA_INICIO  => TO_DATE('2022-01-05', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-01-06', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 14,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 275474416,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-01-05', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (985895657);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 985895657,
-        P_FECHA_INICIO  => TO_DATE('2024-02-05', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-02-06', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 985895657,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-02-05', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (916304192);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 916304192,
-        P_FECHA_INICIO  => TO_DATE('2024-01-06', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-01-07', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 14,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 916304192,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-01-06', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (318215086);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 318215086,
-        P_FECHA_INICIO  => TO_DATE('2021-03-02', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-03-03', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 12,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 318215086,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-03-02', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (623159621);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 623159621,
-        P_FECHA_INICIO  => TO_DATE('2021-08-25', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-08-26', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 623159621,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-08-25', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (509200875);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 509200875,
-        P_FECHA_INICIO  => TO_DATE('2025-03-09', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-03-10', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 509200875,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-03-09', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (883533894);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 883533894,
-        P_FECHA_INICIO  => TO_DATE('2021-06-04', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-06-05', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 883533894,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-06-04', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (152027821);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 152027821,
-        P_FECHA_INICIO  => TO_DATE('2021-02-03', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-02-04', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 14,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 152027821,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-02-03', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (698926359);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 698926359,
-        P_FECHA_INICIO  => TO_DATE('2021-07-08', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-07-09', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 698926359,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-07-08', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (274373492);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 274373492,
-        P_FECHA_INICIO  => TO_DATE('2025-07-13', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-07-14', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 274373492,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-07-13', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (948680916);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 948680916,
-        P_FECHA_INICIO  => TO_DATE('2024-03-03', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-03-04', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 948680916,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-03-03', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (186564306);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 186564306,
-        P_FECHA_INICIO  => TO_DATE('2024-12-31', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-01-01', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 12,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 186564306,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-12-31', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (158466602);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 158466602,
-        P_FECHA_INICIO  => TO_DATE('2025-06-09', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-06-10', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 158466602,
+        P_CEDULA        => 321654123,
         P_METODO_PAGO   => 1,
         FECHA           => TO_DATE('2025-06-09', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (268100269);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (321654987);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 268100269,
-        P_FECHA_INICIO  => TO_DATE('2021-02-10', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-02-11', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(321654987, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 268100269,
+        P_CEDULA        => 321654987,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-02-10', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2022-03-24', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (588056501);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (321789123);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 588056501,
-        P_FECHA_INICIO  => TO_DATE('2024-07-24', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-07-25', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(321789123, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 588056501,
+        P_CEDULA        => 321789123,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-07-24', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2022-07-09', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (588056501);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (321789654);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 588056501,
-        P_FECHA_INICIO  => TO_DATE('2021-12-10', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-12-11', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 7,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(321789654, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 588056501,
+        P_CEDULA        => 321789654,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-12-10', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2024-05-14', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (941779996);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (321789987);
 
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 941779996,
-        P_FECHA_INICIO  => TO_DATE('2024-02-13', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-02-14', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
+EXEC AGREGAR_MEMBRESIA_SP(321789987, 2);
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 941779996,
+        P_CEDULA        => 321789987,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-02-13', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-09-26', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (588056501);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (321987654);
+
+EXEC AGREGAR_MEMBRESIA_SP(321987654, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 321987654,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2022-10-24', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (361583191);
+
+EXEC AGREGAR_MEMBRESIA_SP(361583191, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 361583191,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2025-06-02', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (370284113);
+
+EXEC AGREGAR_MEMBRESIA_SP(370284113, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 370284113,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2025-12-08', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (382958402);
+
+EXEC AGREGAR_MEMBRESIA_SP(382958402, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 382958402,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2025-02-09', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (384284384);
+
+EXEC AGREGAR_MEMBRESIA_SP(384284384, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 384284384,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2024-10-05', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (390660266);
+
+EXEC AGREGAR_MEMBRESIA_SP(390660266, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 390660266,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2021-10-10', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (412955229);
+
+EXEC AGREGAR_MEMBRESIA_SP(412955229, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 412955229,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2025-05-14', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (414917884);
+
+EXEC AGREGAR_MEMBRESIA_SP(414917884, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 414917884,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2021-03-28', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (455303095);
+
+EXEC AGREGAR_MEMBRESIA_SP(455303095, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 455303095,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2024-08-13', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (456789123);
+
+EXEC AGREGAR_MEMBRESIA_SP(456789123, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 456789123,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2021-01-17', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (458830987);
+
+EXEC AGREGAR_MEMBRESIA_SP(458830987, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 458830987,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2022-03-05', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (464654263);
+
+EXEC AGREGAR_MEMBRESIA_SP(464654263, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 464654263,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2021-10-25', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (468777336);
+
+EXEC AGREGAR_MEMBRESIA_SP(468777336, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 468777336,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2025-06-17', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (512379497);
+
+EXEC AGREGAR_MEMBRESIA_SP(512379497, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 512379497,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2025-12-17', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (512614737);
+
+EXEC AGREGAR_MEMBRESIA_SP(512614737, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 512614737,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2022-05-26', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (513336799);
+
+EXEC AGREGAR_MEMBRESIA_SP(513336799, 2);
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 513336799,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2025-06-17', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (518506875);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 588056501,
-        P_FECHA_INICIO  => TO_DATE('2021-06-16', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-06-17', 'YYYY-MM-DD'),
+        P_CEDULA        => 518506875,
+        P_FECHA_INICIO  => TO_DATE('2024-08-26', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2024-08-27', 'YYYY-MM-DD'),
         P_ID_INSTALACION => 1,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 588056501,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-06-16', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (463824860);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 463824860,
-        P_FECHA_INICIO  => TO_DATE('2023-09-28', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-09-29', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 18,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 463824860,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-09-28', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (360035012);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 360035012,
-        P_FECHA_INICIO  => TO_DATE('2022-03-21', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-03-22', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 1,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 360035012,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-03-21', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (458953161);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 458953161,
-        P_FECHA_INICIO  => TO_DATE('2022-08-13', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-08-14', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 458953161,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-08-13', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (128673724);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 128673724,
-        P_FECHA_INICIO  => TO_DATE('2021-06-15', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-06-16', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 2,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 128673724,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-06-15', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (916304192);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 916304192,
-        P_FECHA_INICIO  => TO_DATE('2023-03-05', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-03-06', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 9,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 916304192,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-03-05', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (306191864);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 306191864,
-        P_FECHA_INICIO  => TO_DATE('2024-06-08', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-06-09', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 7,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -2545,68 +615,22 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 306191864,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-06-08', 'YYYY-MM-DD')
+        P_CEDULA        => 518506875,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2024-08-26', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (360035012);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (526397666);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 360035012,
-        P_FECHA_INICIO  => TO_DATE('2022-07-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-07-28', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 3,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 360035012,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-07-27', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (302225170);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 302225170,
-        P_FECHA_INICIO  => TO_DATE('2021-05-04', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-05-05', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 302225170,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-05-04', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (504874455);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 504874455,
-        P_FECHA_INICIO  => TO_DATE('2022-05-23', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-05-24', 'YYYY-MM-DD'),
+        P_CEDULA        => 526397666,
+        P_FECHA_INICIO  => TO_DATE('2021-07-01', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-07-02', 'YYYY-MM-DD'),
         P_ID_INSTALACION => 4,
         ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
+        P_NUM_PERSONAS  => 1,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
         P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
     );
@@ -2614,160 +638,22 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 504874455,
+        P_CEDULA        => 526397666,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-05-23', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-07-01', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (131324164);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (547568084);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 131324164,
-        P_FECHA_INICIO  => TO_DATE('2024-01-30', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-01-31', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 12,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 131324164,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-01-30', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (266920089);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 266920089,
-        P_FECHA_INICIO  => TO_DATE('2024-03-28', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-03-29', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 3,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 266920089,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-03-28', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (843317613);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 843317613,
-        P_FECHA_INICIO  => TO_DATE('2025-02-01', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-02-02', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 3,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 843317613,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-02-01', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (268100269);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 268100269,
-        P_FECHA_INICIO  => TO_DATE('2021-06-04', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-06-05', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 1,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 268100269,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-06-04', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (275474416);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 275474416,
-        P_FECHA_INICIO  => TO_DATE('2021-07-25', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-07-26', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 14,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 275474416,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-07-25', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (170504053);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 170504053,
-        P_FECHA_INICIO  => TO_DATE('2025-05-05', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-05-06', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 170504053,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-05-05', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (810124685);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 810124685,
-        P_FECHA_INICIO  => TO_DATE('2022-10-28', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-10-29', 'YYYY-MM-DD'),
+        P_CEDULA        => 547568084,
+        P_FECHA_INICIO  => TO_DATE('2024-06-21', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2024-06-22', 'YYYY-MM-DD'),
         P_ID_INSTALACION => 5,
         ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
+        P_NUM_PERSONAS  => 3,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
         P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
     );
@@ -2775,43 +661,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 810124685,
+        P_CEDULA        => 547568084,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-10-28', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2024-06-21', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (270748411);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (549319113);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 270748411,
-        P_FECHA_INICIO  => TO_DATE('2021-09-29', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-09-30', 'YYYY-MM-DD'),
+        P_CEDULA        => 549319113,
+        P_FECHA_INICIO  => TO_DATE('2024-12-20', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2024-12-21', 'YYYY-MM-DD'),
         P_ID_INSTALACION => 4,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 270748411,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-09-29', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (268100269);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 268100269,
-        P_FECHA_INICIO  => TO_DATE('2024-06-24', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-06-25', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 2,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 7,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -2821,22 +684,22 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 268100269,
+        P_CEDULA        => 549319113,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-06-24', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2024-12-20', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (623159621);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (578195086);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 623159621,
-        P_FECHA_INICIO  => TO_DATE('2022-05-01', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-05-02', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
+        P_CEDULA        => 578195086,
+        P_FECHA_INICIO  => TO_DATE('2021-06-06', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-06-07', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 1,
         ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
+        P_NUM_PERSONAS  => 6,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
         P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
     );
@@ -2844,20 +707,66 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 623159621,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-05-01', 'YYYY-MM-DD')
+        P_CEDULA        => 578195086,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2021-06-06', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (619379091);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (588379629);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 619379091,
-        P_FECHA_INICIO  => TO_DATE('2021-05-11', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-05-12', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
+        P_CEDULA        => 588379629,
+        P_FECHA_INICIO  => TO_DATE('2022-07-06', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2022-07-07', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 2,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 6,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 588379629,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2022-07-06', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (608610147);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 608610147,
+        P_FECHA_INICIO  => TO_DATE('2022-06-01', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2022-06-02', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 6,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 608610147,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2022-06-01', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (639676732);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 639676732,
+        P_FECHA_INICIO  => TO_DATE('2021-09-11', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-09-12', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 2,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 2,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -2867,20 +776,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 619379091,
+        P_CEDULA        => 639676732,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-05-11', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-09-11', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (619379091);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (644631577);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 619379091,
-        P_FECHA_INICIO  => TO_DATE('2021-03-05', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-03-06', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 19,
+        P_CEDULA        => 644631577,
+        P_FECHA_INICIO  => TO_DATE('2024-08-27', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2024-08-28', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 6,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -2890,19 +799,88 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 619379091,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-03-05', 'YYYY-MM-DD')
+        P_CEDULA        => 644631577,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2024-08-27', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (158466602);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (654123321);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 158466602,
-        P_FECHA_INICIO  => TO_DATE('2021-06-20', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-06-21', 'YYYY-MM-DD'),
+        P_CEDULA        => 654123321,
+        P_FECHA_INICIO  => TO_DATE('2021-10-07', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-10-08', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 1,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 654123321,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2021-10-07', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (654123654);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 654123654,
+        P_FECHA_INICIO  => TO_DATE('2023-04-27', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2023-04-28', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 3,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 654123654,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2023-04-27', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (654123987);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 654123987,
+        P_FECHA_INICIO  => TO_DATE('2022-11-08', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2022-11-09', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 6,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 654123987,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2022-11-08', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (654321987);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 654321987,
+        P_FECHA_INICIO  => TO_DATE('2025-04-18', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2025-04-19', 'YYYY-MM-DD'),
         P_ID_INSTALACION => 4,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 6,
@@ -2913,20 +891,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 158466602,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-06-20', 'YYYY-MM-DD')
+        P_CEDULA        => 654321987,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2025-04-18', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (152803506);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (654789123);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 152803506,
-        P_FECHA_INICIO  => TO_DATE('2021-08-13', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-08-14', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 20,
+        P_CEDULA        => 654789123,
+        P_FECHA_INICIO  => TO_DATE('2025-04-21', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2025-04-22', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 1,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 4,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -2936,45 +914,22 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 152803506,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-08-13', 'YYYY-MM-DD')
+        P_CEDULA        => 654789123,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2025-04-21', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (318215086);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (654789654);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 318215086,
-        P_FECHA_INICIO  => TO_DATE('2023-06-05', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-06-06', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 318215086,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-06-05', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (975872912);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 975872912,
+        P_CEDULA        => 654789654,
         P_FECHA_INICIO  => TO_DATE('2022-07-10', 'YYYY-MM-DD'),
         P_FECHA_FIN     => TO_DATE('2022-07-11', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
+        P_ID_INSTALACION => 1,
         ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
+        P_NUM_PERSONAS  => 2,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
         P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
     );
@@ -2982,341 +937,19 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 975872912,
+        P_CEDULA        => 654789654,
         P_METODO_PAGO   => 1,
         FECHA           => TO_DATE('2022-07-10', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (141130201);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (654987123);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 141130201,
-        P_FECHA_INICIO  => TO_DATE('2021-05-29', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-05-30', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 141130201,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-05-29', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (620735683);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 620735683,
-        P_FECHA_INICIO  => TO_DATE('2022-03-30', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-03-31', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 620735683,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-03-30', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (302225170);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 302225170,
-        P_FECHA_INICIO  => TO_DATE('2021-12-12', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-12-13', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 3,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 302225170,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-12-12', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (603717373);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 603717373,
-        P_FECHA_INICIO  => TO_DATE('2025-03-06', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-03-07', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 9,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 603717373,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-03-06', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (941779996);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 941779996,
-        P_FECHA_INICIO  => TO_DATE('2023-08-26', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-08-27', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 19,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 941779996,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-08-26', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (229378074);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 229378074,
-        P_FECHA_INICIO  => TO_DATE('2022-04-18', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-04-19', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 229378074,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-04-18', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (810124685);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 810124685,
-        P_FECHA_INICIO  => TO_DATE('2022-11-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-11-28', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 810124685,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-11-27', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (274373492);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 274373492,
-        P_FECHA_INICIO  => TO_DATE('2022-09-05', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-09-06', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 274373492,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-09-05', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (275474416);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 275474416,
-        P_FECHA_INICIO  => TO_DATE('2022-11-30', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-12-01', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 275474416,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-11-30', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (603717373);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 603717373,
-        P_FECHA_INICIO  => TO_DATE('2022-04-26', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-04-27', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 603717373,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-04-26', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (302225170);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 302225170,
-        P_FECHA_INICIO  => TO_DATE('2021-02-18', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-02-19', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 14,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 302225170,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-02-18', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (360035012);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 360035012,
-        P_FECHA_INICIO  => TO_DATE('2023-11-03', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-11-04', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 12,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 360035012,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-11-03', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (128673724);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 128673724,
-        P_FECHA_INICIO  => TO_DATE('2022-06-24', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-06-25', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 16,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 128673724,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-06-24', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (332852533);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 332852533,
-        P_FECHA_INICIO  => TO_DATE('2022-04-17', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-04-18', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 332852533,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-04-17', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (268100269);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 268100269,
-        P_FECHA_INICIO  => TO_DATE('2023-10-11', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-10-12', 'YYYY-MM-DD'),
+        P_CEDULA        => 654987123,
+        P_FECHA_INICIO  => TO_DATE('2021-04-12', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-04-13', 'YYYY-MM-DD'),
         P_ID_INSTALACION => 3,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 4,
@@ -3327,22 +960,22 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 268100269,
+        P_CEDULA        => 654987123,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-10-11', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-04-12', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (697501221);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (654987321);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 697501221,
-        P_FECHA_INICIO  => TO_DATE('2021-05-06', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-05-07', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
+        P_CEDULA        => 654987321,
+        P_FECHA_INICIO  => TO_DATE('2023-03-27', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2023-03-28', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
         ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
+        P_NUM_PERSONAS  => 2,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
         P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
     );
@@ -3350,229 +983,22 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 697501221,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-05-06', 'YYYY-MM-DD')
+        P_CEDULA        => 654987321,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2023-03-27', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (273522987);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (654987789);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 273522987,
-        P_FECHA_INICIO  => TO_DATE('2021-09-29', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-09-30', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 273522987,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-09-29', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (422136108);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 422136108,
-        P_FECHA_INICIO  => TO_DATE('2025-02-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-02-28', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 422136108,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-02-27', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (596435060);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 596435060,
-        P_FECHA_INICIO  => TO_DATE('2021-05-30', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-05-31', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 596435060,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-05-30', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (623159621);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 623159621,
-        P_FECHA_INICIO  => TO_DATE('2023-04-15', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-04-16', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 7,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 623159621,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-04-15', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (158466602);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 158466602,
-        P_FECHA_INICIO  => TO_DATE('2022-02-26', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-02-27', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 158466602,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-02-26', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (174540857);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 174540857,
-        P_FECHA_INICIO  => TO_DATE('2022-01-11', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-01-12', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 6,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 174540857,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-01-11', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (581583099);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 581583099,
-        P_FECHA_INICIO  => TO_DATE('2021-03-29', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-03-30', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 9,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 581583099,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-03-29', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (729094832);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 729094832,
-        P_FECHA_INICIO  => TO_DATE('2024-05-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-05-28', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 5,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 729094832,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-05-27', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (186564306);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 186564306,
-        P_FECHA_INICIO  => TO_DATE('2022-06-18', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-06-19', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 186564306,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-06-18', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (318215086);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 318215086,
-        P_FECHA_INICIO  => TO_DATE('2021-06-09', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-06-10', 'YYYY-MM-DD'),
+        P_CEDULA        => 654987789,
+        P_FECHA_INICIO  => TO_DATE('2021-01-20', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-01-21', 'YYYY-MM-DD'),
         P_ID_INSTALACION => 4,
         ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
+        P_NUM_PERSONAS  => 2,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
         P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
     );
@@ -3580,89 +1006,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 318215086,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-06-09', 'YYYY-MM-DD')
+        P_CEDULA        => 654987789,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2021-01-20', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (843317613);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (663142039);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 843317613,
-        P_FECHA_INICIO  => TO_DATE('2022-01-22', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-01-23', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 843317613,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-01-22', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (843317613);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 843317613,
-        P_FECHA_INICIO  => TO_DATE('2023-09-19', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-09-20', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 843317613,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-09-19', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (632512353);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 632512353,
-        P_FECHA_INICIO  => TO_DATE('2023-05-06', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-05-07', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 632512353,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-05-06', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (846613112);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 846613112,
-        P_FECHA_INICIO  => TO_DATE('2025-03-07', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-03-08', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 9,
+        P_CEDULA        => 663142039,
+        P_FECHA_INICIO  => TO_DATE('2022-11-04', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2022-11-05', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 8,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -3672,20 +1029,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 846613112,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-03-07', 'YYYY-MM-DD')
+        P_CEDULA        => 663142039,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2022-11-04', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (644347007);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (686451399);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 644347007,
-        P_FECHA_INICIO  => TO_DATE('2024-08-04', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-08-05', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 16,
+        P_CEDULA        => 686451399,
+        P_FECHA_INICIO  => TO_DATE('2025-01-18', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2025-01-19', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 2,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 8,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -3695,20 +1052,250 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 644347007,
+        P_CEDULA        => 686451399,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-08-04', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2025-01-18', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (619379091);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (698520993);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 619379091,
-        P_FECHA_INICIO  => TO_DATE('2022-07-23', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-07-24', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 20,
+        P_CEDULA        => 698520993,
+        P_FECHA_INICIO  => TO_DATE('2022-10-03', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2022-10-04', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 8,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 698520993,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2022-10-03', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (719058288);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 719058288,
+        P_FECHA_INICIO  => TO_DATE('2021-02-24', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-02-25', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 4,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 7,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 719058288,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2021-02-24', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (725406015);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 725406015,
+        P_FECHA_INICIO  => TO_DATE('2021-04-12', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-04-13', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 6,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 725406015,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2021-04-12', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (739771731);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 739771731,
+        P_FECHA_INICIO  => TO_DATE('2023-03-21', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2023-03-22', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 1,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 3,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 739771731,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2023-03-21', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (773355823);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 773355823,
+        P_FECHA_INICIO  => TO_DATE('2022-04-24', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2022-04-25', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 2,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 6,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 773355823,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2022-04-24', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (773857006);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 773857006,
+        P_FECHA_INICIO  => TO_DATE('2023-05-25', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2023-05-26', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 1,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 773857006,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2023-05-25', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (776305873);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 776305873,
+        P_FECHA_INICIO  => TO_DATE('2022-07-19', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2022-07-20', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 8,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 776305873,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2022-07-19', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (789123321);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 789123321,
+        P_FECHA_INICIO  => TO_DATE('2021-12-06', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-12-07', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 7,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 789123321,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2021-12-06', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (789123456);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 789123456,
+        P_FECHA_INICIO  => TO_DATE('2024-08-03', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2024-08-04', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 7,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 789123456,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2024-08-03', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (789123654);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 789123654,
+        P_FECHA_INICIO  => TO_DATE('2024-09-05', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2024-09-06', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 4,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 6,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 789123654,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2024-09-05', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (789123789);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 789123789,
+        P_FECHA_INICIO  => TO_DATE('2024-10-07', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2024-10-08', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 1,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 5,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -3718,22 +1305,22 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 619379091,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-07-23', 'YYYY-MM-DD')
+        P_CEDULA        => 789123789,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2024-10-07', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (708027582);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (789321654);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 708027582,
-        P_FECHA_INICIO  => TO_DATE('2023-07-12', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-07-13', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 3,
+        P_CEDULA        => 789321654,
+        P_FECHA_INICIO  => TO_DATE('2022-04-12', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2022-04-13', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
         ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 8,
+        P_NUM_PERSONAS  => 5,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
         P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
     );
@@ -3741,226 +1328,19 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 708027582,
+        P_CEDULA        => 789321654,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-07-12', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2022-04-12', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (207102036);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (789321987);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 207102036,
-        P_FECHA_INICIO  => TO_DATE('2023-01-17', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-01-18', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 3,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 207102036,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-01-17', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (332852533);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 332852533,
-        P_FECHA_INICIO  => TO_DATE('2023-08-18', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-08-19', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 12,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 332852533,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-08-18', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (632512353);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 632512353,
-        P_FECHA_INICIO  => TO_DATE('2025-02-04', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-02-05', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 14,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 632512353,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-02-04', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (514920735);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 514920735,
-        P_FECHA_INICIO  => TO_DATE('2024-09-11', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-09-12', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 514920735,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-09-11', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (131324164);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 131324164,
-        P_FECHA_INICIO  => TO_DATE('2022-11-01', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-11-02', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 4,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 131324164,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-11-01', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (395524404);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 395524404,
-        P_FECHA_INICIO  => TO_DATE('2022-11-16', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-11-17', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 18,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 395524404,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-11-16', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (514920735);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 514920735,
-        P_FECHA_INICIO  => TO_DATE('2022-06-22', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-06-23', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 9,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 514920735,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-06-22', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (632512353);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 632512353,
-        P_FECHA_INICIO  => TO_DATE('2024-06-14', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-06-15', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 6,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 632512353,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-06-14', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (792373661);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 792373661,
-        P_FECHA_INICIO  => TO_DATE('2023-09-09', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-09-10', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 16,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 792373661,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-09-09', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (303954090);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 303954090,
-        P_FECHA_INICIO  => TO_DATE('2021-11-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-11-28', 'YYYY-MM-DD'),
+        P_CEDULA        => 789321987,
+        P_FECHA_INICIO  => TO_DATE('2021-08-25', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-08-26', 'YYYY-MM-DD'),
         P_ID_INSTALACION => 5,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 3,
@@ -3971,22 +1351,22 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 303954090,
+        P_CEDULA        => 789321987,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-11-27', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2021-08-25', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (207102036);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (789456123);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 207102036,
-        P_FECHA_INICIO  => TO_DATE('2021-03-13', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-03-14', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
+        P_CEDULA        => 789456123,
+        P_FECHA_INICIO  => TO_DATE('2023-03-28', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2023-03-29', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 1,
         ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
+        P_NUM_PERSONAS  => 5,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
         P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
     );
@@ -3994,20 +1374,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 207102036,
+        P_CEDULA        => 789456123,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-03-13', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2023-03-28', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (644347007);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (789654321);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 644347007,
-        P_FECHA_INICIO  => TO_DATE('2025-02-25', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2025-02-26', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 1,
+        P_CEDULA        => 789654321,
+        P_FECHA_INICIO  => TO_DATE('2025-02-08', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2025-02-09', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 6,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -4017,20 +1397,135 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 644347007,
+        P_CEDULA        => 789654321,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2025-02-25', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2025-02-08', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (207102036);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (789654987);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 207102036,
-        P_FECHA_INICIO  => TO_DATE('2022-08-04', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-08-05', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 16,
+        P_CEDULA        => 789654987,
+        P_FECHA_INICIO  => TO_DATE('2025-03-04', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2025-03-05', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 4,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 6,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 789654987,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2025-03-04', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (809323991);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 809323991,
+        P_FECHA_INICIO  => TO_DATE('2025-03-01', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2025-03-02', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 2,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 1,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 809323991,
+        P_METODO_PAGO   => 1,
+        FECHA           => TO_DATE('2025-03-01', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (827919175);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 827919175,
+        P_FECHA_INICIO  => TO_DATE('2022-05-14', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2022-05-15', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 5,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 827919175,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2022-05-14', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (838994395);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 838994395,
+        P_FECHA_INICIO  => TO_DATE('2024-06-28', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2024-06-29', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 5,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 838994395,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2024-06-28', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (839255961);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 839255961,
+        P_FECHA_INICIO  => TO_DATE('2025-10-23', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2025-10-24', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
+        ID_ESTADO       => 3,
+        P_NUM_PERSONAS  => 2,
+        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
+        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
+    );
+END;
+
+BEGIN
+    EJECUTAR_CARRITO(
+        P_CEDULA        => 839255961,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2025-10-23', 'YYYY-MM-DD')
+    );
+END;
+
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (861737131);
+
+BEGIN
+    INSERTAR_RESERVA(
+        P_CEDULA        => 861737131,
+        P_FECHA_INICIO  => TO_DATE('2023-05-01', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2023-05-02', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 7,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -4040,22 +1535,22 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 207102036,
+        P_CEDULA        => 861737131,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-08-04', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2023-05-01', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (514920735);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (871456311);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 514920735,
-        P_FECHA_INICIO  => TO_DATE('2022-12-15', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-12-16', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 16,
+        P_CEDULA        => 871456311,
+        P_FECHA_INICIO  => TO_DATE('2023-02-23', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2023-02-24', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
         ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
+        P_NUM_PERSONAS  => 3,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
         P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
     );
@@ -4063,19 +1558,19 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 514920735,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-12-15', 'YYYY-MM-DD')
+        P_CEDULA        => 871456311,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2023-02-23', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (279418702);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (892703626);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 279418702,
-        P_FECHA_INICIO  => TO_DATE('2024-06-16', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-06-17', 'YYYY-MM-DD'),
+        P_CEDULA        => 892703626,
+        P_FECHA_INICIO  => TO_DATE('2021-01-24', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-01-25', 'YYYY-MM-DD'),
         P_ID_INSTALACION => 2,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 3,
@@ -4086,20 +1581,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 279418702,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-06-16', 'YYYY-MM-DD')
+        P_CEDULA        => 892703626,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2021-01-24', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (975872912);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (895265240);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 975872912,
-        P_FECHA_INICIO  => TO_DATE('2024-12-16', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-12-17', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 10,
+        P_CEDULA        => 895265240,
+        P_FECHA_INICIO  => TO_DATE('2024-05-06', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2024-05-07', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 2,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 3,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -4109,43 +1604,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 975872912,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-12-16', 'YYYY-MM-DD')
+        P_CEDULA        => 895265240,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2024-05-06', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (603717373);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (920143463);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 603717373,
-        P_FECHA_INICIO  => TO_DATE('2021-10-29', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-10-30', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 603717373,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-10-29', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (318060186);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 318060186,
-        P_FECHA_INICIO  => TO_DATE('2024-04-16', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-04-17', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
+        P_CEDULA        => 920143463,
+        P_FECHA_INICIO  => TO_DATE('2023-08-22', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2023-08-23', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 1,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 5,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -4155,22 +1627,22 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 318060186,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-04-16', 'YYYY-MM-DD')
+        P_CEDULA        => 920143463,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2023-08-22', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (975872912);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (931116401);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 975872912,
-        P_FECHA_INICIO  => TO_DATE('2021-01-31', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-02-01', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 18,
+        P_CEDULA        => 931116401,
+        P_FECHA_INICIO  => TO_DATE('2023-10-20', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2023-10-21', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 5,
         ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 3,
+        P_NUM_PERSONAS  => 7,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
         P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
     );
@@ -4178,66 +1650,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 975872912,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-01-31', 'YYYY-MM-DD')
+        P_CEDULA        => 931116401,
+        P_METODO_PAGO   => 2,
+        FECHA           => TO_DATE('2023-10-20', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (186564306);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (974922647);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 186564306,
-        P_FECHA_INICIO  => TO_DATE('2024-03-20', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-03-21', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 6,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 186564306,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-03-20', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (521785453);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 521785453,
-        P_FECHA_INICIO  => TO_DATE('2022-02-17', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-02-18', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 7,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 521785453,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-02-17', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (792373661);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 792373661,
-        P_FECHA_INICIO  => TO_DATE('2021-11-06', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-11-07', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 6,
+        P_CEDULA        => 974922647,
+        P_FECHA_INICIO  => TO_DATE('2025-09-21', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2025-09-22', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 4,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 4,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -4247,66 +1673,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 792373661,
+        P_CEDULA        => 974922647,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-11-06', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2025-09-21', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (415743284);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (987654321);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 415743284,
-        P_FECHA_INICIO  => TO_DATE('2022-12-28', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-12-29', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 415743284,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-12-28', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (113694185);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 113694185,
-        P_FECHA_INICIO  => TO_DATE('2022-04-11', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-04-12', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 17,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 113694185,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-04-11', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (207102036);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 207102036,
-        P_FECHA_INICIO  => TO_DATE('2023-02-27', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-02-28', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
+        P_CEDULA        => 987654321,
+        P_FECHA_INICIO  => TO_DATE('2023-04-28', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2023-04-29', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 1,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 8,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -4316,89 +1696,20 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 207102036,
+        P_CEDULA        => 987654321,
         P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-02-27', 'YYYY-MM-DD')
+        FECHA           => TO_DATE('2023-04-28', 'YYYY-MM-DD')
     );
 END;
 
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (628459555);
+INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (991546843);
 
 BEGIN
     INSERTAR_RESERVA(
-        P_CEDULA        => 628459555,
-        P_FECHA_INICIO  => TO_DATE('2021-02-02', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-02-03', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 628459555,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-02-02', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (843317613);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 843317613,
-        P_FECHA_INICIO  => TO_DATE('2022-02-07', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-02-08', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 8,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 843317613,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-02-07', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (946624902);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 946624902,
-        P_FECHA_INICIO  => TO_DATE('2021-10-08', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2021-10-09', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 4,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 2,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 946624902,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2021-10-08', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (318060186);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 318060186,
-        P_FECHA_INICIO  => TO_DATE('2022-01-20', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-01-21', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 5,
+        P_CEDULA        => 991546843,
+        P_FECHA_INICIO  => TO_DATE('2021-07-14', 'YYYY-MM-DD'),
+        P_FECHA_FIN     => TO_DATE('2021-07-15', 'YYYY-MM-DD'),
+        P_ID_INSTALACION => 3,
         ID_ESTADO       => 3,
         P_NUM_PERSONAS  => 7,
         P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
@@ -4408,192 +1719,8 @@ END;
 
 BEGIN
     EJECUTAR_CARRITO(
-        P_CEDULA        => 318060186,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-01-20', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (140826345);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 140826345,
-        P_FECHA_INICIO  => TO_DATE('2024-10-29', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-10-30', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 5,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 140826345,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-10-29', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (708027582);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 708027582,
-        P_FECHA_INICIO  => TO_DATE('2022-12-23', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-12-24', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 18,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 708027582,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-12-23', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (883533894);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 883533894,
-        P_FECHA_INICIO  => TO_DATE('2023-02-03', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-02-04', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 5,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 883533894,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-02-03', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (632512353);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 632512353,
-        P_FECHA_INICIO  => TO_DATE('2022-01-31', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2022-02-01', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 14,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 7,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 632512353,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2022-01-31', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (174540857);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 174540857,
-        P_FECHA_INICIO  => TO_DATE('2024-10-18', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-10-19', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 11,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 10,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 174540857,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-10-18', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (314234082);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 314234082,
-        P_FECHA_INICIO  => TO_DATE('2024-11-13', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-11-14', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 13,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 9,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 314234082,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-11-13', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (361482351);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 361482351,
-        P_FECHA_INICIO  => TO_DATE('2024-03-22', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2024-03-23', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 16,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 4,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 361482351,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2024-03-22', 'YYYY-MM-DD')
-    );
-END;
-
-INSERT INTO FIDE_CARRITO_TB (CEDULA) VALUES (410932524);
-
-BEGIN
-    INSERTAR_RESERVA(
-        P_CEDULA        => 410932524,
-        P_FECHA_INICIO  => TO_DATE('2023-12-21', 'YYYY-MM-DD'),
-        P_FECHA_FIN     => TO_DATE('2023-12-22', 'YYYY-MM-DD'),
-        P_ID_INSTALACION => 15,
-        ID_ESTADO       => 3,
-        P_NUM_PERSONAS  => 6,
-        P_HORA_FIN      => TO_TIMESTAMP('18:00:00', 'HH24:MI:SS'),
-        P_HORA_INICIO   => TO_TIMESTAMP('10:00:00', 'HH24:MI:SS')
-    );
-END;
-
-BEGIN
-    EJECUTAR_CARRITO(
-        P_CEDULA        => 410932524,
-        P_METODO_PAGO   => 1,
-        FECHA           => TO_DATE('2023-12-21', 'YYYY-MM-DD')
+        P_CEDULA        => 991546843,
+        P_METODO_PAGO   => 3,
+        FECHA           => TO_DATE('2021-07-14', 'YYYY-MM-DD')
     );
 END;
