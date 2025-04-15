@@ -7,55 +7,6 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-require 'data/conexion.php';
-
-try {
-    $rol = 1;
-    $stid = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_USUARIOS_TB_GET_USERS_SP(:datos, :rol); END;");
-    $cursor = oci_new_cursor($conn);
-    oci_bind_by_name($stid, ":datos", $cursor, -1, OCI_B_CURSOR);
-    oci_bind_by_name($stid, ":rol", $rol);
-
-    oci_execute($stid);
-    oci_execute($cursor);
-
-    $usuarios = [];
-    while ($fila = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS)) {
-        foreach ($fila as $key => $value) {
-            if (is_string($value)) {
-                $fila[$key] = utf8_encode($value);
-            }
-        }
-        $usuarios[] = $fila;
-    }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-    exit;
-}
-
-try {
-    $rol = 2;
-    $stid = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_USUARIOS_PKG.FIDE_USUARIOS_TB_GET_USERS_SP(:datos, :rol); END;");
-    $cursor = oci_new_cursor($conn);
-    oci_bind_by_name($stid, ":datos", $cursor, -1, OCI_B_CURSOR);
-    oci_bind_by_name($stid, ":rol", $rol);
-
-    oci_execute($stid);
-    oci_execute($cursor);
-
-    $usuarios2 = [];
-    while ($fila = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS)) {
-        foreach ($fila as $key => $value) {
-            if (is_string($value)) {
-                $fila[$key] = utf8_encode($value);
-            }
-        }
-        $usuarios2[] = $fila;
-    }
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +42,7 @@ try {
             <main id="content" class="col-md-10 ms-sm-auto px-md-4 content">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2 titulo-Content">Gestión de Reservaciones</h1>
+                    <h1 class="h2 titulo-Content">Gestión de Instalaciones</h1>
                     <div class="profile position-relative" onclick="toggleDropdown()">
                         <span>ADMIN ▼</span>
                         <div class="dropdown position-absolute bg-white shadow border rounded mt-1 p-2 d-none"
@@ -105,25 +56,42 @@ try {
 
                 <div class="card mt-4 shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title mb-3">Lista de Usuarios</h5>
+                        <h5 class="card-title mb-3">Nuestras Instalaciones</h5>
+                        <button id="btnAgregarInstalacion" class="btnAgregarAdministrador btn mb-5">Agregar Instalación</button>
                         <div class="table-responsive custom-scroll-table">
                             <table class="table table-bordered table-hover align-middle text-center theadTabla">
                                 <thead class="table-dark mi-color-personalizado">
                                     <tr>
-                                        <th>Núm Reservación</th>
-                                        <th>Cédula</th>
                                         <th>Nombre</th>
-                                        <th>Instalación</th>
-                                        <th>Fecha Inicio</th>
-                                        <th>Hora Inicio</th>
-                                        <th>Fecha Fin</th>
-                                        <th>Hora Fin</th>
-                                        <th>N° Personas</th>
+                                        <th>Costo</th>
+                                        <th>Categoría</th>
+                                        <th>Capacidad</th>
                                         <th>Estado</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tablaReservas">
+                                <tbody id="tablaInstalaciones">
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3">Nuestras Categorías</h5>
+                        <button id="btnAgregarCategoría" class="btnAgregarAdministrador btn mb-5">Agregar Categoría</button>
+                        <div class="table-responsive custom-scroll-table">
+                            <table class="table table-bordered table-hover align-middle text-center theadTabla">
+                                <thead class="table-dark mi-color-personalizado">
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaTipos">
                                 </tbody>
 
                             </table>

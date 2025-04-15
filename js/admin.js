@@ -506,5 +506,282 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
         
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////// RESERVAS
+
+
+
+function cargarReservas() {
+    $.post('./data/accionesInstalaciones.php', { action: 'getReservas' }, function(response) {
+        if (response.success) {
+            const tabla = $('#tablaReservas');
+            tabla.empty();
+
+            const hoy = new Date();
+            hoy.setHours(0, 0, 0, 0); // Para comparar solo la fecha
+
+            response.data.forEach(reserva => {
+                const nombreCompleto = `${reserva.NOMBRE_USUARIO} ${reserva.APELLIDO1_USUARIO} ${reserva.APELLIDO2_USUARIO}`;
+
+                const fechaInicio = new Date(reserva.FECHA_INICIO); 
+                fechaInicio.setHours(0, 0, 0, 0); // Igualar formato
+
+                let botonEliminar = '';
+                if (fechaInicio >= hoy) {
+                    botonEliminar = `
+                        <td>
+                            <button class="btn btn-danger btn-sm eliminar-reserva" id="cancelarReserva" data-id="${reserva.ID_RESERVA}">
+                                Eliminar
+                            </button>
+                        </td>`;
+                } else {
+                    botonEliminar = `<td></td>`; // O podrías ocultarlo o poner algo como "No disponible"
+                }
+
+                const fila = `
+                    <tr>
+                        <td>${reserva.ID_RESERVA}</td>
+                        <td>${reserva.CEDULA}</td>
+                        <td>${nombreCompleto}</td>
+                        <td>${reserva.NOMBRE}</td>
+                        <td>${reserva.FECHA_INICIO}</td>
+                        <td>${reserva.HORA_INICIO}</td>
+                        <td>${reserva.FECHA_FIN}</td>
+                        <td>${reserva.HORA_FIN}</td>
+                        <td>${reserva.NUMERO_PERSONAS}</td>
+                        <td>${reserva.ESTADO}</td>
+                        ${botonEliminar}
+                    </tr>`;
+                tabla.append(fila);
+            });
+        } else {
+            Swal.fire("Error", response.message, "error");
+        }
+    }, 'json')
+    .fail(function(jqXHR, textStatus, errorThrown) {
+        console.error('Error al cargar reservas:', textStatus, errorThrown);
+        Swal.fire("Error", "No se pudieron cargar las reservas.", "error");
+    });
+}
+
+
+
+cargarReservas();
+
+$(document).on('click', '#cancelarReserva', function () {
+    const idReserva = $(this).data('id');
+
+    Swal.fire({
+        title: "¿Estás seguro?",
+        text: "Esta acción cancelará la reserva.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sí, cancelar",
+        cancelButtonText: "No"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: './data/accionesInstalaciones.php',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    action: 'cancelar_reserva',
+                    id_reserva: idReserva
+                }),
+                dataType: 'json',
+                success: function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            title: "Reserva cancelada",
+                            text: "Se debe contactar al cliente para la devolución del dinero.",
+                            icon: "success"
+                        });
+                        cargarReservas(); // Recarga la tabla de reservas
+                    } else {
+                        Swal.fire("Error", response.message, "error");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    Swal.fire("Error", "No se pudo cancelar la reserva.", "error");
+                    console.error(error);
+                }
+            });
+        }
+    });
+});
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//INSTALACIONES
+function cargarInstalaciones() {
+    $.post('./data/accionesInstalaciones.php', { action: 'listar_instalaciones' }, function(response) {
+        if (response.success) {
+            const tbody = $('#tablaInstalaciones');
+            tbody.empty();
+
+            response.data.forEach(instalacion => {
+                const fila = `
+                    <tr>
+                        <td>${instalacion.NOMBRE}</td>
+                        <td>₡${parseFloat(instalacion.COSTO).toLocaleString()}</td>
+                        <td>${instalacion.CATEGORIA}</td>
+                        <td>${instalacion.CAPACIDAD}</td>
+                        <td>${instalacion.DESCRIPCION}</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm editar-instalacion" data-id="${instalacion.ID_INSTALACION}">
+                                Editar
+                            </button>
+                            <button class="btn btn-danger btn-sm eliminar-instalacion" data-id="${instalacion.ID_INSTALACION}">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>`;
+                tbody.append(fila);
+            });
+        } else {
+            Swal.fire("Error", response.message, "error");
+        }
+    }, 'json');
+}
+
+cargarInstalaciones();
+
+function cargarTiposInstalacion() {
+    $.post('./data/accionesInstalaciones.php', { action: 'listarTipos' }, function(response) {
+        if (response.success) {
+            const tbody = $('#tablaTipos');
+            tbody.empty();
+
+            response.data.forEach(tipo => {
+                const fila = `
+                    <tr>
+                        <td>${tipo.DESCRIPCION}</td>
+                        <td>${tipo.ESTADO}</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm editar-categoria" data-id="${tipo.ID_TIPO_INSTALACION}">
+                                Editar
+                            </button>
+                            <button class="btn btn-danger btn-sm eliminar-categoria" data-id="${tipo.ID_TIPO_INSTALACION}">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>`;
+                tbody.append(fila);
+            });
+        } else {
+            Swal.fire("Error", response.message, "error");
+        }
+    }, 'json');
+}
+
+cargarTiposInstalacion();
+
+
+function mostrarFormularioAgregarInstalacion(categorias) {
+    let opciones = categorias.map(c => `<option value="${c.ID_TIPO_INSTALACION}">${c.DESCRIPCION}</option>`).join('');
+
+    Swal.fire({
+        title: 'Agregar Instalación',
+        html: `
+            <input type="text" id="nombreInstalacion" class="swal2-input" placeholder="Nombre">
+            <input type="number" id="costoInstalacion" class="swal2-input" placeholder="Costo">
+            <input type="number" id="capacidadInstalacion" class="swal2-input" placeholder="Capacidad">
+            <select id="categoriaInstalacion" class="swal2-input">
+                <option value="" disabled selected>Selecciona una categoría</option>
+                ${opciones}
+            </select>
+        `,
+        confirmButtonText: 'Agregar',
+        showCancelButton: true,
+        focusConfirm: false,
+        preConfirm: () => {
+            const nombre = $('#nombreInstalacion').val().trim();
+            const costo = $('#costoInstalacion').val();
+            const capacidad = $('#capacidadInstalacion').val();
+            const idTipo = $('#categoriaInstalacion').val();
+
+            if (!nombre || !costo || !capacidad || !idTipo) {
+                Swal.showValidationMessage('Todos los campos son obligatorios');
+                return false;
+            }
+
+            return { nombre, costo, capacidad, id_tipo: idTipo };
+        }
+    }).then(result => {
+        if (result.isConfirmed) {
+            agregarInstalacion(result.value);
+        }
+    });
+}
+
+
+
+$('#btnAgregarInstalacion').on('click', function() {
+    $.post('./data/accionesInstalaciones.php', { action: 'listarTipos' }, function(response) {
+        if (response.success) {
+            mostrarFormularioAgregarInstalacion(response.data);
+        } else {
+            Swal.fire("Error", response.message, "error");
+        }
+    }, 'json');
+});
+
+
+
+function agregarInstalacion(data) {
+    $.post('./data/accionesInstalaciones.php', {
+        action: 'agregar_instalacion',
+        nombre: data.nombre,
+        costo: data.costo,
+        capacidad: data.capacidad,
+        id_tipo: data.id_tipo
+    }, function(response) {
+        if (response.success) {
+            Swal.fire("Éxito", response.message, "success");
+            cargarInstalaciones(); // Recarga la tabla si quieres
+        } else {
+            Swal.fire("Error", response.message, "error");
+        }
+    }, 'json');
+}
+
+
+$('#btnAgregarCategoría').on('click', function () {
+    Swal.fire({
+        title: 'Agregar Categoría',
+        html: `
+            <input type="text" id="nombreCategoria" class="swal2-input" placeholder="Nombre de la categoría">
+        `,
+        confirmButtonText: 'Agregar',
+        showCancelButton: true,
+        focusConfirm: false,
+        preConfirm: () => {
+            const nombre = $('#nombreCategoria').val().trim();
+            if (!nombre) {
+                Swal.showValidationMessage('Debes ingresar un nombre');
+                return false;
+            }
+            return { nombre };
+        }
+    }).then(result => {
+        if (result.isConfirmed) {
+            agregarCategoria(result.value.nombre);
+        }
+    });
+});
+
+function agregarCategoria(nombre) {
+    $.post('./data/accionesInstalaciones.php', {
+        action: 'agregar_categoria',
+        nombre: nombre
+    }, function (response) {
+        if (response.success) {
+            Swal.fire("Éxito", response.message, "success");
+            cargarCategorias(); 
+        } else {
+            Swal.fire("Error", response.message, "error");
+        }
+    }, 'json');
+}
+
 
 });

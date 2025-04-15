@@ -147,7 +147,7 @@ try {
             <table class="table table-bordered table-hover align-middle text-center">
             <thead class="table-dark mi-color-personalizado">
                     <tr>
-                        <th>ID</th>
+                        <th>ID Empleado</th>
                         <th>Nombre</th>
                         <th>Usuario</th>
                         <th>Email</th>

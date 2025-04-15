@@ -38,7 +38,7 @@ if (!isset($_SESSION['usuario'])) {
             <!-- Contenido -->
             <main id="content" class="col-md-10 ms-sm-auto px-md-4 content">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2 titulo-Content">Gestión de Usuarios</h1>
+                    <h1 class="h2 titulo-Content">Gestión de Membresías</h1>
                     <div class="profile position-relative" onclick="toggleDropdown()">
                         <span>ADMIN ▼</span>
                         <div class="dropdown position-absolute bg-white shadow border rounded mt-1 p-2 d-none" id="dropdownMenu" style="min-width: 150px;">
