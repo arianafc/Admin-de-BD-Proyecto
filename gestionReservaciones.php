@@ -75,7 +75,7 @@ try {
     <?php incluir_css() ?>
     <style>
         .custom-scroll-table {
-            max-height: 400px;
+            max-height: 700px;
             /* Ajusta este valor según tu diseño */
             overflow-y: auto;
         }

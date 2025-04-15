@@ -44,22 +44,28 @@ switch ($action) {
         }
         break;
         case 'cancelar_reserva':
-            if (isset($input['id_reserva'])) {
-                $idReserva = $input['id_reserva'];
-    
+            if (isset($_POST['idReserva'])) {
+                $idReserva = $_POST['idReserva'];
+            
                 try {
-                    $stmt = oci_parse($conn, "BEGIN FIDE_RESERVAS_TB_CANCELAR_SP(:id); END;");
+                    $stmt = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_RESERVAS_PKG.FIDE_RESERVAS_TB_CANCELAR_SP(:id); END;");
                     oci_bind_by_name($stmt, ":id", $idReserva);
                     oci_execute($stmt);
-    
+            
                     $response['success'] = true;
                     $response['message'] = 'Reserva cancelada correctamente.';
                 } catch (Exception $e) {
+                    $response['success'] = false;
                     $response['message'] = 'Error al cancelar reserva: ' . $e->getMessage();
                 }
             } else {
+                $response['success'] = false;
                 $response['message'] = 'ID de reserva no proporcionado.';
             }
+            
+            echo json_encode($response);
+            exit;
+            
             break;
             case 'listar_instalaciones':
                 try {
