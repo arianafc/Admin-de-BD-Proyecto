@@ -178,3 +178,137 @@ fetch('./data/accionesProveedores.php', {
 .catch(error => {
     console.error("Error al cargar proveedores:", error);
 });
+
+///////////////////////////productos////////////////////////
+// AGREGAR PRODUCTO
+$(document).on("click", "#btnAgregarProducto", function () {
+    Swal.fire({
+        title: "Agregar Producto",
+        html: `
+            <input type="text" id="nombre" class="swal2-input" placeholder="Nombre del producto">
+            <input type="number" id="costo" class="swal2-input" placeholder="Precio">
+        `,
+        confirmButtonText: "Guardar",
+        showCancelButton: true,
+        preConfirm: () => {
+            const nombre = document.getElementById("nombre").value.trim();
+            const costo = document.getElementById("costo").value.trim();
+
+            if (!nombre || !costo) {
+                Swal.showValidationMessage("Todos los campos son obligatorios.");
+                return false;
+            }
+
+            return { nombre, costo };
+        }
+    }).then(result => {
+        if (result.isConfirmed && result.value) {
+            const { nombre, costo } = result.value;
+
+            $.post("./data/accionesProductos.php", {
+                action: "agregar",
+                nombre: nombre,
+                costo: costo
+            }, function (response) {
+                if (response.success) {
+                    Swal.fire("Éxito", response.message, "success").then(() => location.reload());
+                } else {
+                    Swal.fire("Error", response.message, "error");
+                }
+            }, "json").fail(() => {
+                Swal.fire("Error", "No se pudo conectar al servidor.", "error");
+            });
+        }
+    });
+});
+
+// MODIFICAR PRODUCTO
+$(document).on("click", "#btnModificarProducto", function () {
+    const id = $(this).data("id");
+
+    fetch("./data/obtenerProductos.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: id })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error || !data[0]) {
+            Swal.fire("Error", data.error || "Producto no encontrado", "error");
+            return;
+        }
+
+        const producto = data[0];
+
+        Swal.fire({
+            title: "Modificar Producto",
+            html: `
+                <input type="text" id="nombre" class="swal2-input" placeholder="Nombre" value="${producto.NOMBRE || ''}">
+                <input type="number" id="costo" class="swal2-input" placeholder="Precio" value="${producto.COSTO || ''}">
+            `,
+            confirmButtonText: "Guardar cambios",
+            showCancelButton: true,
+            preConfirm: () => {
+                const nombre = document.getElementById("nombre").value.trim();
+                const costo = document.getElementById("costo").value.trim();
+
+                if (!nombre || !costo) {
+                    Swal.showValidationMessage("Todos los campos son obligatorios.");
+                    return false;
+                }
+
+                return { nombre, costo };
+            }
+        }).then(result => {
+            if (result.isConfirmed && result.value) {
+                const { nombre, costo } = result.value;
+
+                $.post("./data/accionesProductos.php", {
+                    action: "modificar",
+                    id: id,
+                    nombre: nombre,
+                    costo: costo
+                }, function (response) {
+                    if (response.success) {
+                        Swal.fire("Éxito", response.message, "success").then(() => location.reload());
+                    } else {
+                        Swal.fire("Error", response.message, "error");
+                    }
+                }, "json").fail(() => {
+                    Swal.fire("Error", "No se pudo conectar al servidor.", "error");
+                });
+            }
+        });
+    });
+});
+
+// ELIMINAR PRODUCTO
+$(document).on("click", "#btnEliminarProducto", function () {
+    const id = $(this).data("id");
+
+    Swal.fire({
+        title: "¿Estás seguro?",
+        text: "Esta acción desactivará el producto.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Sí, desactivar",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.post("./data/accionesProductos.php", {
+                action: 'eliminar',
+                id: id
+            }, function (response) {
+                if (response.success) {
+                    Swal.fire("Desactivado", response.message, "success").then(() => location.reload());
+                } else {
+                    Swal.fire("Error", response.message, "error");
+                }
+            }, "json").fail(() => {
+                Swal.fire("Error", "No se pudo conectar al servidor.", "error");
+            });
+        }
+    });
+});
