@@ -1,6 +1,6 @@
 <?php
 require 'conexion.php';
-
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 header('Content-Type: application/json; charset=utf-8');
@@ -378,6 +378,120 @@ switch ($action) {
                                         }
                                     
                                         break;
+                                        case 'obtenerMembresiaUsuario':
+                                            $cedula = $_SESSION['cedula'] ?? null;
+                                        
+                                            if (!$cedula) {
+                                                echo json_encode(["success" => false, "message" => "La cédula es obligatoria."]);
+                                                break;
+                                            }
+                                        
+                                            try {
+                                                $sql = 'BEGIN FIDE_LOS_JAULES_MEMBRESIAS_PKG.FIDE_MEMBRESIAS_TB_GET_MEMBRESIA_USUARIO_SP(:p_cursor, :p_cedula); END;';
+                                                $stmt = oci_parse($conn, $sql);
+                                        
+                                                // Crear cursor
+                                                $cursor = oci_new_cursor($conn);
+                                        
+                                                // Enlazar parámetros
+                                                oci_bind_by_name($stmt, ':p_cursor', $cursor, -1, OCI_B_CURSOR);
+                                                oci_bind_by_name($stmt, ':p_cedula', $cedula);
+                                        
+                                                // Ejecutar el procedimiento y el cursor
+                                                if (!oci_execute($stmt)) {
+                                                    $e = oci_error($stmt);
+                                                    echo json_encode(["success" => false, "message" => "Error al ejecutar el procedimiento: " . $e['message']]);
+                                                    break;
+                                                }
+                                        
+                                                oci_execute($cursor);
+                                        
+                                                $resultado = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS);
+                                        
+                                                if ($resultado) {
+                                                    $resultado['ESTADO'] = ($resultado['ID_ESTADO'] == 1) ? 'Activa' : 'Inactiva';
+                                                
+                                                    echo json_encode(["success" => true, "data" => $resultado]);
+                                                } else {
+                                                    echo json_encode(["success" => false, "message" => "No se encontró membresía activa."]);
+                                                }
+                                        
+                                    
+                                                oci_free_statement($stmt);
+                                                oci_free_statement($cursor);
+                                                exit;
+                                        
+                                            } catch (Exception $e) {
+                                                echo json_encode(["success" => false, "message" => "Excepción: " . $e->getMessage()]);
+                                            }
+                                            break;
+                                            case 'actualizarFechaInicio':
+                                                $idMembresia = $_POST['id_membresia'] ?? null;
+                                                $nuevaFecha = $_POST['nueva_fecha'] ?? null;
+                                            
+                                                if (!$idMembresia || !$nuevaFecha) {
+                                                    echo json_encode(["success" => false, "message" => "Datos incompletos."]);
+                                                    break;
+                                                }
+                                            
+                                                try {
+                                                    $sql = "BEGIN FIDE_LOS_JAULES_MEMBRESIAS_PKG.FIDE_MEMBRESIAS_TB_ACTUALIZAR_PASE_DIARIO_SP(:p_id, TO_DATE(:p_fecha, 'YYYY-MM-DD'), :p_resultado); END;";
+                                                    $stmt = oci_parse($conn, $sql);
+                                            
+                                                    oci_bind_by_name($stmt, ':p_id', $idMembresia);
+                                                    oci_bind_by_name($stmt, ':p_fecha', $nuevaFecha);
+                                                    oci_bind_by_name($stmt, ':p_resultado', $resultado, 200);
+                                            
+                                                    oci_execute($stmt);
+                                            
+                                                    $success = strpos($resultado, 'correctamente') !== false;
+                                            
+                                                    echo json_encode([
+                                                        "success" => $success,
+                                                        "message" => $resultado
+                                                    ]);
+                                            
+                                                    oci_free_statement($stmt);
+                                                    exit;
+                                            
+                                                } catch (Exception $e) {
+                                                    echo json_encode(["success" => false, "message" => "Excepción: " . $e->getMessage()]);
+                                                    exit;
+                                                }
+                                            
+                                                break;
+                                                case 'cancelarMembresia':
+                                                    $idMembresia = $_POST['id_membresia'] ?? null;
+                                                
+                                                    if (!$idMembresia) {
+                                                        echo json_encode(["success" => false, "message" => "ID de membresía no proporcionado."]);
+                                                        break;
+                                                    }
+                                                
+                                                    try {
+                                                        $sql = "BEGIN FIDE_LOS_JAULES_MEMBRESIAS_PKG.FIDE_MEMBRESIAS_TB_CANCELAR_SP(:p_id_membresia, :p_resultado); END;";
+                                                        $stmt = oci_parse($conn, $sql);
+                                                
+                                                        oci_bind_by_name($stmt, ':p_id_membresia', $idMembresia);
+                                                        oci_bind_by_name($stmt, ':p_resultado', $resultado, 200);
+                                                
+                                                        oci_execute($stmt);
+                                                
+                                                        echo json_encode([
+                                                            "success" => strpos($resultado, 'exitosamente') !== false,
+                                                            "message" => $resultado
+                                                        ]);
+                                                
+                                                        oci_free_statement($stmt);
+                                                        exit;
+                                                
+                                                    } catch (Exception $e) {
+                                                        echo json_encode(["success" => false, "message" => "Excepción: " . $e->getMessage()]);
+                                                        exit;
+                                                    }
+                                                
+                                                    break;
+                                                    
                                     
     default:
         echo json_encode(["success" => false, "message" => "Acción no válida."]);
