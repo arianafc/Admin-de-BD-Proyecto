@@ -1,51 +1,42 @@
+<?php
+require_once 'fragmentos.php';
+session_start();
+
+// Verificar si el usuario está logueado
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php'); 
+    exit;
+}
+
+require 'data/conexion.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Gestión de Inventario</title>
-
-    <!-- Enlace al archivo CSS externo -->
-    <link rel="stylesheet" href="css/dashboard.css">
+    <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="js/jquery-3.7.1.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="js/java.js"></script>
+    <?php incluir_css() ?>
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="sidebar">
-                <nav id="sidebar" class="sidebar py-3 d-md-block">
-                    <div class="sidebar-header text-center">
-                        <h4 class="tituloAdmin">CLUB LOS JAÚLES CAMPESTRE</h4>
-                    </div>
-                    <hr>
-                    <div class="opciones">
-                        <a href="dashboard.php" id="dashboard">Dashboard</a>
-                        <a href="gestionUsuarios.php" id="gestionUsuarios">Gestión de Usuarios</a>
-                        <a href="gestionProveedores.php" id="gestionProveedores">Gestión de Proveedores</a>
-                        <a href="gestionProductos.php" id="gestionProductos">Gestión de Productos</a>
-                        <a href="gestionInventario.php" id="gestionInventario">Gestión de Inventario</a>
-                        <a href="gestionCotizaciones.php" id="gestionCotizaciones">Gestión de Membresías</a>
-                        <a href="gestionEmpleados.php" id="gestionEmpleados">Gestión de Empleados</a>
-                    </div>
-                </nav>
-                <!-- Botón de menú -->
-                <button class="btn btn-toggle d-md-none m-3" id="menu-toggle">☰</button>
-            </div>
+            <?php sidebar(); ?>
             <!-- Contenido -->
             <main id="content" class="col-md-10 ms-sm-auto px-md-4 content">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2 titulo-Content">Gestión de Inventario</h1>
-                    <div class="profile" onclick="toggleDropdown()">
-                        <span>Admin ▼</span>
-                        <div class="dropdown" id="dropdownMenu">
-                            <a href="#"><i class="fas fa-cog"></i> Ajustes</a>
-                            <a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <h1 class="h2 titulo-Content">Gestión de Proveedores</h1>
+                    <div class="profile position-relative" onclick="toggleDropdown()">
+                        <span>ADMIN ▼</span>
+                        <div class="dropdown position-absolute bg-white shadow border rounded mt-1 p-2 d-none" id="dropdownMenu" style="min-width: 150px;">
+                            <a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
                         </div>
                     </div>
                 </div>
