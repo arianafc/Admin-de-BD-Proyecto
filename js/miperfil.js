@@ -193,8 +193,7 @@ getFacturasUsuario();
 
 function cargarInvitadosUsuario(cedulaMiembro) {
     $.post('./data/accionesInvitados.php', {
-        action: 'obtener_invitados',
-        cedulaMiembro: cedulaMiembro
+        action: 'obtener_invitados'
     }, function (response) {
         if (response.success) {
             let contenido = '';
