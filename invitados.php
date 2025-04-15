@@ -68,29 +68,29 @@ try {
                         <button class="btn btn-edit"><i class="fas fa-edit"></i><a href="reservaciones.php">Reservaciones</a></button>
                         <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="ordenes.php">Facturas</a></button>
                         <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="miPerfil.php">Membresías</a></button>
-                        <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="invitados.php">invitados</a></button>
+                        <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="invitados.php">Invitados</a></button>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-8 profile-membership">
-    <div class="card membership-card">
-        <h3>Membresía</h3>
-        <table id="tablaMembresiaUsuario" style="width: 100%; border-collapse: collapse; text-align: left;">
-    <thead>
-        <tr>
-            <th>Tipo</th>
-            <th>Fecha Inicio</th>
-            <th>Fecha Fin</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-       
-    </tbody>
-</table>
-    </div>
+            <div class="card membership-card">
+    <h3>Invitados</h3>
+    <button id="btnAgregarInvitado" class="btn btn-primary mb-3">Agregar Invitado</button>
+    <table id="tablaInvitadosUsuario" class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Cédula</th>
+                <th>Fecha Registro</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="bodyInvitadosUsuario">
+           
+        </tbody>
+    </table>
+</div>
+
 
   
 </div>
