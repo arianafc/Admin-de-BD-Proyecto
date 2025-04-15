@@ -5,21 +5,12 @@ ini_set('display_startup_errors', 1);
 
 require 'conexion.php';
 
-// Aplicar encabezado para JSON
-header('Content-Type: application/json'); 
+// Encabezado JSON
+header('Content-Type: application/json');
 
 try {
-    $jsonInput = file_get_contents("php://input");
-    $data = json_decode($jsonInput, true);
-
-    if (!isset($data['id'])) {
-        die(json_encode(["error" => "ID del proveedor no proporcionado"]));
-    }
-
-    $idProveedor = intval($data['id']);
-
-    // Preparar la llamada al procedimiento almacenado
-    $sql = "BEGIN FIDE_LOS_JAULES_PROVEEDORES_PKG.FIDE_PRODUCTOS_PROVEEDOR_TB_GET_PRODUCTOS_SP(:cursor, :pid); END;";
+    // Preparar la llamada al procedimiento almacenado de productos
+    $sql = "BEGIN FIDE_LOS_JAULES_PROVEEDORES_PKG.FIDE_PRODUCTOS_TB_GET_ALL_PRODUCTOS_SP(:cursor); END;";
     $stmt = oci_parse($conn, $sql);
     if (!$stmt) {
         $error = oci_error($conn);
@@ -29,7 +20,6 @@ try {
     // Crear cursor y enlazarlo
     $cursor = oci_new_cursor($conn);
     oci_bind_by_name($stmt, ":cursor", $cursor, -1, OCI_B_CURSOR);
-    oci_bind_by_name($stmt, ":pid", $idProveedor, -1, SQLT_INT);
 
     // Ejecutar procedimiento
     if (!oci_execute($stmt)) {
@@ -54,23 +44,17 @@ try {
         $productos[] = $fila;
     }
 
-    // Cerrar conexiones
+    // Liberar recursos
     oci_free_statement($stmt);
     oci_free_statement($cursor);
     oci_close($conn);
 
-    // Validar resultados
+    // Validar y devolver resultados
     if (empty($productos)) {
-        die(json_encode(["error" => "No hay productos asociados a este proveedor."]));
+        die(json_encode(["error" => "No hay productos registrados."]));
     }
 
-    // Devolver datos
-    $json = json_encode($productos, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-    if ($json === false) {
-        die(json_encode(["error" => "Error al convertir a JSON", "detalle" => json_last_error_msg()]));
-    }
-
-    echo $json;
+    echo json_encode($productos, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
     exit;
 
 } catch (Exception $e) {

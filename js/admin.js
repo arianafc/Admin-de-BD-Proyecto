@@ -525,25 +525,30 @@ function cargarReservas() {
                 const nombreCompleto = `${reserva.NOMBRE_USUARIO} ${reserva.APELLIDO1_USUARIO} ${reserva.APELLIDO2_USUARIO}`;
 
                 const fechaInicio = new Date(reserva.FECHA_INICIO); 
-                fechaInicio.setHours(0, 0, 0, 0); // Igualar formato
+fechaInicio.setHours(0, 0, 0, 0); // Igualar formato
+const hoy = new Date();
+hoy.setHours(0, 0, 0, 0);
 
-                let botonEliminar = '';
-                if (fechaInicio >= hoy) {
-                    botonEliminar = `
-                        <td>
-                            <button class="btn btn-danger btn-sm eliminar-reserva" id="cancelarReserva" data-id="${reserva.ID_RESERVA}">
-                                Eliminar
-                            </button>
-                        </td>`;
-                } else {
-                    botonEliminar = `<td></td>`; // O podrías ocultarlo o poner algo como "No disponible"
-                }
+let botonEliminar = '';
+
+
+if (fechaInicio >= hoy && reserva.ESTADO.toUpperCase() !== 'CANCELADA') {
+    botonEliminar = `
+        <td>
+            <button class="btn btn-danger btn-sm eliminar-reserva" id="cancelarReservaAdmin" data-id="${reserva.ID_RESERVA}">
+                Eliminar
+            </button>
+        </td>`;
+} else {
+    botonEliminar = `<td></td>`;
+}
+
 
                 const fila = `
                     <tr>
                         <td>${reserva.ID_RESERVA}</td>
                         <td>${reserva.CEDULA}</td>
-                        <td>${nombreCompleto}</td>
+                        <td>${reserva.NOMBRE_COMPLETO}</td>
                         <td>${reserva.NOMBRE}</td>
                         <td>${reserva.FECHA_INICIO}</td>
                         <td>${reserva.HORA_INICIO}</td>
@@ -569,7 +574,7 @@ function cargarReservas() {
 
 cargarReservas();
 
-$(document).on('click', '#cancelarReserva', function () {
+$(document).on('click', '#cancelarReservaAdmin', function () {
     const idReserva = $(this).data('id');
 
     Swal.fire({
@@ -581,35 +586,27 @@ $(document).on('click', '#cancelarReserva', function () {
         cancelButtonText: "No"
     }).then((result) => {
         if (result.isConfirmed) {
-            $.ajax({
-                url: './data/accionesInstalaciones.php',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    action: 'cancelar_reserva',
-                    id_reserva: idReserva
-                }),
-                dataType: 'json',
-                success: function (response) {
-                    if (response.success) {
-                        Swal.fire({
-                            title: "Reserva cancelada",
-                            text: "Se debe contactar al cliente para la devolución del dinero.",
-                            icon: "success"
-                        });
-                        cargarReservas(); // Recarga la tabla de reservas
-                    } else {
-                        Swal.fire("Error", response.message, "error");
-                    }
-                },
-                error: function (xhr, status, error) {
-                    Swal.fire("Error", "No se pudo cancelar la reserva.", "error");
-                    console.error(error);
+            $.post('./data/accionesInstalaciones.php', {
+                action: 'cancelar_reserva',
+                idReserva: idReserva
+            }, function (response) {
+                if (response.success) {
+                    Swal.fire({
+                        title: "Reserva cancelada",
+                        text: "Se debe contactar al cliente para la devolución del dinero.",
+                        icon: "success"
+                    }).then(() => {
+                        location.reload(); // 🔄 Recarga la página completa
+                    });
+                } else {
+                    Swal.fire("Error", response.message, "error");
                 }
-            });
+            }, 'json');
         }
     });
 });
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //INSTALACIONES
 function cargarInstalaciones() {

@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     fecha_fin: fechaFin,
                     num_personas: personas,
                     id_instalacion: idInstalacion, 
-                    action: 'reservarCabana'
+                    action: 'reservar'
                 }, function(response) {
                     console.log(response);
                     if (response.success) {

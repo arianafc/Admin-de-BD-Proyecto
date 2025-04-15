@@ -47,6 +47,7 @@ if (!isset($_SESSION['usuario'])) {
                     </div>
                 </div>
 
+                <!-- Lista de Proveedores -->
                 <div class="card mt-4 shadow-sm">
                     <div class="card-body">
                         <h5 class="card-title mb-3">Lista de Proveedores</h5>
@@ -70,22 +71,43 @@ if (!isset($_SESSION['usuario'])) {
                 </div>
                 <br>
 
-                <div class="card mt-4 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title mb-3">Lista de Productos</h5>
+                <!-- Productos -->
+                <div class="row">
+                    <!-- Columna izquierda: Productos Disponibles -->
+                    <div class="col-md-6">
+                        <h5 class="card-title mb-3">Productos Disponibles</h5>
                         <button id="btnAgregarProducto" class="btnAgregarAdministrador btn mb-5">Agregar Producto</button>
                         <div class="table-responsive custom-scroll-table">
                             <table class="table table-bordered table-hover align-middle text-center mi-tabla-personalizada">
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaProductosDisponibles">
+                                    <!-- Productos dinámicos -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Columna derecha: Productos Asignados -->
+                    <div class="col-md-6">
+                        <h5 class="card-title mb-3">Productos Asignados</h5>
+                        <div class="table-responsive custom-scroll-table">
+                            <table class="table table-bordered table-hover align-middle text-center mi-tabla-personalizada">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre Producto</th>
                                         <th>Proveedor</th>
                                         <th>Precio</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tablaProductos">
-                                    <!-- Productos dinámicos -->
+                                <tbody id="tablaProductosAsignados">
+                                    <!-- Productos asignados dinámicos -->
                                 </tbody>
                             </table>
                         </div>
@@ -121,19 +143,18 @@ if (!isset($_SESSION['usuario'])) {
                             tbody.innerHTML = `<tr><td colspan="4">Error al conectar con el servidor</td></tr>`;
                         });
 
-                        // Cargar productos
+                        // Cargar productos disponibles
                         fetch('./data/obtenerProductos.php')
                             .then(response => response.json())
                             .then(data => {
-                                const tbody = document.getElementById("tablaProductos");
+                                const tbody = document.getElementById("tablaProductosDisponibles");
                                 tbody.innerHTML = "";
                                 if (Array.isArray(data)) {
                                     data.forEach(p => {
                                         const tr = document.createElement("tr");
                                         tr.innerHTML = `
                                             <td>${p.NOMBRE}</td>
-                                            <td>${p.PROVEEDOR_NOMBRE}</td>
-                                            <td>${p.PRECIO}</td>
+                                            <td>${p.COSTO}</td>
                                             <td>
                                                 <button class="btn btn-sm btn-primary" id="btnModificarProducto" data-id=${p.ID_PRODUCTO}>Editar</button>
                                                 <button class="btn btn-sm btn-danger" id="btnEliminarProducto" data-id=${p.ID_PRODUCTO}>Eliminar</button>
@@ -147,7 +168,37 @@ if (!isset($_SESSION['usuario'])) {
                             })
                             .catch(error => {
                                 console.error("Error:", error);
-                                const tbody = document.getElementById("tablaProductos");
+                                const tbody = document.getElementById("tablaProductosDisponibles");
+                                tbody.innerHTML = `<tr><td colspan="4">Error al conectar con el servidor</td></tr>`;
+                            });
+
+                        // Cargar productos asignados (si es necesario)
+                        fetch('./data/obtenerProductosAsignados.php')
+                            .then(response => response.json())
+                            .then(data => {
+                                const tbody = document.getElementById("tablaProductosAsignados");
+                                tbody.innerHTML = "";
+                                if (Array.isArray(data)) {
+                                    data.forEach(p => {
+                                        const tr = document.createElement("tr");
+                                        tr.innerHTML = `
+                                            <td>${p.NOMBRE}</td>
+                                            <td>${p.PROVEEDOR_NOMBRE}</td>
+                                            <td>${p.PRECIO}</td>
+                                            <td>
+                                                <button class="btn btn-sm btn-primary" id="btnModificarProductoAsignado" data-id=${p.ID_PRODUCTO}>Editar</button>
+                                                <button class="btn btn-sm btn-danger" id="btnEliminarProductoAsignado" data-id=${p.ID_PRODUCTO}>Eliminar</button>
+                                            </td>
+                                        `;
+                                        tbody.appendChild(tr);
+                                    });
+                                } else {
+                                    tbody.innerHTML = `<tr><td colspan="4">${data.error || 'Error al cargar productos asignados'}</td></tr>`;
+                                }
+                            })
+                            .catch(error => {
+                                console.error("Error:", error);
+                                const tbody = document.getElementById("tablaProductosAsignados");
                                 tbody.innerHTML = `<tr><td colspan="4">Error al conectar con el servidor</td></tr>`;
                             });
                     });

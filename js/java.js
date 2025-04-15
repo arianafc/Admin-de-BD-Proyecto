@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     cargarMembresias();
     cargarEventos();
-    cargarUsuarios();
+   
 
     let links = document.querySelectorAll(".opciones a");
     let currentUrl = window.location.pathname.split("/").pop(); // Obtiene el nombre del archivo actual

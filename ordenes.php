@@ -66,25 +66,26 @@ try {
                     <p><strong>Usuario:</strong> <?php echo $usuario['USUARIO']; ?></p>
                     <div class="buttons">
                         <button class="btn btn-edit"><i class="fas fa-edit"></i><a href="reservaciones.php">Reservaciones</a></button>
-                        <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="ordenes.php">Facturas</a></button>
+                        <button class="btn btn-logout"><i class="fas fa-sign-out-alt"></i> <a href="ordenes.php">Facturas</a></button>
                         <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="miPerfil.php">Membresías</a></button>
-                        <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="invitados.php">invitados</a></button>
+                        <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="invitados.php">Invitados</a></button>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-8 profile-membership">
     <div class="card membership-card">
-        <h3>Membresía</h3>
-        <table id="tablaMembresiaUsuario" style="width: 100%; border-collapse: collapse; text-align: left;">
+        <h3>Tus Facturas</h3>
+        <table id="tablaFacturasUsuario" style="width: 100%; border-collapse: collapse; text-align: left;">
     <thead>
-        <tr>
-            <th>Tipo</th>
-            <th>Fecha Inicio</th>
-            <th>Fecha Fin</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-        </tr>
+    <tr>
+      <th># Orden</th>
+      <th>Fecha Emisión</th>
+      <th>Subtotal</th>
+      <th>IVA</th>
+      <th>Total</th>
+      <th>Método de Pago</th>
+    </tr>
     </thead>
     <tbody>
        
