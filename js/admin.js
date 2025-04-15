@@ -627,10 +627,10 @@ function cargarInstalaciones() {
                         <td>${instalacion.CAPACIDAD}</td>
                         <td>${instalacion.DESCRIPCION}</td>
                         <td>
-                            <button class="btn btn-warning btn-sm editar-instalacion" data-id="${instalacion.ID_INSTALACION}">
+                            <button class="btn btn-warning btn-sm editar-instalacion" id="btnEditarInstalacion" data-id="${instalacion.ID_INSTALACION}">
                                 Editar
                             </button>
-                            <button class="btn btn-danger btn-sm eliminar-instalacion" data-id="${instalacion.ID_INSTALACION}">
+                            <button class="btn btn-danger btn-sm eliminar-instalacion" id="btnEliminarInstalacion" data-id="${instalacion.ID_INSTALACION}">
                                 Eliminar
                             </button>
                         </td>
@@ -657,10 +657,10 @@ function cargarTiposInstalacion() {
                         <td>${tipo.DESCRIPCION}</td>
                         <td>${tipo.ESTADO}</td>
                         <td>
-                            <button class="btn btn-warning btn-sm editar-categoria" data-id="${tipo.ID_TIPO_INSTALACION}">
+                            <button class="btn btn-warning btn-sm editar-categoria" id="btnEditarCategoria" data-id="${tipo.ID_TIPO_INSTALACION}">
                                 Editar
                             </button>
-                            <button class="btn btn-danger btn-sm eliminar-categoria" data-id="${tipo.ID_TIPO_INSTALACION}">
+                            <button class="btn btn-danger btn-sm eliminar-categoria" id="btnEliminarCategoria" data-id="${tipo.ID_TIPO_INSTALACION}">
                                 Eliminar
                             </button>
                         </td>
@@ -715,8 +715,9 @@ function mostrarFormularioAgregarInstalacion(categorias) {
 
 
 
+
 $('#btnAgregarInstalacion').on('click', function() {
-    $.post('./data/accionesInstalaciones.php', { action: 'listarTipos' }, function(response) {
+    $.post('./data/accionesInstalaciones.php', { action: 'listarTiposActivos' }, function(response) {
         if (response.success) {
             mostrarFormularioAgregarInstalacion(response.data);
         } else {
@@ -782,6 +783,248 @@ function agregarCategoria(nombre) {
         }
     }, 'json');
 }
+
+
+$(document).on('click', '#btnEliminarCategoria', function () {
+    const idCategoria = $(this).data('id');
+
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Esta acción desactivará la categoría y todas sus instalaciones.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.post('./data/accionesInstalaciones.php', {
+                action: 'eliminar_categoria',
+                id: idCategoria
+            }, function (response) {
+                if (response.success) {
+                    Swal.fire('Eliminado', response.message, 'success');
+                    cargarCategorias(); 
+                    location.reload();
+                } else {
+                    Swal.fire('Error', response.message, 'error');
+                }
+            }, 'json');
+        }
+    });
+});
+
+$(document).on('click', '#btnEliminarInstalacion', function () {
+    const idCategoria = $(this).data('id');
+
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: 'Esta acción desactivará la categoría y todas sus instalaciones.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.post('./data/accionesInstalaciones.php', {
+                action: 'eliminarInstalacion',
+                id: idCategoria
+            }, function (response) {
+                Swal.fire({
+                    title: response.success ? 'Eliminado' : 'Error',
+                    text: response.message,
+                    icon: response.success ? 'success' : 'error'
+                }).then(() => {
+                    if (response.success) {
+                        location.reload();
+                    }
+                });
+            }, 'json');
+        }
+    });
+});
+
+
+$(document).on('click', '#btnEditarInstalacion', function () {
+    const idInstalacion = $(this).data('id');
+
+    // Obtener datos de la instalación
+    $.post('./data/accionesInstalaciones.php', { action: 'getInstalacion', id: idInstalacion }, function (instalacionData) {
+        const instalacion = instalacionData[0];
+
+        // Obtener categorías activas
+        $.post('./data/accionesInstalaciones.php', { action: 'listarTiposActivos' }, function (response) {
+            if (response.success && Array.isArray(response.data)) {
+                mostrarFormularioEditarInstalacion(instalacion, response.data);
+            } else {
+                Swal.fire('Error', 'No se pudieron cargar las categorías', 'error');
+            }
+        }, 'json');
+    }, 'json');
+});
+
+// Función para construir y mostrar el formulario
+function mostrarFormularioEditarInstalacion(instalacion, categorias) {
+    let opciones = categorias.map(c => `
+        <option value="${c.ID_TIPO_INSTALACION}" ${c.ID_TIPO_INSTALACION == instalacion.ID_TIPO_INSTALACION ? 'selected' : ''}>
+            ${c.DESCRIPCION}
+        </option>`).join('');
+
+    Swal.fire({
+        title: 'Editar Instalación',
+        html: `
+            <input id="swal-nombre" class="swal2-input" placeholder="Nombre" value="${instalacion.NOMBRE}">
+            <input id="swal-costo" type="number" class="swal2-input" placeholder="Costo" value="${instalacion.COSTO}">
+            <input id="swal-capacidad" type="number" class="swal2-input" placeholder="Capacidad" value="${instalacion.CAPACIDAD}">
+            <select id="swal-tipo" class="swal2-input">
+                <option value="" disabled>Selecciona tipo</option>
+                ${opciones}
+            </select>
+            <select id="swal-estado" class="swal2-input">
+                <option value="1" ${instalacion.ID_ESTADO == 1 ? 'selected' : ''}>Activo</option>
+                <option value="0" ${instalacion.ID_ESTADO == 0 ? 'selected' : ''}>Inactivo</option>
+            </select>
+        `,
+        confirmButtonText: 'Guardar',
+        showCancelButton: true,
+        focusConfirm: false,
+        preConfirm: () => {
+            const nombre = $('#swal-nombre').val().trim();
+            const costo = parseFloat($('#swal-costo').val());
+            const capacidad = parseInt($('#swal-capacidad').val());
+            const tipo = $('#swal-tipo').val();
+            const id_estado = $('#swal-estado').val();
+
+            if (!nombre || isNaN(costo) || isNaN(capacidad) || !tipo || id_estado === null) {
+                Swal.showValidationMessage('Todos los campos son obligatorios');
+                return false;
+            }
+
+            if (costo <= 0 || capacidad <= 0) {
+                Swal.showValidationMessage('Costo y capacidad deben ser mayores a cero');
+                return false;
+            }
+
+            return {
+                id: instalacion.ID_INSTALACION,
+                nombre,
+                costo,
+                capacidad,
+                tipo,
+                id_estado
+            };
+        }
+    }).then(result => {
+        if (result.isConfirmed) {
+            $.post('./data/accionesInstalaciones.php', {
+                action: 'editarInstalacion',
+                id: result.value.id,
+                nombre: result.value.nombre,
+                costo: result.value.costo,
+                capacidad: result.value.capacidad,
+                tipo: result.value.tipo,
+                id_estado: result.value.id_estado
+            }, function (response) {
+                Swal.fire({
+                    icon: response.success ? 'success' : 'error',
+                    title: response.success ? '¡Actualizado!' : 'Error',
+                    text: response.message
+                }).then(() => {
+                    if (response.success) {
+                        location.reload();
+                    }
+                });
+            }, 'json');
+        }
+    });
+}
+
+
+
+
+$(document).on('click', '#btnEditarCategoria', function () {
+    const idCategoria = $(this).data('id');
+
+    // Paso 1: Obtener los datos actuales de la categoría
+    $.post('./data/accionesInstalaciones.php', {
+        action: 'getTipoInstalacion',
+        id: idCategoria
+    }, function (response) {
+        if (Array.isArray(response) && response.length > 0) {
+            const categoria = response[0];
+
+            // Paso 2: Mostrar formulario en modal (SweetAlert2)
+            Swal.fire({
+                title: 'Editar Categoría',
+                html: `
+                    <input id="nombreCategoria" class="swal2-input" placeholder="Nombre" value="${categoria.NOMBRE}">
+                    <select id="estadoCategoria" class="swal2-input">
+                        <option value="1" ${categoria.ID_ESTADO == 1 ? 'selected' : ''}>Activo</option>
+                        <option value="0" ${categoria.ID_ESTADO == 0 ? 'selected' : ''}>Inactivo</option>
+                    </select>
+                `,
+                confirmButtonText: 'Guardar cambios',
+                showCancelButton: true,
+                preConfirm: () => {
+                    const nombre = document.getElementById('nombreCategoria').value;
+                    const estado = document.getElementById('estadoCategoria').value;
+
+                    if (!nombre) {
+                        Swal.showValidationMessage('El nombre no puede estar vacío');
+                        return false;
+                    }
+
+                    return { nombre, estado };
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const { nombre, estado } = result.value;
+            
+                    $.post('./data/accionesInstalaciones.php', {
+                        action: 'editar_categoria',
+                        id: idCategoria,
+                        nombre: nombre,
+                        id_estado: estado
+                    }, function (res) {
+                        if (res.success) {
+                            Swal.fire('Éxito', res.message, 'success').then(() => {
+                              
+                                location.reload();
+
+                            });
+                        } else {
+                            Swal.fire('Error', res.message, 'error');
+                        }
+                    }, 'json');
+                }
+            });
+            
+
+        } else {
+            Swal.fire('Error', 'No se pudo obtener la categoría.', 'error');
+        }
+    }, 'json');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });

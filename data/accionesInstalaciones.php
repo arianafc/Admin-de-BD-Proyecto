@@ -122,7 +122,37 @@ switch ($action) {
                     echo json_encode(["success" => false, "message" => 'Error al listar tipos de instalaciones: ' . $e->getMessage()]);
                 }
                 break;
-
+                case 'listarTiposActivos':
+                    try {
+                        $stmt = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_RESERVAS_PKG.FIDE_TIPO_INSTALACIONES_TB_GET_ACTIVOS_SP (:cursor); END;");
+                        $cursor = oci_new_cursor($conn);
+                
+                        oci_bind_by_name($stmt, ":cursor", $cursor, -1, OCI_B_CURSOR);
+                        oci_execute($stmt);
+                        oci_execute($cursor);
+                
+                        $datos = [];
+                
+                        while ($row = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS)) {
+                            foreach ($row as $key => $val) {
+                                if (is_string($val)) {
+                                    $row[$key] = utf8_encode($val); // Codificación para evitar problemas de acentos
+                                }
+                            }
+                            $datos[] = $row;
+                        }
+                
+                        oci_free_statement($stmt);
+                        oci_free_statement($cursor);
+                
+                        $response['success'] = true;
+                        $response['data'] = $datos;
+                        echo json_encode(["success" => true, "data" => $datos]);
+                
+                    } catch (Exception $e) {
+                        echo json_encode(["success" => false, "message" => 'Error al listar tipos de instalaciones: ' . $e->getMessage()]);
+                    }
+                    break;
                 case 'agregar_instalacion':
                     try {
                         $idTipo = $_POST['id_tipo'];
@@ -172,7 +202,123 @@ switch ($action) {
                         }
                         break;
                     
+                        case 'eliminar_categoria':
+                            try {
+                                $id = $_POST['id'];
+                        
+                                $stmt = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_RESERVAS_PKG.FIDE_TIPO_INSTALACIONES_TB_ELIMINAR_SP(:id); END;");
+                                oci_bind_by_name($stmt, ':id', $id);
+                                oci_execute($stmt);
+                        
+                                echo json_encode([
+                                    "success" => true,
+                                    "message" => "Categoría eliminada correctamente."
+                                ]);
+                            } catch (Exception $e) {
+                                echo json_encode([
+                                    "success" => false,
+                                    "message" => "Error al eliminar la categoría: " . $e->getMessage()
+                                ]);
+                            }
+                            break;
+                            case 'eliminarInstalacion':
+                                try {
+                                    $id = $_POST['id'];
+                            
+                                    $stmt = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_RESERVAS_PKG.FIDE_INSTALACIONES_TB_ELIMINAR_SP(:id); END;");
+                                    oci_bind_by_name($stmt, ':id', $id);
+                                    oci_execute($stmt);
+                            
+                                    echo json_encode([
+                                        "success" => true,
+                                        "message" => "Categoría eliminada correctamente."
+                                    ]);
+                                } catch (Exception $e) {
+                                    echo json_encode([
+                                        "success" => false,
+                                        "message" => "Error al eliminar la categoría: " . $e->getMessage()
+                                    ]);
+                                }
+                                break;
 
+                                case 'getInstalacion':
+                                    $id = $_POST['id'];
+                                    $stmt = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_RESERVAS_PKG.FIDE_INSTALACIONES_TB_GET_SP(:cursor, :id); END;");
+                                    $cursor = oci_new_cursor($conn);
+                                    oci_bind_by_name($stmt, ":cursor", $cursor, -1, OCI_B_CURSOR);
+                                    oci_bind_by_name($stmt, ":id", $id);
+                                    oci_execute($stmt);
+                                    oci_execute($cursor);
+                            
+                                    $data = [];
+                                    while ($row = oci_fetch_assoc($cursor)) {
+                                        $data[] = $row;
+                                    }
+                                    echo json_encode($data);
+                                    break;
+                            
+                                case 'getTipoInstalacion':
+                                    $id = $_POST['id'];
+                                    $stmt = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_RESERVAS_PKG.FIDE_TIPO_INSTALACIONES_TB_GET_SP(:cursor, :id); END;");
+                                    $cursor = oci_new_cursor($conn);
+                                    oci_bind_by_name($stmt, ":cursor", $cursor, -1, OCI_B_CURSOR);
+                                    oci_bind_by_name($stmt, ":id", $id);
+                                    oci_execute($stmt);
+                                    oci_execute($cursor);
+                            
+                                    $data = [];
+                                    while ($row = oci_fetch_assoc($cursor)) {
+                                        $data[] = $row;
+                                    }
+                                    echo json_encode($data);
+                                    break;
+                            
+                                case 'editarInstalacion':
+                                    $id = $_POST['id'];
+                                    $nombre = $_POST['nombre'];
+                                    $id_estado = $_POST['id_estado'];
+                                    $costo = $_POST['costo'];
+                                    $tipo = $_POST['tipo'];
+                                    $capacidad = $_POST['capacidad'];
+                            
+                                    $stmt = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_RESERVAS_PKG.FIDE_INSTALACIONES_TB_EDITAR_SP(:id, :nombre, :estado, :costo, :tipo, :capacidad); END;");
+                                    oci_bind_by_name($stmt, ":id", $id);
+                                    oci_bind_by_name($stmt, ":nombre", $nombre);
+                                    oci_bind_by_name($stmt, ":estado", $id_estado);
+                                    oci_bind_by_name($stmt, ":costo", $costo);
+                                    oci_bind_by_name($stmt, ":tipo", $tipo);
+                                    oci_bind_by_name($stmt, ":capacidad", $capacidad);
+                                    oci_execute($stmt);
+                            
+                                    echo json_encode(["success" => true, "message" => "Instalación editada correctamente."]);
+                                    break;
+                            
+                                    case 'editar_categoria':
+                                        try {
+                                            $id = $_POST['id'];
+                                            $nombre = $_POST['nombre'];
+                                            $id_estado = $_POST['id_estado'];
+                                    
+                                            $stmt = oci_parse($conn, "BEGIN FIDE_LOS_JAULES_RESERVAS_PKG.FIDE_TIPO_INSTALACIONES_TB_EDITAR_SP(:id, :nombre, :estado); END;");
+                                    
+                                            oci_bind_by_name($stmt, ':id', $id);
+                                            oci_bind_by_name($stmt, ':nombre', $nombre);
+                                            oci_bind_by_name($stmt, ':estado', $id_estado);
+                                    
+                                            oci_execute($stmt);
+                                    
+                                            echo json_encode([
+                                                "success" => true,
+                                                "message" => "Categoría editada correctamente."
+                                            ]);
+                                        } catch (Exception $e) {
+                                            echo json_encode([
+                                                "success" => false,
+                                                "message" => "Error al editar la categoría: " . $e->getMessage()
+                                            ]);
+                                        }
+                                        break;
+                                    
     default:
         echo json_encode(["success" => false, "message" => "Acción no válida."]);
         break;
