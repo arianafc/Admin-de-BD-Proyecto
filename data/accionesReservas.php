@@ -37,14 +37,19 @@ switch ($action) {
     
             oci_execute($cursor);
     
-            $reservas = [];
-            while ($row = oci_fetch_array($cursor, OCI_ASSOC + OCI_RETURN_NULLS)) {
-                $reservas[] = $row;
+            $result = [];
+            while ($row = oci_fetch_assoc($cursor)) {
+                foreach ($row as $key => $val) {
+                    if (is_string($val)) {
+                        $row[$key] = utf8_encode($val);
+                    }
+                }
+                $result[] = $row;
             }
     
             echo json_encode([
                 "success" => true,
-                "data" => $reservas
+                "data" => $result
             ]);
     
             oci_free_statement($stmt);

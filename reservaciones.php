@@ -82,8 +82,8 @@ try {
             <th>Instalación</th>
             <th>Fecha Inicio</th>
             <th>Fecha Fin</th>
-            <th>Hora Inicio</th>
-            <th>Hora Fin</th>
+            <th>Hora</th>
+            
             <th>Estado</th>
             <th>Acciones</th>
         </tr>

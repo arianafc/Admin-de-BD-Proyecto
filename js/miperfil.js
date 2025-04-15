@@ -121,7 +121,7 @@ if (data.ID_TIPO_MEMBRESIA == 1) {
 function getReservasUsuario(){
     $.post('./data/accionesReservas.php', { action: 'obtenerReservasUsuario' }, function (res) {
         if (res.success) {
-            const tbody = $('#tablaReservas tbody');
+            const tbody = $('#tablaReservasUsuario tbody');
             tbody.empty();
     
             const hoy = new Date().toISOString().split('T')[0];
@@ -141,8 +141,9 @@ function getReservasUsuario(){
                     <tr>
                         <td>${reserva.NOMBRE}</td>
                         <td>${fechaInicio}</td>
+                         <td>${reserva.FECHA_FIN}</td>
                         <td>${reserva.HORA_INICIO} - ${reserva.HORA_FIN}</td>
-                        <td>${reserva.NUMERO_PERSONAS}</td>
+                       
                         <td>${reserva.ESTADO}</td>
                         <td>${botonCancelar}</td>
                     </tr>
