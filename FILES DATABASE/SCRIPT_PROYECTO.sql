@@ -15,6 +15,7 @@ MAXSIZE 3G;
 COMMIT;  
 
 ALTER USER ADMINISTRATOR QUOTA UNLIMITED ON FIDE_LOS_JAULES_TBS;
+ALTER USER ADMINISTRATOR DEFAULT TABLESPACE FIDE_LOS_JAULES_TBS;
 -------------------------PUNTO 3-----------------------------------
 ---------------------CREACION DE TABLA PARTICIONADA-------------------------------
 ------------------------TABLA EVENTOS----------------------------------
