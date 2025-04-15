@@ -68,6 +68,7 @@ try {
                         <button class="btn btn-edit"><i class="fas fa-edit"></i><a href="reservaciones.php">Reservaciones</a></button>
                         <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="ordenes.php">Facturas</a></button>
                         <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="miPerfil.php">Membresías</a></button>
+                        <button class="btn btn-edit"><i class="fas fa-sign-out-alt"></i> <a href="invitados.php">invitados</a></button>
                     </div>
                 </div>
             </div>

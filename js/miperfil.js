@@ -187,8 +187,99 @@ function getFacturasUsuario(){
 getFacturasUsuario();
 
 
+function cargarInvitadosUsuario(cedulaMiembro) {
+    $.post('./data/accionesInvitados.php', {
+        action: 'obtener_invitados',
+        cedulaMiembro: cedulaMiembro
+    }, function (response) {
+        if (response.success) {
+            let contenido = '';
+            response.data.forEach(inv => {
+                contenido += `
+                    <tr>
+                        <td>${inv.CEDULA}</td>
+                        <td>${inv.FECHA_REGISTRO}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm eliminar-invitado" data-id="${inv.ID_INVITADO}">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+            $('#bodyInvitadosUsuario').html(contenido);
+        } else {
+            Swal.fire('Error', response.message, 'error');
+        }
+    }, 'json');
+}
+
+// Evento para eliminar invitado
+$(document).on('click', '.eliminar-invitado', function () {
+    const idInvitado = $(this).data('id');
+
+    Swal.fire({
+        title: '¿Eliminar invitado?',
+        text: 'Esta acción no se puede deshacer.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.post('./data/accionesInvitados.php', {
+                action: 'eliminar_invitado',
+                idInvitado: idInvitado
+            }, function (response) {
+                if (response.success) {
+                    Swal.fire('Eliminado', response.message, 'success');
+                    cargarInvitadosUsuario(/* tu cédula de sesión o variable */);
+                } else {
+                    Swal.fire('Error', response.message, 'error');
+                }
+            }, 'json');
+        }
+    });
+});
 
 
+cargarInvitadosUsuario();
+
+$('#btnAgregarInvitado').on('click', function () {
+    Swal.fire({
+        title: 'Agregar invitado',
+        input: 'text',
+        inputLabel: 'Cédula del invitado',
+        inputPlaceholder: 'Ingrese la cédula',
+        showCancelButton: true,
+        confirmButtonText: 'Agregar',
+        cancelButtonText: 'Cancelar',
+        inputValidator: (value) => {
+            if (!value) {
+                return 'Debe ingresar una cédula';
+            }
+            if (!/^\d+$/.test(value)) {
+                return 'La cédula debe ser numérica';
+            }
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const cedulaInvitado = result.value;
+
+            $.post('./data/accionesInvitados.php', {
+                action: 'agregar_invitado',
+                cedulaInvitado: cedulaInvitado
+            }, function (response) {
+                if (response.success) {
+                    Swal.fire('Éxito', response.message, 'success');
+                    cargarInvitadosUsuario(); // recarga la tabla
+                } else {
+                    Swal.fire('Atención', response.message, 'warning');
+                }
+            }, 'json');
+        }
+    });
+});
 
 
 
